@@ -56,12 +56,19 @@ function getTweets(value, index, array) {
 // const url='https://www.instagram.com/explore/tags/blacklivesmatter/?__a=1';
 // Http.open("GET", url);
 // Http.send();
-
 // Http.onreadystatechange = (e) => {
 //   console.log(Http.responseText)
 // }
 
-
+var request = require('request');
+var zipcode = 94122;
+var url = 'https://cors-anywhere.herokuapp.com/https://usgeocoder.com/api/get_info.php?zipcode=' + zipcode + '&authkey=7727c367c836716b4e2b587c6a66b4ee&format=json'
+var representativesInfo;
+request(url, function(err, response, body) {
+    body = JSON.parse(body); 
+    representativesInfo = body["usgeocoder"]["jurisdictions_info"];
+    console.log(representativesInfo);
+})
 
 
 
