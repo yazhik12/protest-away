@@ -86,7 +86,7 @@ class Home extends Component {
         function getTweets(value, index, array) {
           TweetJs.Search(value,
             function (data) {
-                tweetsDict[value] = data;
+                tweetsMap[value] = data;
                 console.log(data);
             });
         }
