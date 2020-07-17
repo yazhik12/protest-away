@@ -8,7 +8,7 @@ class Home extends Component {
         super(props);
         this.state = {
             data: [],
-            tweets: new Map(),
+            tweets: this.getTweets(),
         };
         this.getTweets = this.getTweets.bind(this);
 
@@ -23,7 +23,7 @@ class Home extends Component {
 
 
     render() {
-        console.log(this.state.data);
+        console.log(this.state.tweets);
         let dummyHashtagData = [
             { name: "#blacklivesmatter", val: 1004957 },
             { name: "#georgefloyd", val: 256529 },
@@ -125,18 +125,19 @@ class Home extends Component {
 
         var hashtags = ["#blacklivesmatter", "#racism", "#policebrutality", "#protest", "#georgefloyd", "#tellblackstories", "#blacktechtwitter", "#saytheirnames", "#nojusticenopeace"];
         // Mapping from hashtag to array of tweets
-        var tweetsMap = new Map();
+        var tweetsMap = [];
 
         hashtags.forEach(getTweets);
 
         function getTweets(value, index, array) {
             TweetJs.Search(value,
                 function (data) {
-                    tweetsMap[value] = data;
-                    console.log(data);
+                    tweetsMap.push({hashtag: value, tweets: data});
+                    //console.log(data);
                 });
         }
-        this.state.tweets = tweetsMap;
+
+        return tweetsMap;
     }
 }
 
