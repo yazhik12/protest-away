@@ -6,7 +6,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top:6rem;
+    margin:0 auto;
+    position:absolute;
+    top: 6rem;
+    left:0;
+    right:0;
+    width:100%;
     .Container {
       width: 300px;
       ul {
@@ -23,6 +28,101 @@ body {
         margin: 15px;
       }
     }
+    .BannerContainer {
+      height: 16rem;
+      background-color: black;
+      width:100%;
+      position: relative;
+      top:0;
+      left:0;
+      right:0;
+      display:flex;
+      //justify-content: space-between;
+    }
+    .BannerHeaderContainer {
+      width:30%;
+      max-width: 28rem;
+      height:11rem;
+      position:relative;
+      top:3rem;
+      left:2rem;
+    }
+    .BannerHeader {
+      background-color:#FBEE1F;
+      height:9rem;
+      position:relative;
+      top:0;
+      left:0;
+      width:100%;
+    }
+    .BannerText {
+      font-family: georgia;
+      font-weight:bold;
+      font-size: 2.5rem;
+      position: relative;
+      top: 2rem;
+      left:4rem;
+    }
+    .BannerSloganContainer{
+      background: white;
+      position:relative;
+      width:60%;
+      height:2.5rem;
+      left:60%;
+      top:3rem;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+    }
+    .BannerSloganText {
+      font-family: arial;
+      font-weight:bold;
+      vertical-align: middle;
+      margin-left:1rem;
+    }
+    .BannerHeaderSubtextContainer {
+      width:120%;
+      height:2rem;
+      position:relative;
+      top:0rem;
+      left:0rem;
+    }
+    .BannerHeaderSubtext {
+      font-family:georgia;
+      color:white;
+      font-size: 9pt;
+    }
+    .TrendingHashtagsContainer {
+      color:white;
+      width: 45%;
+      max-width: 30rem;
+      height:10rem;
+      position:relative;
+      top:3rem;
+      bottom:2rem;
+      left:20%;
+    }
+    .TrendingHashtagsHeader {
+      font-family:georgia;
+      font-weight:bold;
+    }
+    .TrendingHashtagsDivider {
+      height:0.125rem;
+      background-color: #FBEE1F;
+      border: none;
+    }
+    .HashtagData {
+      list-style: none;
+      position:relative;
+      left:0;
+      padding-left:0;
+    }
+    .HashtagListEntry {
+      display:flex;
+      justify-content: space-between;
+      padding-left:0;
+    }
   }
   .link {
     text-decoration: inherit;
@@ -33,23 +133,26 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    right: 0;
     display:flex;
-    height: 4rem;
+    height: 6rem;
     width: 100%;
     background-color: #FBEE1F;
     color: black;
     font-family: arial;
-    padding: 1rem;
     .NavbarLinks {
       display:flex;
       justify-content: flex-end;
       flex: 1;
-      margin-right: 2rem;
-      div {
-        margin-right:1rem;
-      }    
+      padding-right:2rem;
     }
+  }
+  .NavbarHeaderText {
+    padding-left:2rem;
+    padding-top:1rem;
+  }
+  .NavbarLink {
+    padding-right:1rem;
+    padding-top:1rem;
   }
   .NavbarLink:hover {
     font-size:1.1em;

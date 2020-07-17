@@ -2,7 +2,7 @@ import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 
 
 class Report extends Component {
@@ -28,15 +28,15 @@ class Report extends Component {
     handleChange = (event) => {
         let name = event.target.name;
         let value = event.target.value;
-        this.setState({[name]: value});
+        this.setState({ [name]: value });
     }
 
     handleDateChange = date => {
-        this.setState({date: date});
-      };
+        this.setState({ date: date });
+    };
 
     handleFileChange = (event) => {
-        this.setState({files: event.target.files});
+        this.setState({ files: event.target.files });
     }
 
     handleSubmit(event) {
@@ -45,19 +45,19 @@ class Report extends Component {
     }
 
     getIncidentTypes() {
-        return ['Cop Watch', 
-                'Police Accountability',
-                'Corporate Accountability',
-                'Criminal Justice Policy',
-                'Education',
-                'Employment Discrimination',
-                'Wrongful Imprisonment',
-                'Racist Advertisement',
-                'Media Coverage',
-                'Immigration',
-                'Economic Justice',
-                'Other',
-                ];
+        return ['Cop Watch',
+            'Police Accountability',
+            'Corporate Accountability',
+            'Criminal Justice Policy',
+            'Education',
+            'Employment Discrimination',
+            'Wrongful Imprisonment',
+            'Racist Advertisement',
+            'Media Coverage',
+            'Immigration',
+            'Economic Justice',
+            'Other',
+        ];
     }
 
     render() {
@@ -107,11 +107,11 @@ class Report extends Component {
                     <br /><br />
                     <label>
                         Upload Image or Video<br />
-                        <input type="file" onChange={this.handleFileChange}/>
+                        <input type="file" onChange={this.handleFileChange} />
                     </label>
                     <br /><br />
                     <input type="submit" value="Submit" />
-                </form>  
+                </form>
             </div>
         )
     }
