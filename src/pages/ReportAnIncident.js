@@ -2,6 +2,7 @@ import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import DatePicker from "react-datepicker";
+import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDOM from "react-dom";
 import { v4 as uuidv4 } from 'uuid';
@@ -31,15 +32,15 @@ class Report extends Component {
     handleChange = (event) => {
         let name = event.target.name;
         let value = event.target.value;
-        this.setState({[name]: value});
+        this.setState({ [name]: value });
     }
 
     handleDateChange = date => {
-        this.setState({event_date: date});
-      };
+        this.setState({ event_date: date });
+    };
 
     handleFileChange = (event) => {
-        this.setState({files: event.target.files});
+        this.setState({ files: event.target.files });
     }
 
     handleSubmit(event) {
@@ -49,14 +50,14 @@ class Report extends Component {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                                name: this.state.name,
-                                email: this.state.email,
-                                event_category: this.state.event_category,
-                                event_date: this.state.event_date,
-                                state: this.state.state,
-                                city: this.state.city,
-                                event_description: this.state.event_description,
-                                }),
+                name: this.state.name,
+                email: this.state.email,
+                event_category: this.state.event_category,
+                event_date: this.state.event_date,
+                state: this.state.state,
+                city: this.state.city,
+                event_description: this.state.event_description,
+            }),
         };
         fetch("http://localhost:8000/submitform", requestOptions)
             .then(res => res.json())
@@ -66,26 +67,26 @@ class Report extends Component {
     }
 
     getIncidentTypes() {
-        return ['Cop Watch', 
-                'Police Accountability',
-                'Corporate Accountability',
-                'Criminal Justice Policy',
-                'Education',
-                'Employment Discrimination',
-                'Wrongful Imprisonment',
-                'Racist Advertisement',
-                'Media Coverage',
-                'Immigration',
-                'Economic Justice',
-                'Other',
-                ];
+        return ['Cop Watch',
+            'Police Accountability',
+            'Corporate Accountability',
+            'Criminal Justice Policy',
+            'Education',
+            'Employment Discrimination',
+            'Wrongful Imprisonment',
+            'Racist Advertisement',
+            'Media Coverage',
+            'Immigration',
+            'Economic Justice',
+            'Other',
+        ];
     }
 
     render() {
         var types = this.getIncidentTypes();
         var submitted = this.state.submitted;
         return (
-            !submitted ? 
+            !submitted ?
                 <div>
                     <h1 className={styles.Header}>
                         Report an Incident
@@ -130,13 +131,13 @@ class Report extends Component {
                         <br /><br />
                         <label>
                             Upload Image or Video<br />
-                            <input type="file" onChange={this.handleFileChange}/>
+                            <input type="file" onChange={this.handleFileChange} />
                         </label>
                         <br /><br />
                         <input type="submit" value="Submit" />
                     </form>
-                </div>  
-                : 
+                </div>
+                :
                 <div>
                     <h1 className={styles.Header}>
                         Connect with Help
@@ -144,7 +145,7 @@ class Report extends Component {
                     <p><b>Thank you for reporting this incident</b></p>
                     <p> The incident has been shared with the civic organizations listed below.</p>
                 </div>
-            
+
         )
     }
 
