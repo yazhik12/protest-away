@@ -7,6 +7,16 @@ var dotenv = require("dotenv").config(),
 //Allowed cors in localhost
 app.use(cors());
 
+var bodyParser = require('body-parser');
+
+app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.urlencoded({
+   extended: false
+}));
+
+app.use(bodyParser.json());
+
 //Database Config .env
 const config = {
   user: process.env.PG_USER,
@@ -30,6 +40,37 @@ app.get("/api.json", (req, res, next) => {
         res.status(400).send(err);
       }
       res.status(200).send(result.rows);
+    });
+  });
+});
+
+app.post("/submitform", (req, res, next) => {
+  pool.connect(function(err, client, done) {
+    if (err) {
+      console.log("Can not connect to the DB because of " + err);
+    }
+    const id = req.body.id;
+    const name = req.body.name;
+    const email = req.body.email;
+    const event_category = req.body.event_category;
+    const event_date = req.body.event_date;
+    const state = req.body.state;
+    const city = req.body.city;
+    const event_description = req.body.event_description;
+
+  
+    const query = {
+      text: 'INSERT INTO form_submissions(id, name, email, event_category, event_date, state, city, event_description, created_on) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+      values: [id, name, email, event_category, event_date, state, city, event_description, new Date()],
+    }
+    
+    client.query(query, function(err, result) {
+      done();
+      if (err) {
+        console.log(err);
+        res.status(400).send(err);
+      }
+      res.status(200).send(result);
     });
   });
 });
