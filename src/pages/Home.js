@@ -120,7 +120,10 @@ class Home extends Component {
                                             {<li>State: {item.state}</li>}
                                             {<li>City: {item.city}</li>}
                                             {<li>Description: {item.event_description}</li>}
-                                            {<li><Link to='/action'><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
+                                            {<li><Link to={{
+                                                pathname: '/action',
+                                                data: item
+                                            }}><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
                                         </ul>
                                     </div>
                                 );
