@@ -28,7 +28,7 @@ const config = {
 //Documentation for node-postgres: https://node-postgres.com/
 const pool = new pg.Pool(config);
 
-app.get("/api.json", (req, res, next) => {
+app.get("/getreports", (req, res, next) => {
   pool.connect(function(err, client, done) {
     if (err) {
       console.log("Can not connect to the DB because of " + err);

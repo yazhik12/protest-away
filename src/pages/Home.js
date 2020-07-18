@@ -15,7 +15,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8000/api.json")
+        fetch("http://localhost:8000/getreports")
             .then(res => res.json())
             .then(res => this.setState({ data: res }))
             .catch(err => console.log(err));

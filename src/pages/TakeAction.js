@@ -1,6 +1,7 @@
 import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import ReactDOM from "react-dom";
 
 class Action extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class Action extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
 
     }
 
@@ -29,14 +31,47 @@ class Action extends Component {
         request(url, function(err, response, body) {
             body = JSON.parse(body); 
             representativesInfo = body["usgeocoder"]["jurisdictions_info"];
-            this.state = { repsData: representativesInfo };
-            // this.setState({repsData: representativesInfo});
-            console.log(this.state.repsData);
+            var national_senator_1 = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_1"];
+            var national_senator_1_num = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_1_capitol_phone"];
+            var national_senator_1_contact = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_1_econtact"];
+
+            var national_senator_2 = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_2"];
+            var national_senator_2_num = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_2_capitol_phone"];
+            var national_senator_2_contact = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_2_econtact"];
+
+            var house_of_rep_1 = representativesInfo["congressional_legislators"]["house_of_representative"]["representative_1"];
+            var house_of_rep_1_num = representativesInfo["congressional_legislators"]["house_of_representative"]["representative_1_capitol_phone"];
+            var house_of_rep_1_contact = representativesInfo["congressional_legislators"]["house_of_representative"]["representative_1_econtact"];
+
+            var gov = representativesInfo["state_legislation"]["state_executives"]["governor"];
+            var gov_num = representativesInfo["state_legislation"]["state_executives"]["governor_capitol_phone"];
+            var gov_contact = representativesInfo["state_legislation"]["state_executives"]["governor_econtact"];
+
+            var ag_1 = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_1"];
+            var ag_1_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_1"];
+            var ag_1_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_1"];
+
+            var ag_2 = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_1"];
+            var ag_2_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_1"];
+            var ag_2_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_1"];
+
+            ReactDOM.render('National Senator 1', document.getElementById("repInfo1title"));
+            ReactDOM.render('National Senator 2', document.getElementById("repInfo2title"));
+            ReactDOM.render('House of Representatives 1', document.getElementById("repInfo3title"));
+            ReactDOM.render('Governor', document.getElementById("repInfo4title"));
+            ReactDOM.render('Attorney General 1', document.getElementById("repInfo5title"));
+            ReactDOM.render('Attorney General 2', document.getElementById("repInfo6title"));
+
+
+            ReactDOM.render('Name: ' + national_senator_1 + ', Number: ' + national_senator_1_num + ', Email/Website: ' + national_senator_1_contact, document.getElementById("repInfo1"));
+            ReactDOM.render('Name: ' + national_senator_2 + ', Number: ' + national_senator_2_num + ', Email/Website: ' + national_senator_2_contact, document.getElementById("repInfo2"));
+            ReactDOM.render('Name: ' + house_of_rep_1 + ', Number: ' + house_of_rep_1_num + ', Email/Website: ' + house_of_rep_1_contact, document.getElementById("repInfo3"));
+            ReactDOM.render('Name: ' + gov + ', Number: ' + gov_num + ', Email/Website: ' + gov_contact, document.getElementById("repInfo4"));
+            ReactDOM.render('Name: ' + ag_1 + ', Number: ' + ag_1_num + ', Email/Website: ' + ag_1_contact, document.getElementById("repInfo5"));
+            ReactDOM.render('Name: ' + ag_2 + ', Number: ' + ag_2_num + ', Email/Website: ' + ag_2_contact, document.getElementById("repInfo6"));
 
         })
     }
-
-
         
     render() {
         const { data } = this.props.location;
@@ -63,11 +98,12 @@ class Action extends Component {
                 <p>{data.event_description}</p>
 
                 <a href={petitionMap[data.event_category]}>Sign a petition</a>
-                <br/>
+                <br/><br />
                 <a href="https://colorofchange.org/">Connect with an affiliated civic organization</a>
                 <br/>
-                <p>Contact your local representative</p>
+                
                 <form onSubmit={this.handleSubmit}>
+                <p>Contact your local representative</p>
                 <label>
                     Zip code<br />
                     <input name="zipcode" type="text" onChange={this.handleChange} />
@@ -75,7 +111,19 @@ class Action extends Component {
                 <input type="submit" value="Submit" />
 
                 </form>
-                <p>{this.state.repsData != null ? 'print representative data' : ""}</p>
+                
+                <div id="repInfo1title"></div>
+                <div id="repInfo1"></div><br/>
+                <div id="repInfo2title"></div>
+                <div id="repInfo2"></div><br/>
+                <div id="repInfo3title"></div>
+                <div id="repInfo3"></div><br/>
+                <div id="repInfo4title"></div>
+                <div id="repInfo4"></div><br/>
+                <div id="repInfo5title"></div>
+                <div id="repInfo5"></div><br/>
+                <div id="repInfo6title"></div>
+                <div id="repInfo6"></div>
             </div>
         )
     }
