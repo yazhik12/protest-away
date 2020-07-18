@@ -108,10 +108,11 @@ class Action extends Component {
                 <p>Location: {data.city}, {data.state}</p>
                 <p>Date: {data.event_date}</p>
                 <p>{data.event_description}</p>
-
+                {data.link != null ? <a href={data.link} target="_blank">See post on Twitter</a> : null}
+                <br /><br />
                 <a href={petitionMap[data.event_category] == null ? petitionUrl + hashtags[data.event_category] : petitionMap[data.event_category]} target="_blank">Sign a petition</a>
                 <br/><br />
-                <a href="https://colorofchange.org/">Connect with an affiliated civic organization</a>
+                <a href="https://colorofchange.org/" target="_blank">Connect with an affiliated civic organization</a>
                 <br/>
                 
                 <form onSubmit={this.handleSubmit}>
