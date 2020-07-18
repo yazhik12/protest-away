@@ -1,6 +1,6 @@
 import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
-
+import { Link } from 'react-router-dom';
 
 
 class Home extends Component {
@@ -120,6 +120,7 @@ class Home extends Component {
                                             {<li>State: {item.state}</li>}
                                             {<li>City: {item.city}</li>}
                                             {<li>Description: {item.event_description}</li>}
+                                            {<li><Link to='/action'><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
                                         </ul>
                                     </div>
                                 );
