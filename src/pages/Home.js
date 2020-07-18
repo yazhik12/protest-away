@@ -108,6 +108,13 @@ class Home extends Component {
                             {this.state.tweets.map((item, i) => {
                                 return (
                                         item["tweets"]["statuses"].map((item2, i2) => {
+                                            var tweetObj = {
+                                                event_category: item["hashtag"],
+                                                city: item2["user"]["location"],
+                                                state: "",
+                                                event_description: item2["text"],
+                                                event_date: item2["created_at"],
+                                            }
                                             return (
                                                 <div key={i} className={styles.Data}>
                                                     <ul>
@@ -115,7 +122,10 @@ class Home extends Component {
                                                         {<li>Post: {item2["text"]}</li>}
                                                         {<li>Location: {item2["user"]["location"]}</li>}
                                                         {<li>Date: {item2["created_at"]}</li>}
-                                                       
+                                                        {<li><Link to={{
+                                                            pathname: '/action',
+                                                            data: tweetObj
+                                                        }}><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
                                                     </ul>
                                                 </div>
                                             );

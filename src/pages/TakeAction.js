@@ -89,6 +89,18 @@ class Action extends Component {
             "Economic Justice": "https://campaigns.organizefor.org/categories/economic-justice-2",
             "Other": "https://campaigns.organizefor.org/",
         }
+        var hashtags = {
+            "#blacklivesmatter": "black+lives+matter",
+            "#racism": "racism",
+            "#policebrutality": "police+brutality",
+            "#protest": "protest",
+            "#georgefloyd": "george+floyd",
+            "#tellblackstories": "tell+black+stories",
+            "#blacktechtwitter": "black+tech",
+            "#saytheirnames": "say+their+names",
+            "#nojusticenopeace": "no+justice+no+peace",
+        };
+        const petitionUrl = "https://campaigns.organizefor.org/petitions/search?q=";
         return (
             <div>
                 <h1 className={styles.Header}>Take Action page</h1>
@@ -97,7 +109,7 @@ class Action extends Component {
                 <p>Date: {data.event_date}</p>
                 <p>{data.event_description}</p>
 
-                <a href={petitionMap[data.event_category]}>Sign a petition</a>
+                <a href={petitionMap[data.event_category] == null ? petitionUrl + hashtags[data.event_category] : petitionMap[data.event_category]} target="_blank">Sign a petition</a>
                 <br/><br />
                 <a href="https://colorofchange.org/">Connect with an affiliated civic organization</a>
                 <br/>
