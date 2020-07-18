@@ -6,6 +6,8 @@ import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDOM from "react-dom";
 import { v4 as uuidv4 } from 'uuid';
+import coc from "./coc.png";
+
 
 class Report extends Component {
     constructor(props) {
@@ -85,6 +87,11 @@ class Report extends Component {
     render() {
         var types = this.getIncidentTypes();
         var submitted = this.state.submitted;
+        var formData = {event_category: this.state.event_category, 
+                        city: this.state.city, 
+                        state: this.state.state, 
+                        event_date: this.state.event_date.toString(), 
+                        event_description: this.state.event_description};
         return (
             !submitted ?
                 <div>
@@ -144,6 +151,25 @@ class Report extends Component {
                     </h1>
                     <p><b>Thank you for reporting this incident</b></p>
                     <p> The incident has been shared with the civic organizations listed below.</p>
+                     <div>
+                        <img
+                            src={coc}
+                            height={93}
+                            width={93}/>
+                      </div>
+                      <div>
+                        <strong>Color of Change</strong>
+                            <p>Location: Oakland, CA</p>
+                              <p>
+                                  <a href={"https://colorofchange.org/"} target="_blank">
+                                    Visit Website
+                                     </a>
+                                </p>
+                      </div>
+                      {<Link to={{
+                                    pathname: '/action',
+                                    data: formData,
+                                    }}><button className={styles.TakeActionButton}>Take Action</button></Link>}
                 </div>
 
         )

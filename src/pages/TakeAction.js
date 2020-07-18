@@ -101,6 +101,7 @@ class Action extends Component {
             "#nojusticenopeace": "no+justice+no+peace",
         };
         const petitionUrl = "https://campaigns.organizefor.org/petitions/search?q=";
+        console.log(data);
         return (
             <div>
                 <h1 className={styles.Header}>Take Action page</h1>
