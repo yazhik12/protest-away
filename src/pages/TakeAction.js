@@ -51,9 +51,9 @@ class Action extends Component {
             var ag_1_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_1"];
             var ag_1_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_1"];
 
-            var ag_2 = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_1"];
-            var ag_2_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_1"];
-            var ag_2_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_1"];
+            var ag_2 = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_2"];
+            var ag_2_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_2"];
+            var ag_2_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_2"];
 
             ReactDOM.render('National Senator 1', document.getElementById("repInfo1title"));
             ReactDOM.render('National Senator 2', document.getElementById("repInfo2title"));
