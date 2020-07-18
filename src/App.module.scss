@@ -14,6 +14,7 @@ body {
     width:100%;
     .Container {
       width: 300px;
+      margin-top:1rem;
       ul {
         list-style: none;
         padding: 0;
@@ -27,6 +28,11 @@ body {
       .Data {
         margin: 15px;
       }
+      .TakeActionButton {
+        border: 1px solid black;
+        border-radius: 10%;
+        background-color: #FBEE1F;
+      }
     }
     .BannerContainer {
       height: 16rem;
@@ -37,7 +43,6 @@ body {
       left:0;
       right:0;
       display:flex;
-      //justify-content: space-between;
     }
     .BannerHeaderContainer {
       width:30%;
@@ -123,6 +128,44 @@ body {
       justify-content: space-between;
       padding-left:0;
     }
+    .TweetsAndIncidentsNavbar {
+      //background:blue;
+      width:100%;
+      height: 4rem;
+      position:relative;
+      top:0;
+      left:0;
+    }
+    .TweetsAndIncidentsContainer {
+      //background:blue;
+      width:100%;
+      .TweetsAndIncidentsNavbar {
+        //background: orange;
+        width:100%;
+        height:3rem;
+        .TweetsAndIncidentsButtonsContainer {
+          display:flex;
+          flex-direction: row;
+          font-family: arial;
+          font-weight: bold;
+          padding-left: 2rem;
+          .TweetsButton {
+            padding-left: 1rem;
+          }
+          .TweetsButton, .IncidentsButton {
+            height: 2.875rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-left:2rem;
+            padding-right:2rem;
+          }
+          .TweetsButton:hover, .IncidentsButton:hover {
+            border-bottom:0.125rem solid #707070;
+          }
+        }
+      }
+    }
   }
   .link {
     text-decoration: inherit;
@@ -149,6 +192,9 @@ body {
   .NavbarHeaderText {
     padding-left:2rem;
     padding-top:1rem;
+    .Bold {
+      font-weight:bolder;
+    }
   }
   .NavbarLink {
     padding-right:1rem;

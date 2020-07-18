@@ -1,6 +1,6 @@
 import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
-
+import { Link } from 'react-router-dom';
 
 
 class Home extends Component {
@@ -9,9 +9,9 @@ class Home extends Component {
         this.state = {
             data: [],
             tweets: this.getTweets(),
+            selected: 'incidents' | 'tweets',
         };
         this.getTweets = this.getTweets.bind(this);
-
     }
 
     componentDidMount() {
@@ -21,6 +21,15 @@ class Home extends Component {
             .catch(err => console.log(err));
     }
 
+    incidentsClickHandler(evt) {
+        console.log('ibtn')
+        this.setState({ selected: 'incidents' })
+    }
+
+    tweetsClickHandler(evt) {
+        console.log('tbtn');
+        this.setState({ selected: 'tweets' })
+    }
 
     render() {
         console.log(this.state.tweets);
@@ -62,7 +71,7 @@ class Home extends Component {
                                     return (
                                         <li key={i} className={styles.HashtagListEntry}>
                                             <div className={styles.HashtagName}>{hashtag.name}</div>
-                                            <div className={styles.HashtagValue}>{hashtag.val.toLocaleString()}</div>
+                                            <div className={styles.HashtagValue}>{hashtag.val.toLocaleString() + 'posts'}</div>
                                         </li>
                                     )
                                 })}
@@ -71,22 +80,56 @@ class Home extends Component {
 
                     </div>
                 </div>
-                <div className={styles.Container}>
-                    {this.state.data.map((item, i) => {
-                        return (
-                            <div key={i} className={styles.Data}>
-                                <ul>
-                                    {<li>Name: {item.name}</li>}
-                                    {<li>Email: {item.email}</li>}
-                                    {<li>Category: {item.event_category}</li>}
-                                    {<li>Date: {item.event_date}</li>}
-                                    {<li>State: {item.state}</li>}
-                                    {<li>City: {item.city}</li>}
-                                    {<li>Description: {item.event_description}</li>}
-                                </ul>
+                <div className={styles.TweetsAndIncidentsContainer}>
+                    <div className={styles.TweetsAndIncidentsNavbar}>
+                        {this.state.selected == 'tweets' ?
+                            <div className={styles.TweetsAndIncidentsButtonsContainer}>
+                                <div onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
+                                    REPORTED INCIDENTS
+                                </div>
+
+                                <div style={{ 'border-bottom': '0.125rem solid black' }} onClick={() => this.tweetsClickHandler()} className={styles.TweetsButton}>
+                                    TWITTER POSTS
+                                </div>
                             </div>
-                        );
-                    })}
+                            :
+                            <div className={styles.TweetsAndIncidentsButtonsContainer}>
+                                <div style={{ 'border-bottom': '0.125rem solid black' }} onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
+                                    REPORTED INCIDENTS
+                                </div>
+
+                                <div onClick={() => this.tweetsClickHandler()} className={styles.TweetsButton}>
+                                    TWITTER POSTS
+                                </div>
+                            </div>}
+                    </div>
+                    {this.state.selected == 'tweets' ?
+                        <div className={styles.TweetsTable}>
+                            Tweets table
+                    </div>
+                        :
+                        <div className={styles.Container}>
+                            {this.state.data.map((item, i) => {
+                                return (
+                                    <div key={i} className={styles.Data}>
+                                        <ul>
+                                            {<li>Name: {item.name}</li>}
+                                            {<li>Email: {item.email}</li>}
+                                            {<li>Category: {item.event_category}</li>}
+                                            {<li>Date: {item.event_date}</li>}
+                                            {<li>State: {item.state}</li>}
+                                            {<li>City: {item.city}</li>}
+                                            {<li>Description: {item.event_description}</li>}
+                                            {<li><Link to={{
+                                                pathname: '/action',
+                                                data: item
+                                            }}><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
+                                        </ul>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    }
                 </div>
             </div >)
     }
@@ -132,7 +175,7 @@ class Home extends Component {
         function getTweets(value, index, array) {
             TweetJs.Search(value,
                 function (data) {
-                    tweetsMap.push({hashtag: value, tweets: data});
+                    tweetsMap.push({ hashtag: value, tweets: data });
                     //console.log(data);
                 });
         }

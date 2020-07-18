@@ -7,9 +7,12 @@ class Action extends Component {
         super(props);
     }
     render() {
+        const { data } = this.props.location;
+        console.log(data)
         return (
             <div>
                 <h1 className={styles.Header}>Take Action page</h1>
+                {data.id + "  " + data.name + "  " + data.email + "  " + data.event_category}
             </div>
         )
     }
