@@ -104,9 +104,27 @@ class Home extends Component {
                             </div>}
                     </div>
                     {this.state.selected == 'tweets' ?
-                        <div className={styles.TweetsTable}>
-                            Tweets table
-                    </div>
+                        <div className={styles.Container}>
+                            {this.state.tweets.map((item, i) => {
+                                return (
+                                        item["tweets"]["statuses"].map((item2, i2) => {
+                                            return (
+                                                <div key={i} className={styles.Data}>
+                                                    <ul>
+                                                        {<li>Hashtag: {item["hashtag"]}</li>}
+                                                        {<li>Post: {item2["text"]}</li>}
+                                                        {<li>Location: {item2["user"]["location"]}</li>}
+                                                        {<li>Date: {item2["created_at"]}</li>}
+                                                       
+                                                    </ul>
+                                                </div>
+                                            );
+                                        })
+                                );
+                            })}
+
+
+                        </div>
                         :
                         <div className={styles.Container}>
                             {this.state.data.map((item, i) => {
