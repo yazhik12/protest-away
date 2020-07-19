@@ -6,6 +6,8 @@ import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDOM from "react-dom";
 import { v4 as uuidv4 } from 'uuid';
+import reportstyles from '../../src/Report.module.scss'
+import coc from "./coc.png";
 
 class Report extends Component {
     constructor(props) {
@@ -87,24 +89,29 @@ class Report extends Component {
         var submitted = this.state.submitted;
         return (
             !submitted ?
-                <div>
+            <div className={reportstyles.floatContainer}>
+                
+                    <div className={reportstyles.sideBar}>
+                        gray
+                    </div>
+                <div className={reportstyles.formstyle}>
                     <h1 className={styles.Header}>
                         Report an Incident
                     </h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Name (Optional)<br />
-                            <input name="name" type="text" onChange={this.handleChange} />
+                            <input  name="name" type="text" placeholder="John Doe" onChange={this.handleChange} />
                         </label>
                         <br /><br />
                         <label>
                             City<br />
-                            <input name="city" type="text" onChange={this.handleChange} />
+                            <input name="city" type="text" placeholder="City" onChange={this.handleChange} />
                         </label>
                         <br /><br />
                         <label>
                             State<br />
-                            <input name="state" type="text" onChange={this.handleChange} />
+                            <input name="state" type="text" placeholder="Texas" onChange={this.handleChange} />
                         </label>
                         <br /><br />
                         <label>
@@ -121,12 +128,12 @@ class Report extends Component {
                         <br /><br />
                         <label>
                             Email<br />
-                            <input name="email" type="text" onChange={this.handleChange} />
+                            <input name="email" type="text" placeholder="johndoe@gmail.com" onChange={this.handleChange} />
                         </label>
                         <br /><br />
                         <label>
                             Description of Incident<br />
-                            <textarea name="event_description" onChange={this.handleChange} />
+                            <textarea name="event_description" placeholder="Type something" onChange={this.handleChange} />
                         </label>
                         <br /><br />
                         <label>
@@ -134,9 +141,12 @@ class Report extends Component {
                             <input type="file" onChange={this.handleFileChange} />
                         </label>
                         <br /><br />
-                        <input type="submit" value="Submit" />
+                        <input type="checkbox" /><span>Send my incident and contact information to a local organization</span>
+                        <br /><br />
+                        <input type="submit" value="Submit" /> 
                     </form>
                 </div>
+            </div>
                 :
                 <div>
                     <h1 className={styles.Header}>
@@ -144,7 +154,28 @@ class Report extends Component {
                     </h1>
                     <p><b>Thank you for reporting this incident</b></p>
                     <p> The incident has been shared with the civic organizations listed below.</p>
+                    <div>
+                        <img
+                            src={coc}
+                            height={93}
+                            width={93}/>
+                      </div>
+                      <div>
+                        <strong>Color of Change</strong>
+                            <p>Location: Oakland, CA</p>
+                              <p>
+                                  <a href={"https://colorofchange.org/"} target="_blank">
+                                    Visit Website
+                                     </a>
+                                </p>
+                      </div>
+                      {<Link to={{
+                                    pathname: '/action',
+                                    data: formData,
+                                    }}><button className={styles.TakeActionButton}>Take Action</button></Link>}
                 </div>
+                
+            
 
         )
     }
