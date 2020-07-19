@@ -114,6 +114,7 @@ class Home extends Component {
                                                 state: "",
                                                 event_description: item2["text"],
                                                 event_date: item2["created_at"],
+                                                link: "https://twitter.com/" + item2["user"]["screen_name"] + "/status/" + item2["id_str"],
                                             }
                                             return (
                                                 <div key={i} className={styles.Data}>

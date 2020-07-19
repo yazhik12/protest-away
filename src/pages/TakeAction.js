@@ -51,9 +51,9 @@ class Action extends Component {
             var ag_1_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_1"];
             var ag_1_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_1"];
 
-            var ag_2 = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_1"];
-            var ag_2_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_1"];
-            var ag_2_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_1"];
+            var ag_2 = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_2"];
+            var ag_2_num = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_capitol_phone_2"];
+            var ag_2_contact = representativesInfo["state_legislation"]["other_state_executives"]["attorney_general_econtact_2"];
 
             ReactDOM.render('National Senator 1', document.getElementById("repInfo1title"));
             ReactDOM.render('National Senator 2', document.getElementById("repInfo2title"));
@@ -101,6 +101,7 @@ class Action extends Component {
             "#nojusticenopeace": "no+justice+no+peace",
         };
         const petitionUrl = "https://campaigns.organizefor.org/petitions/search?q=";
+        console.log(data);
         return (
             <div>
                 <h1 className={styles.Header}>Take Action page</h1>
@@ -108,10 +109,11 @@ class Action extends Component {
                 <p>Location: {data.city}, {data.state}</p>
                 <p>Date: {data.event_date}</p>
                 <p>{data.event_description}</p>
-
+                {data.link != null ? <a href={data.link} target="_blank">See post on Twitter</a> : null}
+                <br /><br />
                 <a href={petitionMap[data.event_category] == null ? petitionUrl + hashtags[data.event_category] : petitionMap[data.event_category]} target="_blank">Sign a petition</a>
                 <br/><br />
-                <a href="https://colorofchange.org/">Connect with an affiliated civic organization</a>
+                <a href="https://colorofchange.org/" target="_blank">Connect with an affiliated civic organization</a>
                 <br/>
                 
                 <form onSubmit={this.handleSubmit}>
