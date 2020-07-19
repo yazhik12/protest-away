@@ -61,7 +61,7 @@ class Report extends Component {
                 event_description: this.state.event_description,
             }),
         };
-        fetch("http://localhost:8000/submitform", requestOptions)
+        fetch(":8000/submitform", requestOptions)
             .then(res => res.json())
             .then(data => this.setState({ submitted: true }));
 
