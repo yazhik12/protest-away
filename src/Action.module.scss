@@ -1,0 +1,29 @@
+.floatContainer{
+  padding: 60px 120px; 
+}
+
+.action{
+  display:flex; flex-direction:row;
+}
+
+.descAndAction{
+  display:flex; flex-direction:row;
+}
+
+.desc{
+  display:flex; flex-direction:column;
+
+}
+
+.actions{
+  display:flex; flex-direction:column;
+  padding: 0px 380px;
+}
+
+.headline {
+  fontSize: 20;
+  background-color: rgba(0,0,0,0);
+  color: 'white';
+}
+
+

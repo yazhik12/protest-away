@@ -2,6 +2,13 @@ import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import ReactDOM from "react-dom";
+import actionstyles from "../../src/Action.module.scss";
+import rep from "./rep.png";
+import donate from "./donate.png";
+import petition from "./petition.png";
+import desc from "./desc.png";
+import action from "./actions.png";
+
 
 class Action extends Component {
     constructor(props) {
@@ -103,29 +110,62 @@ class Action extends Component {
         const petitionUrl = "https://campaigns.organizefor.org/petitions/search?q=";
         console.log(data);
         return (
-            <div>
-                <h1 className={styles.Header}>Take Action page</h1>
-                <p>{data.event_category}</p>
+            <div className={actionstyles.floatContainer}>
+                <h1 className={styles.Header}>Take Action</h1>
+                <p><b>{data.event_category}</b></p>
                 <p>Location: {data.city}, {data.state}</p>
-                <p>Date: {data.event_date}</p>
+                <p>Date: {data.event_date}</p><br />
+                <div className={actionstyles.descAndAction}>
+                <div className={actionstyles.desc}>
+                <img
+                    src={desc}
+                    height={50}
+                    width={170}/>
+
                 <p>{data.event_description}</p>
                 {data.link != null ? <a href={data.link} target="_blank">See post on Twitter</a> : null}
                 <br /><br />
-                <a href={petitionMap[data.event_category] == null ? petitionUrl + hashtags[data.event_category] : petitionMap[data.event_category]} target="_blank">Sign a petition</a>
-                <br/><br />
-                <a href="https://colorofchange.org/" target="_blank">Connect with an affiliated civic organization</a>
+                </div>
+                <div className={actionstyles.actions}>
+                 <img
+                    src={action}
+                    height={50}
+                    width={170}/><br />
+                <div>
+                <a 
+                className={actionstyles.action} 
+                href={petitionMap[data.event_category] == null ? petitionUrl + hashtags[data.event_category] : petitionMap[data.event_category]} target="_blank">
+                <img
+                    src={petition}
+                    height={93}
+                    width={93}/>
+                    <br/><br/>
+                    Sign a petition</a>
                 <br/>
+                
+                <a className={actionstyles.action} href="https://colorofchange.org/" target="_blank">
+                <img
+                    src={donate}
+                    height={93}
+                    width={93}/><br/><br/>
+                    Donate to an affiliated civic organization</a>
+                <br/>
+                <div className={actionstyles.action}><img
+                    src={rep}
+                    height={93}
+                    width={93}/>
                 
                 <form onSubmit={this.handleSubmit}>
                 <p>Contact your local representative</p>
                 <label>
-                    Zip code<br />
+                    Zip code  
                     <input name="zipcode" type="text" onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />
 
                 </form>
-                
+                </div>
+                </div>
                 <div id="repInfo1title"></div>
                 <div id="repInfo1"></div><br/>
                 <div id="repInfo2title"></div>
@@ -138,6 +178,8 @@ class Action extends Component {
                 <div id="repInfo5"></div><br/>
                 <div id="repInfo6title"></div>
                 <div id="repInfo6"></div>
+                </div>
+                </div>
             </div>
         )
     }
