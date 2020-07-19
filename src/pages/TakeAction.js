@@ -70,12 +70,19 @@ class Action extends Component {
             ReactDOM.render('Attorney General 2', document.getElementById("repInfo6title"));
 
 
-            ReactDOM.render('Name: ' + national_senator_1 + ', Number: ' + national_senator_1_num + ', Email/Website: ' + national_senator_1_contact, document.getElementById("repInfo1"));
-            ReactDOM.render('Name: ' + national_senator_2 + ', Number: ' + national_senator_2_num + ', Email/Website: ' + national_senator_2_contact, document.getElementById("repInfo2"));
-            ReactDOM.render('Name: ' + house_of_rep_1 + ', Number: ' + house_of_rep_1_num + ', Email/Website: ' + house_of_rep_1_contact, document.getElementById("repInfo3"));
-            ReactDOM.render('Name: ' + gov + ', Number: ' + gov_num + ', Email/Website: ' + gov_contact, document.getElementById("repInfo4"));
-            ReactDOM.render('Name: ' + ag_1 + ', Number: ' + ag_1_num + ', Email/Website: ' + ag_1_contact, document.getElementById("repInfo5"));
-            ReactDOM.render('Name: ' + ag_2 + ', Number: ' + ag_2_num + ', Email/Website: ' + ag_2_contact, document.getElementById("repInfo6"));
+            // ReactDOM.render('Name: ' + national_senator_1 + ', Number: ' + national_senator_1_num + ', Email/Website: ' + national_senator_1_contact, document.getElementById("repInfo1"));
+            // ReactDOM.render('Name: ' + national_senator_2 + ', Number: ' + national_senator_2_num + ', Email/Website: ' + national_senator_2_contact, document.getElementById("repInfo2"));
+            // ReactDOM.render('Name: ' + house_of_rep_1 + ', Number: ' + house_of_rep_1_num + ', Email/Website: ' + house_of_rep_1_contact, document.getElementById("repInfo3"));
+            // ReactDOM.render('Name: ' + gov + ', Number: ' + gov_num + ', Email/Website: ' + gov_contact, document.getElementById("repInfo4"));
+            // ReactDOM.render('Name: ' + ag_1 + ', Number: ' + ag_1_num + ', Email/Website: ' + ag_1_contact, document.getElementById("repInfo5"));
+            // ReactDOM.render('Name: ' + ag_2 + ', Number: ' + ag_2_num + ', Email/Website: ' + ag_2_contact, document.getElementById("repInfo6"));
+
+            document.getElementById("repInfo1").innerHTML = 'Name: ' + national_senator_1 + ', Number: ' + national_senator_1_num + ', Email/Website: ' + '<a href="' +  national_senator_1_contact + '" target="_blank">' + national_senator_1_contact + '</a>';
+            document.getElementById("repInfo2").innerHTML = 'Name: ' + national_senator_2 + ', Number: ' + national_senator_2_num + ', Email/Website: ' + '<a href="' +  national_senator_2_contact + '" target="_blank">' + national_senator_2_contact + '</a>';
+            document.getElementById("repInfo3").innerHTML = 'Name: ' + house_of_rep_1 + ', Number: ' + house_of_rep_1_num + ', Email/Website: ' + '<a href="' +  house_of_rep_1_contact + '" target="_blank">' + house_of_rep_1_contact + '</a>';
+            document.getElementById("repInfo4").innerHTML = 'Name: ' + gov + ', Number: ' + gov_num + ', Email/Website: ' + '<a href="' +  gov_contact + '" target="_blank">' + gov_contact + '</a>';
+            document.getElementById("repInfo5").innerHTML = 'Name: ' + ag_1 + ', Number: ' + ag_1_num + ', Email/Website: ' + '<a href="' +  ag_1_contact + '" target="_blank">' + ag_1_contact + '</a>';
+            document.getElementById("repInfo6").innerHTML = 'Name: ' + ag_2 + ', Number: ' + ag_2_num + ', Email/Website: ' + '<a href="' +  ag_2_contact + '" target="_blank">' + ag_2_contact + '</a>';
 
         })
     }
