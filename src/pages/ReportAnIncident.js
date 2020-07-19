@@ -153,7 +153,7 @@ class Report extends Component {
                 </div>
             </div>
                 :
-                <div>
+                <div className={reportstyles.aftersubmit}>
                     <h1 className={styles.Header}>
                         Connect with Help
                     </h1>
@@ -177,7 +177,7 @@ class Report extends Component {
                       {<Link to={{
                                     pathname: '/action',
                                     data: formData,
-                                    }}><button className={styles.TakeActionButton}>Take Action</button></Link>}
+                                    }}><button className={reportstyles.TakeActionButton}>Take Action</button></Link>}
                 </div>
                 
             

@@ -82,7 +82,7 @@ class Connect extends Component {
                 <strong>{item.name}</strong>
                     <p>Location: {item.location}</p>
                       <p>
-                          <a href={item.website}>
+                          <a href={item.website} target="_blank">
                             Visit Website
                              </a>
                         </p>
