@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import ReactDOM from "react-dom";
 import { v4 as uuidv4 } from 'uuid';
 import coc from "./coc.png";
-
+import reportstyles from '../../src/Report.module.scss'
 
 class Report extends Component {
     constructor(props) {
