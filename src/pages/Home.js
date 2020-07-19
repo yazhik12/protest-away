@@ -119,10 +119,10 @@ class Home extends Component {
                                             return (
                                                 <div key={i} className={styles.Data}>
                                                     <ul>
-                                                        {<li>Hashtag: {item["hashtag"]}</li>}
-                                                        {<li>Post: {item2["text"]}</li>}
-                                                        {<li>Location: {item2["user"]["location"]}</li>}
-                                                        {<li>Date: {item2["created_at"]}</li>}
+                                                        {<li><b>Hashtag:</b> {item["hashtag"]}</li>}
+                                                        {<li><b>Post:</b> {item2["text"]}</li>}
+                                                        {<li><b>Location:</b> {item2["user"]["location"]}</li>}
+                                                        {<li><b>Date:</b> {item2["created_at"]}</li>}
                                                         {<li><Link to={{
                                                             pathname: '/action',
                                                             data: tweetObj
@@ -142,13 +142,13 @@ class Home extends Component {
                                 return (
                                     <div key={i} className={styles.Data}>
                                         <ul>
-                                            {<li>Name: {item.name}</li>}
-                                            {<li>Email: {item.email}</li>}
-                                            {<li>Category: {item.event_category}</li>}
-                                            {<li>Date: {item.event_date}</li>}
-                                            {<li>State: {item.state}</li>}
-                                            {<li>City: {item.city}</li>}
-                                            {<li>Description: {item.event_description}</li>}
+                                            {<li><b>Name:</b> {item.name}</li>}
+                                            {<li><b>Email:</b> {item.email}</li>}
+                                            {<li><b>Category:</b> {item.event_category}</li>}
+                                            {<li><b>Date:</b> {item.event_date}</li>}
+                                            {<li><b>State:</b> {item.state}</li>}
+                                            {<li><b>City:</b> {item.city}</li>}
+                                            {<li><b>Description:</b> {item.event_description}</li>}
                                             {<li><Link to={{
                                                 pathname: '/action',
                                                 data: item

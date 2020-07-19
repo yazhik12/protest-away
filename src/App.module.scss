@@ -13,11 +13,14 @@ body {
     right:0;
     width:100%;
     .Container {
-      width: 300px;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      width: 1300px;
       margin-top:1rem;
       ul {
         list-style: none;
         padding: 0;
+        flex-direction: row;
       }
       h2 {
         text-align: center;
@@ -138,6 +141,7 @@ body {
     }
     .TweetsAndIncidentsContainer {
       //background:blue;
+      padding: 15px;
       width:100%;
       .TweetsAndIncidentsNavbar {
         //background: orange;
