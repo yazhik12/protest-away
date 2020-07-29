@@ -1,33 +1,22 @@
-# Skelleton of application for hackathon
+# Protest Away
 
- ### Get started
-- Fork or download the repo
- ### Install dependencies
-- `npm install`
- ### Set up credentials to reach the database
-- Create a `.env` file similar to the `.env.example`
-- Include your PostgreSQL username, password (if you have one for local host), database and port.
+## The Challenge
+How do we enable people at risk of COVID-19 or unable to protest in person to support the movement through
+tech?
 
-### Go into your local host, and run the following table creation & seed query:
-    CREATE TABLE form_submissions (
-    id uuid,
-    name varchar(500),
-    email varchar(500),
-    event_category varchar(500),
-    event_date timestamp,
-    state varchar(50),
-    city varchar(100),
-    event_description varchar(1000),
-    created_on timestamp
-    );
+## The Solution
+A digital platform, called Protest Away, that empowers people to engage in activism by reporting incidents and taking
+action.
 
-    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-    INSERT INTO form_submissions VALUES (uuid_generate_v1(), 'alda', 'alda@foo.com', 'police_brutality', CAST('2020-01-01' as timestamp), 'NY', 'NYC', 'unnecessary search of my car', NOW());
+## User Stories
 
- ### Start your API
-- `node api.js` 
-- API local endpoint: http://localhost:8000/api.json
+- As a user I want to Report incidents of racism directly to our platform. 
+- As a user I want to Select an incident and find out how you can take actionable steps to get justice.
+- As a user I want to Find civic groups in your community to get involved with.
 
- ### Start your Application
-- `npm start` 
-- App starts on: http://localhost:3000/
+
+
+
+
+
+
