@@ -69,7 +69,7 @@ As a User, I should be able to see a list of organizations/authorities that supp
 ![](src/images/Screen%20Shot%202020-07-29%20at%208.17.54%20PM.png)
 
 
-## Take Action
+## Take Action Page
  
 1.As a User, I can Sign a Petition
 
@@ -90,6 +90,29 @@ The API gets called and provides a list of representatives in your area
 Color of Change  https://secure.actblue.com/contribute/page/support-us
 
 Black LIves Matter https://secure.actblue.com/donate/ms_blm_homepage_2019
+
+![](src/images/Screen%20Shot%202020-07-29%20at%208.19.54%20PM.png)
+
+## Report an Incident Page
+
+As a user I should be able to report an incident.
+As a user I should be able to report an incident and enable the checkbox that says I want the incident to be reported.
+This takes me to the Take Action Page
+
+![](src/images/Screen%20Shot%202020-07-29%20at%208.18.14%20PM.png)
+
+## Connect With Help Page
+
+As an Admin, I should be able to load incidents from other sources
+As an Admin, I should be able to enter new categories
+As an Admin, I should be able to draw analytics geographically
+
+
+![](src/images/Screen%20Shot%202020-07-29%20at%208.18.30%20PM.png)
+
+
+
+
 
 
 
