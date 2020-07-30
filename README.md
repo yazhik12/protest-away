@@ -1,8 +1,7 @@
 # Protest Away
 
 ## The Challenge
-How do we enable people at risk of COVID-19 or unable to protest in person to support the movement through
-tech?
+How do we enable people that are at risk of COVID-19 or are unable to protest in-person support the movement through tech?
 
 ## Why does this matter?
 Physical presence as a protest is a lot more risky for people at risk of getting  COVID. This includes the elderly population, people with underlying conditions, or people who live with someone who is at-risk. (Non at risk individuals can also use this tool.) CDC reports “An estimated 60 percent of American adults have at least one chronic medical condition.” (Source: https://www.cdc.gov/media/releases/2020/p0625-update-expands-covid-19.html)
@@ -15,16 +14,18 @@ How do we keep people engaged in activism after the protest is over?
 This is not a replacement of protest, but supports it. 
 
 ## The Solution
-A web application that uses 2 types of data 1. aggregated data about trending hashtags from Twitter (hashtags related to BLM movement/black issues) and 2. incidents reported on our website, to link people who cannot protest to actions they can take from their homes 
+A web application that uses 2 types of data 
+1. aggregated data about trending hashtags from Twitter (hashtags related to BLM movement/black issues) and 
+1. incidents reported on our website, to link people who cannot protest to actions they can take from their homes 
 
 Our tool offers ways of tackling social, political, and economic activism.
 
 
 ## Key User Group
 
-1 People who want to report a problem 
-2 People who don't know how to help/cant help bc of COVID (our focus user for the presentation) 
-3 Civic organizations who want to get connected with and act on local occurrences of racism
+1. People who want to report a problem 
+1. People who don't know how to help/cant help bc of COVID (our focus user for the presentation) 
+1. Civic organizations who want to get connected with and act on local occurrences of racism
 
 ## Technical resources
 
@@ -71,7 +72,7 @@ As a User, I should be able to see a list of organizations/authorities that supp
 
 ## Take Action Page
  
-1.As a User, I can Sign a Petition
+1. As a User, I can Sign a Petition
 
 As a User, I should be able to sign a petition that supports my cause. This will launch me to the website and i can go ahead and sign the petition
 
@@ -80,12 +81,12 @@ Change.org
 Avaaz.org
 IPetitions.org
 
-2.As a User, I can Call your local representative
+1. As a User, I can Call your local representative
 
 The API gets called and provides a list of representatives in your area
 (Get reference from KHoury)
 
-3.As a User, I can Donate to an affiliated civic group This tab will open up a page that will have the links of websites that collect Donation,
+1. As a User, I can Donate to an affiliated civic group This tab will open up a page that will have the links of websites that collect Donation,
 
 Color of Change  https://secure.actblue.com/contribute/page/support-us
 
@@ -95,17 +96,17 @@ Black LIves Matter https://secure.actblue.com/donate/ms_blm_homepage_2019
 
 ## Report an Incident Page
 
-As a user I should be able to report an incident.
-As a user I should be able to report an incident and enable the checkbox that says I want the incident to be reported.
-This takes me to the Take Action Page
+1. As a user I should be able to report an incident.
+1. As a user I should be able to report an incident and enable the checkbox that says I want the incident to be reported.
+1. This takes me to the Take Action Page
 
 ![](src/images/Screen%20Shot%202020-07-29%20at%208.18.14%20PM.png)
 
 ## Connect With Help Page
 
-As an Admin, I should be able to load incidents from other sources
-As an Admin, I should be able to enter new categories
-As an Admin, I should be able to draw analytics geographically
+1. As an Admin, I should be able to load incidents from other sources
+1. As an Admin, I should be able to enter new categories
+1. As an Admin, I should be able to draw analytics geographically
 
 
 ![](src/images/Screen%20Shot%202020-07-29%20at%208.18.30%20PM.png)
