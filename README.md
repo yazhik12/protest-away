@@ -29,8 +29,10 @@ Our tool offers ways of tackling social, political, and economic activism.
 ## Technical resources
 
 https://stackoverflow.com/questions/51689113/instagram-get-posts-with-hashtag
+
 JS library for getting Twitter posts by hashtag
 https://www.tweetjs.com/
+
 https://stackoverflow.com/questions/50147108/twitter-api-searching-by-hashtag
 
 ## User Stories
@@ -44,7 +46,7 @@ https://stackoverflow.com/questions/50147108/twitter-api-searching-by-hashtag
 2.As a User, I will see an updated scream when the screen refreshes 
 3.As a User, I should be able to query according to a search criteria and read incidents reported. When i click on a particular record, I should be able to read the entire description
 
-![](images/https://github.com/krock07/protest-away/blob/master/src/images/Screen%20Shot%202020-07-29%20at%208.17.54%20PM.png)
+![](images/Screen%20Shot%202020-07-29%20at%208.17.54%20PM.png)
 
 
 
