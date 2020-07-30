@@ -43,17 +43,17 @@ https://stackoverflow.com/questions/50147108/twitter-api-searching-by-hashtag
 - As a user I want to Find civic groups in your community to get involved with.
 
 ### With reported incidents
-1.As a User, when I arrive at the first page I should be able to see the trending hashtags- the top 5 from Twitter ,.The set of hashtags in consideration will be predefined. 
-2.As a User, I will see an updated scream when the screen refreshes 
-3.As a User, I should be able to query according to a search criteria and read incidents reported. When i click on a particular record, I should be able to read the entire description
+1. As a User, when I arrive at the first page I should be able to see the trending hashtags- the top 5 from Twitter ,.The set of hashtags in consideration will be predefined. 
+2. As a User, I will see an updated scream when the screen refreshes 
+3. As a User, I should be able to query according to a search criteria and read incidents reported. When i click on a particular record, I should be able to read the entire description
 
 ## Landing Page 
 (With Twitter Posts)
 
-As a User, I should be able to see a list of incidents as sourced from Twitter
-As a User , I should be able to click on the button “Take Action”
-As an Admin, I should be able to delete the records if they are found not appropriate
-4.As a User, I should be able to enter a new Incident by going to the Reported Incidents tab.I have to fill in the following fields while reporting the incident
+1. As a User, I should be able to see a list of incidents as sourced from Twitter
+1. As a User , I should be able to click on the button “Take Action”
+1. As an Admin, I should be able to delete the records if they are found not appropriate
+1. As a User, I should be able to enter a new Incident by going to the Reported Incidents tab.I have to fill in the following fields while reporting the incident
 
 Name
 Location - city, state
@@ -63,8 +63,8 @@ Description of incident
 Link to social media post, if any (maybe later)
 Attach image or video
 
-5 As a User I can navigate to the Take Actions Button
-6.As a User, i should be able to refer my incidents to social media sites. 
+5. As a User I can navigate to the Take Actions Button
+6. As a User, i should be able to refer my incidents to social media sites. 
 As a User, I should be able to see a list of organizations/authorities that support this movement
 
 ![](src/images/Screen%20Shot%202020-07-29%20at%208.17.54%20PM.png)
@@ -81,12 +81,12 @@ Change.org
 Avaaz.org
 IPetitions.org
 
-1. As a User, I can Call your local representative
+2. As a User, I can Call your local representative
 
 The API gets called and provides a list of representatives in your area
 (Get reference from KHoury)
 
-1. As a User, I can Donate to an affiliated civic group This tab will open up a page that will have the links of websites that collect Donation,
+3. As a User, I can Donate to an affiliated civic group This tab will open up a page that will have the links of websites that collect Donation,
 
 Color of Change  https://secure.actblue.com/contribute/page/support-us
 
