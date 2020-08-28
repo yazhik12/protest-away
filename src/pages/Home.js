@@ -81,8 +81,11 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className={styles.TweetsAndIncidentsContainer}>
+ 
                     <div className={styles.TweetsAndIncidentsNavbar}>
+                    
                         {this.state.selected == 'tweets' ?
+                                       
                             <div className={styles.TweetsAndIncidentsButtonsContainer}>
                                 <div onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
                                     REPORTED INCIDENTS
@@ -91,6 +94,7 @@ class Home extends Component {
                                 <div style={{ 'border-bottom': '0.125rem solid black' }} onClick={() => this.tweetsClickHandler()} className={styles.TweetsButton}>
                                     TWITTER POSTS
                                 </div>
+                                
                             </div>
                             :
                             <div className={styles.TweetsAndIncidentsButtonsContainer}>
@@ -103,8 +107,20 @@ class Home extends Component {
                                 </div>
                             </div>}
                     </div>
+                    <div className={styles.Dropdown}>
+                    <form action="/action_page.php">
+                        <label for="cars">Sort By</label>
+                        <select id="cars" name="cars">
+                            <option value="Select">Select</option>
+                        </select>
+                    </form>
+                        
+                    </div>
+                
                     {this.state.selected == 'tweets' ?
                         <div className={styles.Container}>
+                            
+                                                        
                             {this.state.tweets.map((item, i) => {
                                 return (
                                         item["tweets"]["statuses"].map((item2, i2) => {
@@ -118,16 +134,34 @@ class Home extends Component {
                                             }
                                             return (
                                                 <div key={i} className={styles.Data}>
-                                                    <ul>
-                                                        {<li><b>Hashtag:</b> {item["hashtag"]}</li>}
-                                                        {<li><b>Post:</b> {item2["text"]}</li>}
-                                                        {<li><b>Location:</b> {item2["user"]["location"]}</li>}
-                                                        {<li><b>Date:</b> {item2["created_at"]}</li>}
-                                                        {<li><Link to={{
+                                                    <table>
+                                                    
+                                                        <tr>
+                                                            <th className="tweets"><b>Post:</b></th>
+                                                            <th><b>Date:</b></th>
+                                                            <th><b>Hashtag:</b></th>
+                                                            <th><b>Location:</b></th>
+                                                            </tr>
+                
+                                                     
+                                                    
+                                                    
+                                                        <tr>
+                                                            <td>{item2["text"]}</td>
+                                                            <td>{item2["created_at"]}</td>
+                                                            <td>{item["hashtag"]}</td>
+                                                            <td>{item2["user"]["location"]}</td>
+                                                          
+                                                        <td><Link to={{
                                                             pathname: '/action',
                                                             data: tweetObj
-                                                        }}><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
-                                                    </ul>
+                                                        }}><button className={styles.TakeActionButton}>Take Action</button></Link></td>
+                                                        </tr>
+                                                        
+                                                        
+                                                        
+              
+                                                    </table>
                                                 </div>
                                             );
                                         })
