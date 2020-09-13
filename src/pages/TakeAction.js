@@ -1,7 +1,5 @@
 import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
-import ReactDOM from "react-dom";
 import actionstyles from "../../src/Action.module.scss";
 import rep from "./rep.png";
 import donate from "./donate.png";

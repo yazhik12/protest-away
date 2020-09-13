@@ -1,7 +1,6 @@
 import styles from "../../src/App.module.scss";
 import connectstyles from "../../src/Connect.module.scss";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import aclu from "./aclu2@2x.png";
 import blm from "./blm.png";
 import bv from "./bv.png";
@@ -42,7 +41,7 @@ class Connect extends Component {
         for (var i = 0; i < this.state.allOrgs.length; i++) { 
             if (this.state.allOrgs[i].location.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
               newOrgs.push(this.state.allOrgs[i]);
-            }  else if (this.state.allOrgs[i].location == "Multiple") {
+            }  else if (this.state.allOrgs[i].location === "Multiple") {
               newOrgs.push(this.state.allOrgs[i]);
             }
         } 

@@ -82,19 +82,19 @@ class Home extends Component {
                 </div>
                 <div className={styles.TweetsAndIncidentsContainer}>
                     <div className={styles.TweetsAndIncidentsNavbar}>
-                        {this.state.selected == 'tweets' ?
+                        {this.state.selected === 'tweets' ?
                             <div className={styles.TweetsAndIncidentsButtonsContainer}>
                                 <div onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
                                     REPORTED INCIDENTS
                                 </div>
 
-                                <div style={{ 'border-bottom': '0.125rem solid black' }} onClick={() => this.tweetsClickHandler()} className={styles.TweetsButton}>
+                                <div style={{ 'borderBottom': '0.125rem solid black' }} onClick={() => this.tweetsClickHandler()} className={styles.TweetsButton}>
                                     TWITTER POSTS
                                 </div>
                             </div>
                             :
                             <div className={styles.TweetsAndIncidentsButtonsContainer}>
-                                <div style={{ 'border-bottom': '0.125rem solid black' }} onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
+                                <div style={{ 'borderBottom': '0.125rem solid black' }} onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
                                     REPORTED INCIDENTS
                                 </div>
 
@@ -103,7 +103,7 @@ class Home extends Component {
                                 </div>
                             </div>}
                     </div>
-                    {this.state.selected == 'tweets' ?
+                    {this.state.selected === 'tweets' ?
                         <div className={styles.Container}>
                             {this.state.tweets.map((item, i) => {
                                 return (

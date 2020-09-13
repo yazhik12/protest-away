@@ -49,6 +49,7 @@ app.post("/submitform", (req, res, next) => {
     if (err) {
       console.log("Can not connect to the DB because of " + err);
     }
+    console.log('we connected to db!')
     const id = req.body.id;
     const name = req.body.name;
     const email = req.body.email;

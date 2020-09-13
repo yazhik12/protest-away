@@ -28,7 +28,7 @@ var representativesInfo;
 request(url, function(err, response, body) {
     body = JSON.parse(body); 
     representativesInfo = body["usgeocoder"]["jurisdictions_info"];
-    //console.log(representativesInfo);
+    console.log(representativesInfo);
 })
 
 

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
-import ReactDOM from "react-dom";
 import { v4 as uuidv4 } from 'uuid';
 import coc from "./coc.png";
 import reportstyles from '../../src/Report.module.scss'
@@ -47,7 +46,6 @@ class Report extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        //TODO: Save the report
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -62,10 +60,8 @@ class Report extends Component {
             }),
         };
         fetch(":8000/submitform", requestOptions)
-            .then(res => res.json())
+            .then(res => console.log(requestOptions))
             .then(data => this.setState({ submitted: true }));
-
-        // this.setState({submitted : true})
     }
 
     getIncidentTypes() {
