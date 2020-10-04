@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 //Database Config .env
 const config = {
-  host: process.env.PG_HOST ?? 'localhost' ,
+  host: process.env.PG_HOST ? process.env.PG_HOST : 'localhost' ,
   user: process.env.PG_USER,
   database: process.env.PG_DATABASE,
   password: process.env.PG_PASS,
