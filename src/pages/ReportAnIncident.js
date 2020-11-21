@@ -59,14 +59,13 @@ class Report extends Component {
                 event_description: this.state.event_description,
             }),
         };
-        fetch(":8000/submitform", requestOptions)
+        fetch("http://virtual-protest.org:8000/submitform", requestOptions)
             .then(res => console.log(requestOptions))
             .then(data => this.setState({ submitted: true }));
     }
 
     getIncidentTypes() {
-        return ['Cop Watch',
-            'Police Accountability',
+        return ['Police Accountability',
             'Corporate Accountability',
             'Criminal Justice Policy',
             'Education',
