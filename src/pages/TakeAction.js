@@ -31,7 +31,7 @@ class Action extends Component {
         let zipcode = this.state.zipcode;
          // usgeocoder for finding representatives to contact
         var request = require('request');
-        var url = 'https://cors-anywhere.herokuapp.com/https://usgeocoder.com/api/get_info.php?zipcode=' + zipcode + '&authkey=7727c367c836716b4e2b587c6a66b4ee&format=json'
+        var url = 'https://cors-anywhere.herokuapp.com/https://usgeocoder.com/api/get_info.php?zipcode=' + zipcode + '&authkey=c78292f63121ce1bbd1a464eec8f799b&format=json'
         var representativesInfo;
         request(url, function(err, response, body) {
             body = JSON.parse(body); 
