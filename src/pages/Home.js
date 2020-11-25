@@ -12,6 +12,7 @@ class Home extends Component {
             selected: 'incidents' | 'tweets',
         };
         this.getTweets = this.getTweets.bind(this);
+        this.getHashtagCount()
     }
 
     componentDidMount() {
@@ -143,7 +144,6 @@ class Home extends Component {
                                     <div key={i} className={styles.Data}>
                                         <ul>
                                             {<li><b>Name:</b> {item.name}</li>}
-                                            {<li><b>Email:</b> {item.email}</li>}
                                             {<li><b>Category:</b> {item.event_category}</li>}
                                             {<li><b>Date:</b> {item.event_date}</li>}
                                             {<li><b>State:</b> {item.state}</li>}
@@ -210,6 +210,42 @@ class Home extends Component {
         }
 
         return tweetsMap;
+    }
+
+    getHashtagCount() {
+        var HashtagCount = require('hashtag-count');
+
+        var hc = new HashtagCount({
+          'consumer_key': 'IpDBihCU82eZpKYQsywEgexS7',
+          'consumer_secret': 'tpaSOQaXBXvlikjAyuDwrxBVfHYtVQ7sFmY9CYZJaLz1YcOyHf',
+          'access_token': '4862754053-huvEHYHP2jBqbas6xuOPcLxksh9awONxAyi4bpS',
+          'access_token_secret': '1Yl22LlNMwTyPQeLC99D50Qb2d7afk2ve38z5MmzgODiM'
+        });
+
+        var hashtags = ["#blacklivesmatter", "#racism", "#policebrutality", "#protest", "#georgefloyd", "#tellblackstories", "#blacktechtwitter", "#saytheirnames", "#nojusticenopeace"];
+        var interval = '10 seconds';
+
+        // Delete data older than this.
+        var history = '5 minutes';
+
+        // Called at the end of each time interval.
+        var intervalCb = function (err, results) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log(results);
+          }
+        };
+
+        // Open a connection to Twitter's Streaming API and start capturing tweets!
+        hc.start({
+          hashtags: hashtags,       // required
+          interval: interval,       // required
+          history: history,         // optional
+          intervalCb: intervalCb,   // optional
+        });
+
+
     }
 }
 
