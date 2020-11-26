@@ -125,6 +125,7 @@ class Report extends Component {
                         state: this.state.state, 
                         event_date: this.state.event_date.toString(), 
                         event_description: this.state.event_description};
+        var sharedToOrg = this.state.share_to_org;
         return (
             !submitted ?
             <div className={reportstyles.floatContainer}>
@@ -181,14 +182,14 @@ class Report extends Component {
                             <input type="file" onChange={this.handleFileChange} />
                         </label>
                         <br /><br />
-                        <input type="checkbox" onChange={this.handleChange}/><span>Send my incident and contact information to a local organization</span>
+                        <input name="share_to_org" type="checkbox" onChange={this.handleChange}/><span>Send my incident and contact information to a local organization</span>
                         <br /><br />
                         <input type="submit" value="Submit" /> 
                     </form>
                 </div>
             </div>
                 :
-                <div className={reportstyles.aftersubmit}>
+                (sharedToOrg ? <div className={reportstyles.aftersubmit}>
                     <h1 className={styles.Header}>
                         Connect with Help
                     </h1>
@@ -213,9 +214,34 @@ class Report extends Component {
                                     pathname: '/action',
                                     data: formData,
                                     }}><button className={reportstyles.TakeActionButton}>Take Action</button></Link>}
-                </div> 
-                
-            
+                </div> : 
+                <div className={reportstyles.aftersubmit}>
+                    <h1 className={styles.Header}>
+                        Connect with Help
+                    </h1>
+                    <p><b>Thank you for reporting this incident</b></p>
+                    <p> You may contact the civic organizations listed below to take action.</p>
+                     <div>
+                        <img
+                            src={coc}
+                            height={93}
+                            width={93}/>
+                      </div>
+                      <div>
+                        <strong>Color of Change</strong>
+                            <p>Location: Oakland, CA</p>
+                              <p>
+                                  <a href={"https://colorofchange.org/"} target="_blank">
+                                    Visit Website
+                                     </a>
+                                </p>
+                      </div>
+                      {<Link to={{
+                                    pathname: '/action',
+                                    data: formData,
+                                    }}><button className={reportstyles.TakeActionButton}>Take Action</button></Link>}
+                </div>
+                )
 
         )
     }
