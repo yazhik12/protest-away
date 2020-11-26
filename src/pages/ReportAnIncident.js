@@ -164,7 +164,7 @@ class Report extends Component {
                         <br /><br />
                         <label>
                             Incident Date <div className={reportstyles.required}>required</div><br />
-                            <DatePicker selected={this.state.event_date} onChange={this.handleDateChange} />
+                            <DatePicker selected={this.state.event_date} onChange={this.handleDateChange} maxDate={new Date()}/>
                         </label>
                         <br /><br />
                         <label>
