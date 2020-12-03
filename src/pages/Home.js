@@ -12,7 +12,6 @@ class Home extends Component {
             selected: 'incidents' | 'tweets',
         };
         this.getTweets = this.getTweets.bind(this);
-        this.getHashtagCount()
     }
 
     componentDidMount() {
@@ -212,41 +211,6 @@ class Home extends Component {
         return tweetsMap;
     }
 
-    getHashtagCount() {
-        var HashtagCount = require('hashtag-count');
-
-        var hc = new HashtagCount({
-          'consumer_key': 'IpDBihCU82eZpKYQsywEgexS7',
-          'consumer_secret': 'tpaSOQaXBXvlikjAyuDwrxBVfHYtVQ7sFmY9CYZJaLz1YcOyHf',
-          'access_token': '4862754053-huvEHYHP2jBqbas6xuOPcLxksh9awONxAyi4bpS',
-          'access_token_secret': '1Yl22LlNMwTyPQeLC99D50Qb2d7afk2ve38z5MmzgODiM'
-        });
-
-        var hashtags = ["#blacklivesmatter", "#racism", "#policebrutality", "#protest", "#georgefloyd", "#tellblackstories", "#blacktechtwitter", "#saytheirnames", "#nojusticenopeace"];
-        var interval = '10 seconds';
-
-        // Delete data older than this.
-        var history = '5 minutes';
-
-        // Called at the end of each time interval.
-        var intervalCb = function (err, results) {
-          if (err) {
-            console.error(err);
-          } else {
-            console.log(results);
-          }
-        };
-
-        // Open a connection to Twitter's Streaming API and start capturing tweets!
-        hc.start({
-          hashtags: hashtags,       // required
-          interval: interval,       // required
-          history: history,         // optional
-          intervalCb: intervalCb,   // optional
-        });
-
-
-    }
 }
 
 export default Home;
