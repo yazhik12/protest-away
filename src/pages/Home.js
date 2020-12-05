@@ -147,6 +147,7 @@ class Home extends Component {
                                             {<li><b>Date:</b> {item.event_date}</li>}
                                             {<li><b>State:</b> {item.state}</li>}
                                             {<li><b>City:</b> {item.city}</li>}
+                                            {<li><b>Title:</b> {item.event_title}</li>}
                                             {<li><b>Description:</b> {item.event_description}</li>}
                                             {<li><Link to={{
                                                 pathname: '/action',

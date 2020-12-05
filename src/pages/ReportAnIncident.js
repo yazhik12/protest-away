@@ -18,6 +18,7 @@ class Report extends Component {
             event_category: '',
             event_date: new Date(),
             email: '',
+            event_title: '',
             event_description: '',
             files: [],
             submitted: false,
@@ -69,9 +70,9 @@ class Report extends Component {
             missingFields = true;
             errorMessage += "Incident Date, ";
         }
-        if (this.state.event_description == '') {
+        if (this.state.event_title == '') {
             missingFields = true;
-            errorMessage += "Description of Incident";
+            errorMessage += "Title";
         }
 
         if (errorMessage.endsWith(", ")) {
@@ -173,7 +174,12 @@ class Report extends Component {
                         </label>
                         <br /><br />
                         <label>
-                            Description of Incident <div className={reportstyles.required}>required</div><br />
+                            Title <div className={reportstyles.required}>required</div><br />
+                            <input name="event_title" type="text" maxlength="100" placeholder="Title" onChange={this.handleChange} />
+                        </label>
+                        <br /><br />
+                        <label>
+                            Description of Incident <br />
                             <textarea name="event_description" placeholder="Type something" onChange={this.handleChange} />
                         </label>
                         <br /><br />
