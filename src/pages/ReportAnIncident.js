@@ -91,6 +91,7 @@ class Report extends Component {
                     state: this.state.state,
                     city: this.state.city,
                     event_description: this.state.event_description,
+                    event_title: this.state.event_title,
                 }),
             };
             fetch("http://virtual-protest.org:8000/submitform", requestOptions)
