@@ -1,6 +1,7 @@
 import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import moment from 'moment'
 
 
 class Home extends Component {
@@ -122,7 +123,7 @@ class Home extends Component {
                                                         {<li><b>Hashtag:</b> {item["hashtag"]}</li>}
                                                         {<li><b>Post:</b> {item2["text"]}</li>}
                                                         {<li><b>Location:</b> {item2["user"]["location"]}</li>}
-                                                        {<li><b>Date:</b> {item2["created_at"]}</li>}
+                                                        {<li><b>Date:</b> {moment(item2["created_at"]).format("LL")}</li>}
                                                         {<li><Link to={{
                                                             pathname: '/action',
                                                             data: tweetObj
@@ -144,7 +145,7 @@ class Home extends Component {
                                         <ul>
                                             {<li><b>Name:</b> {item.name}</li>}
                                             {<li><b>Category:</b> {item.event_category}</li>}
-                                            {<li><b>Date:</b> {item.event_date}</li>}
+                                            {<li><b>Date:</b> {moment(item.event_date).format("LL")}</li>}
                                             {<li><b>State:</b> {item.state}</li>}
                                             {<li><b>City:</b> {item.city}</li>}
                                             {<li><b>Title:</b> {item.event_title}</li>}
