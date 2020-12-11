@@ -89,13 +89,13 @@ class Home extends Component {
                                     REPORTED INCIDENTS
                                 </div>
 
-                                <div style={{ 'borderBottom': '0.125rem solid black' }} onClick={() => this.tweetsClickHandler()} className={styles.TweetsButton}>
+                                <div  onClick={() => this.tweetsClickHandler()} className={styles.TweetsButton}>
                                     TWITTER POSTS
                                 </div>
                             </div>
                             :
                             <div className={styles.TweetsAndIncidentsButtonsContainer}>
-                                <div style={{ 'borderBottom': '0.125rem solid black' }} onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
+                                <div  onClick={() => this.incidentsClickHandler()} className={styles.IncidentsButton}>
                                     REPORTED INCIDENTS
                                 </div>
 
