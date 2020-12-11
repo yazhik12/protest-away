@@ -34,7 +34,7 @@ app.get("/getreports", (req, res, next) => {
     if (err) {
       console.log("Can not connect to the DB because of " + err);
     }
-    client.query("SELECT * FROM form_submissions2", function(err, result) {
+    client.query("SELECT * FROM form_submissions", function(err, result) {
       done();
       if (err) {
         console.log(err);
@@ -63,7 +63,7 @@ app.post("/submitform", (req, res, next) => {
 
   
     const query = {
-      text: 'INSERT INTO form_submissions2(id, name, email, event_category, event_date, state, city, event_description, created_on, event_title) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+      text: 'INSERT INTO form_submissions(id, name, email, event_category, event_date, state, city, event_description, created_on, event_title) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
       values: [id, name, email, event_category, event_date, state, city, event_description, new Date(), event_title],
     }
     
