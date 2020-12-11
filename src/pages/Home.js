@@ -81,6 +81,9 @@ class Home extends Component {
 
                     </div>
                 </div>
+                <div className={styles.graybar}>
+                <p><strong>Tweet about incidents in your community using our hashtag.</strong>  (i.e. #protestaway-policebrutality, #protestaway-workplacediscrimination)</p>
+                </div>
                 <div className={styles.TweetsAndIncidentsContainer}>
                     <div className={styles.TweetsAndIncidentsNavbar}>
                         {this.state.selected === 'tweets' ?

@@ -1,7 +1,7 @@
 // yellow: #FBEE1F
 // breakpoints
-$medium: 1920px;
-$large: 1366px;
+$medium: 1280px;
+$large: 1920px;
 
 body {
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
@@ -89,7 +89,7 @@ body {
       display: flex;
       overflow: hidden;
       // transform: skew(-30deg);
-      @media screen and (max-width: $medium) {
+      @media only screen and (min-width: $large) {
         height: 338px;
         // background-color: #000000;
         background-image: linear-gradient(
@@ -176,6 +176,18 @@ body {
       font-size: 33px;
     }
 
+    .graybar {
+      height: 50px;
+      width: 100%;
+      background-color: #6f6f6f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        color: white;
+      }
+    }
+
     .TrendingHashtagsContainer {
       color: white;
       width: 45%;
@@ -184,10 +196,9 @@ body {
       position: relative;
       top: 7rem;
       bottom: 2rem;
-      left: -02%;
-
-      @media screen and (max-width: $medium) {
-        color: white;
+      left: -10%;
+      @media only screen and (min-width: $large) {
+        color: #ffffff;
         width: 45%;
         max-width: 30rem;
         height: 10rem;
@@ -262,8 +273,8 @@ body {
             color: #707070;
             border-bottom: 15px solid #c4c4c4;
           }
-          .TweetsButton{
-            border-bottom: 15px solid #FBEE1F;
+          .TweetsButton {
+            border-bottom: 15px solid #fbee1f;
           }
           .TweetsButton,
           .IncidentsButton {
@@ -357,3 +368,4 @@ body {
     font-family: Georgia, "Times New Roman", Times, serif;
   }
 }
+// media queries
