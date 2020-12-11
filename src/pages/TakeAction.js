@@ -1,7 +1,5 @@
 import styles from '../../src/App.module.scss';
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
-import ReactDOM from "react-dom";
 import actionstyles from "../../src/Action.module.scss";
 import rep from "./rep.png";
 import donate from "./donate.png";
@@ -33,7 +31,7 @@ class Action extends Component {
         let zipcode = this.state.zipcode;
          // usgeocoder for finding representatives to contact
         var request = require('request');
-        var url = 'https://cors-anywhere.herokuapp.com/https://usgeocoder.com/api/get_info.php?zipcode=' + zipcode + '&authkey=7727c367c836716b4e2b587c6a66b4ee&format=json'
+        var url = 'https://cors-anywhere.herokuapp.com/https://usgeocoder.com/api/get_info.php?zipcode=' + zipcode + '&authkey=c78292f63121ce1bbd1a464eec8f799b&format=json'
         var representativesInfo;
         request(url, function(err, response, body) {
             body = JSON.parse(body); 
@@ -112,6 +110,7 @@ class Action extends Component {
         return (
             <div className={actionstyles.floatContainer}>
                 <h1 className={styles.Header}>Take Action</h1>
+                <h3><b>{data.event_title}</b></h3>
                 <p><b>{data.event_category}</b></p>
                 <p>Location: {data.city}, {data.state}</p>
                 <p>Date: {data.event_date}</p><br />
@@ -150,34 +149,20 @@ class Action extends Component {
                     width={93}/><br/><br/>
                     Donate to an affiliated civic organization</a>
                 <br/>
-                <div className={actionstyles.action}><img
+                <a 
+                className={actionstyles.action} 
+                href="https://www.house.gov/representatives/find-your-representative" target="_blank">
+                <img
                     src={rep}
                     height={93}
                     width={93}/>
-                
-                <form onSubmit={this.handleSubmit}>
-                <p>Contact your local representative</p>
-                <label>
-                    Zip code  
-                    <input name="zipcode" type="text" onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
+                    <br/><br/>
+                    Contact your local representative</a>
 
-                </form>
+
+                
                 </div>
-                </div>
-                <div id="repInfo1title"></div>
-                <div id="repInfo1"></div><br/>
-                <div id="repInfo2title"></div>
-                <div id="repInfo2"></div><br/>
-                <div id="repInfo3title"></div>
-                <div id="repInfo3"></div><br/>
-                <div id="repInfo4title"></div>
-                <div id="repInfo4"></div><br/>
-                <div id="repInfo5title"></div>
-                <div id="repInfo5"></div><br/>
-                <div id="repInfo6title"></div>
-                <div id="repInfo6"></div>
+                
                 </div>
                 </div>
             </div>

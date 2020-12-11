@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 
 //Database Config .env
 const config = {
+  host: process.env.PG_HOST ? process.env.PG_HOST : 'localhost' ,
   user: process.env.PG_USER,
   database: process.env.PG_DATABASE,
   password: process.env.PG_PASS,
@@ -49,6 +50,7 @@ app.post("/submitform", (req, res, next) => {
     if (err) {
       console.log("Can not connect to the DB because of " + err);
     }
+    console.log('we connected to db!')
     const id = req.body.id;
     const name = req.body.name;
     const email = req.body.email;
@@ -56,12 +58,13 @@ app.post("/submitform", (req, res, next) => {
     const event_date = req.body.event_date;
     const state = req.body.state;
     const city = req.body.city;
+    const event_title = req.body.event_title;
     const event_description = req.body.event_description;
 
   
     const query = {
-      text: 'INSERT INTO form_submissions(id, name, email, event_category, event_date, state, city, event_description, created_on) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
-      values: [id, name, email, event_category, event_date, state, city, event_description, new Date()],
+      text: 'INSERT INTO form_submissions(id, name, email, event_category, event_date, state, city, event_description, created_on, event_title) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
+      values: [id, name, email, event_category, event_date, state, city, event_description, new Date(), event_title],
     }
     
     client.query(query, function(err, result) {
