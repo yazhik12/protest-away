@@ -1,51 +1,56 @@
 // yellow: #FBEE1F
+// breakpoints
+$medium: 1920px;
+$large: 1366px;
 
 body {
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
+
   .Main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:0 auto;
-    position:absolute;
+    margin: 0 auto;
+    position: absolute;
     top: 6rem;
-    left:0;
-    right:0;
-    width:100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+
     .Container {
       margin-left: 2rem;
       margin-right: 2rem;
       width: 1300px;
-      margin-top:1rem;
-      table{
-        border-collapse: collapse;
-        width: 100%;
-      }
-      td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-        max-width: 10px;
-         overflow: hidden;
-        text-overflow: ellipsis;
+      margin-top: 1rem;
+      // table {
+      //   border-collapse: collapse;
+      //   width: 100%;
+      // }
+      // td {
+      //   padding: 8px;
+      //   text-align: left;
+      //   border-bottom: 1px solid #ddd;
+      //   max-width: 10px;
+      //   overflow: hidden;
+      //   text-overflow: ellipsis;
+      // }
+      // td.tweets {
+      //   overflow: hidden;
+      //   text-overflow: ellipsis;
+      //   max-width: 500px;
+      // }
 
-      }
-      // td.tweets{
-        // overflow: hidden;
-        // text-overflow: ellipsis;
-      //   max-width: 200px;
+      // th {
+      //   border-bottom: 3px solid #000;
+      //   padding: 8px;
+      //   text-align: left;
       // }
-     
-      th{
-        // border-bottom: 3px solid #000;
-        padding: 8px;
-        text-align: left;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        flex-direction: column;
       }
-      // ul {
-      //   list-style: none;
-      //   padding: 0;
-      //   flex-direction: column;
-      // }
       h2 {
         text-align: center;
       }
@@ -53,126 +58,199 @@ body {
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       background: white;
       .Data {
-        margin: 15px;
+        margin-left: 15px;
       }
       .TakeActionButton {
         border: 1px solid#FBEE1F;
         border-radius: 10%;
-        background-color: #FBEE1F;
+        background-color: #fbee1f;
+        margin-right: 220px;
       }
     }
     .BannerContainer {
-      height: 16rem;
-      background-color: black;
-      width:100%;
+      height: 338px;
+      // background-color: #000000;
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.52),
+          rgba(0, 0, 0, 0.73)
+        ),
+        url("https://images.unsplash.com/photo-1591042989061-3911e1b623c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+      background-repeat: no-repeat;
+      background-size: 1000px 480px;
+      object-fit: cover;
+      background-position: 100%;
+      z-index: -2;
+      width: 100%;
       position: relative;
-      top:0;
-      left:0;
-      right:0;
-      display:flex;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      overflow: hidden;
+      // transform: skew(-30deg);
+      @media screen and (max-width: $medium) {
+        height: 338px;
+        // background-color: #000000;
+        background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.52),
+            rgba(0, 0, 0, 0.73)
+          ),
+          url("https://images.unsplash.com/photo-1591042989061-3911e1b623c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-repeat: no-repeat;
+        background-size: 1062px 480px;
+        object-fit: cover;
+        background-position: 100%;
+        z-index: -2;
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        overflow: hidden;
+      }
     }
+    .BannerContainer::before {
+      content: "";
+      position: absolute;
+      width: 55%;
+      height: 200%;
+      top: -50%;
+      left: -100px;
+      z-index: -1;
+      // background: url("https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=611&q=80");
+      // background-repeat: no-repeat;
+      background-color: black;
+      transform: skew(-30deg);
+    }
+
     .BannerHeaderContainer {
-      width:30%;
-      max-width: 28rem;
-      height:11rem;
-      position:relative;
-      top:3rem;
-      left:2rem;
+      width: 80%;
+      max-width: 50rem;
+      height: 15rem;
+      position: relative;
+      top: 5rem;
+      left: 2rem;
     }
     .BannerHeader {
-      background-color:#FBEE1F;
-      height:9rem;
-      position:relative;
-      top:0;
-      left:0;
-      width:100%;
+      // background-color: #fbee1f;
+      height: 9rem;
+      position: relative;
+      top: 20px;
+      right: 70px;
+      bottom: 50px;
+      width: 100%;
     }
     .BannerText {
       font-family: georgia;
-      font-weight:bold;
-      font-size: 2.5rem;
+      font-weight: bold;
+      font-size: 34px;
       position: relative;
       top: 2rem;
-      left:4rem;
+      left: 4rem;
+      color: white;
+      span {
+        color: #fbee1f;
+      }
     }
-    .BannerSloganContainer{
-      background: white;
-      position:relative;
-      width:60%;
-      height:2.5rem;
-      left:60%;
-      top:3rem;
-      display:flex;
+    .BannerSloganContainer {
+      position: relative;
+      width: 100%;
+      height: 2.5rem;
+      left: 11%;
+      top: 0.75rem;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-content: center;
     }
     .BannerSloganText {
-      font-family: arial;
-      font-weight:bold;
+      font-family: georgia;
+      font-weight: bold;
       vertical-align: middle;
-      margin-left:1rem;
+      margin-left: -1.5rem;
+      margin-top: 2.5rem;
+      color: #fbee1f;
+      font-size: 33px;
     }
-    .BannerHeaderSubtextContainer {
-      width:120%;
-      height:2rem;
-      position:relative;
-      top:0rem;
-      left:0rem;
-    }
-    .BannerHeaderSubtext {
-      font-family:georgia;
-      color:white;
-      font-size: 9pt;
-    }
+
     .TrendingHashtagsContainer {
-      color:white;
+      color: white;
       width: 45%;
       max-width: 30rem;
-      height:10rem;
-      position:relative;
-      top:3rem;
-      bottom:2rem;
-      left:20%;
+      height: 10rem;
+      position: relative;
+      top: 7rem;
+      bottom: 2rem;
+      left: -02%;
+
+      @media screen and (max-width: $medium) {
+        color: white;
+        width: 45%;
+        max-width: 30rem;
+        height: 10rem;
+        position: relative;
+        top: 7rem;
+        bottom: 2rem;
+        left: 20%;
+      }
     }
     .TrendingHashtagsHeader {
-      font-family:georgia;
-      font-weight:bold;
+      font-family: georgia;
+      font-weight: bold;
     }
     .TrendingHashtagsDivider {
-      height:0.125rem;
-      background-color: #FBEE1F;
+      height: 0.125rem;
+      background-color: #fbee1f;
       border: none;
     }
     .HashtagData {
       list-style: none;
-      position:relative;
-      left:0;
-      padding-left:0;
+      position: relative;
+      left: 0;
+      padding-left: 0;
     }
     .HashtagListEntry {
-      display:flex;
+      display: flex;
       justify-content: space-between;
-      padding-left:0;
+      padding-left: 0;
+    }
+    .tweet {
+      width: 100%;
+      height: 60px;
+      background-color: #555;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .BannerHeaderSubtextContainer {
+        .BannerHeaderSubtext {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          color: white;
+          font-size: 14pt;
+        }
+      }
     }
     .TweetsAndIncidentsNavbar {
-      //background:blue;
-      width:100%;
+      // background: blue;
+      width: 100%;
       height: 4rem;
-      position:relative;
-      top:0;
-      left:0;
+      position: relative;
+      top: 0;
+      left: 0;
     }
     .TweetsAndIncidentsContainer {
       //background:blue;
       padding: 15px;
-      width:100%;
+      width: 100%;
       .TweetsAndIncidentsNavbar {
         //background: orange;
-        width:100%;
-        height:3rem;
+        width: 100%;
+        height: 3rem;
         .TweetsAndIncidentsButtonsContainer {
-          display:flex;
+          display: flex;
           flex-direction: row;
           font-family: arial;
           font-weight: bold;
@@ -180,39 +258,48 @@ body {
           .TweetsButton {
             padding-left: 1rem;
           }
-          .TweetsButton, .IncidentsButton {
+          .IncidentsButton {
+            color: #707070;
+            // border-bottom: 15px solid #c4c4c4;
+          }
+          .TweetsButton,
+          .IncidentsButton {
             height: 2.875rem;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            padding-left:2rem;
-            padding-right:2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
             cursor: pointer;
           }
-          .TweetsButton:hover, .IncidentsButton:hover {
-            border-bottom:0.125rem solid #707070;
-          }
-      
+          // .TweetsButton:hover,
+          // .IncidentsButton:hover {
+          //   border-bottom: 0.125rem solid #707070;
+          // }
         }
       }
-      .Dropdown{
+      .Dropdown {
         padding: 2rem;
         margin-left: 1.5rem;
-       
-         
+        display: flex;
+        justify-content: space-between;
       }
-      label{
+      form:nth-child(2) {
+        margin-right: 200px;
+      }
+
+      label {
         padding: 10px;
       }
-      select{
-        border:  1px solid #666;
-        border-radius: 5px;
-        width: 300px;
-        // padding-left: 10px;
+      select {
+        border: 1px solid #707070;
+        border-radius: 10px;
+        width: 250px;
+        height: 50px;
+        padding-left: 7px;
+        padding-right: 5px;
       }
     }
- 
-    
   }
   .link {
     text-decoration: inherit;
@@ -223,39 +310,47 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    display:flex;
+    display: flex;
     height: 6rem;
     width: 100%;
-    background-color: #FBEE1F;
+    background-color: #fbee1f;
     color: black;
     font-family: arial;
     .NavbarLinks {
-      display:flex;
+      display: flex;
       justify-content: flex-end;
       flex: 1;
-      padding-right:2rem;
+      padding-right: 2rem;
     }
   }
   .NavbarHeaderText {
-    padding-left:2rem;
-    padding-top:1rem;
+    padding-left: 8rem;
+    padding-top: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     .Bold {
-      font-weight:bolder;
+      font-weight: bolder;
     }
   }
   .NavbarLink {
-    padding-right:1rem;
-    padding-top:1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    button {
+      background-color: black;
+      border: solid;
+      border-radius: 7px;
+      width: 230px;
+      cursor: pointer;
+      h5 {
+        color: white;
+      }
+    }
   }
   .NavbarLink:hover {
-    font-size:1.1em;
+    font-size: 1.1em;
   }
   .Header {
-    margin-top:6rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
+    margin-top: 6rem;
+    font-family: Georgia, "Times New Roman", Times, serif;
   }
-  
 }
-
-
