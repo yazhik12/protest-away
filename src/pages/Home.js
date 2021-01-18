@@ -146,17 +146,14 @@ class Home extends Component {
                                 return (
                                     <div key={i} className={styles.Data}>
                                         <ul>
-                                            {<li><b>Name:</b> {item.name}</li>}
-                                            {<li><b>Category:</b> {item.event_category}</li>}
-                                            {<li><b>Date:</b> {moment(item.event_date).format("LL")}</li>}
-                                            {<li><b>State:</b> {item.state}</li>}
-                                            {<li><b>City:</b> {item.city}</li>}
-                                            {<li><b>Title:</b> {item.event_title}</li>}
-                                            {<li><b>Description:</b> {item.event_description}</li>}
+                                            {<li>{item.event_title}</li>}
+                                            {<li> {moment(item.event_date).format("LL")}</li>}
+                                            {<li>{item.event_category}</li>}
+                                            {<li>{item.city}, {item.state}</li>}
                                             {<li><Link to={{
                                                 pathname: '/action',
                                                 data: item
-                                            }}><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
+                                            }}><button className={styles.TakeActionButton}><strong>Take Action</strong></button></Link></li>}
                                         </ul>
                                     </div>
                                 );
