@@ -123,14 +123,14 @@ class Home extends Component {
                                             return (
                                                 <div key={i} className={styles.Data}>
                                                     <ul>
-                                                        {<li><b>Hashtag:</b> {item["hashtag"]}</li>}
-                                                        {<li><b>Post:</b> {item2["text"]}</li>}
-                                                        {<li><b>Location:</b> {item2["user"]["location"]}</li>}
-                                                        {<li><b>Date:</b> {moment(item2["created_at"]).format("LL")}</li>}
+                                                        {<li>{item["hashtag"]}</li>}
+                                                        {<li>{item2["text"]}</li>}
+                                                        {<li>{item2["user"]["location"]}</li>}
+                                                        {<li>{moment(item2["created_at"]).format("LL")}</li>}
                                                         {<li><Link to={{
                                                             pathname: '/action',
                                                             data: tweetObj
-                                                        }}><button className={styles.TakeActionButton}>Take Action</button></Link></li>}
+                                                        }}><button className={styles.TakeActionButton}><strong>Take Action</strong></button></Link></li>}
                                                     </ul>
                                                 </div>
                                             );
@@ -147,7 +147,7 @@ class Home extends Component {
                                     <div key={i} className={styles.Data}>
                                         <ul>
                                             {<li>{item.event_title}</li>}
-                                            {<li> {moment(item.event_date).format("LL")}</li>}
+                                            {<li>{moment(item.event_date).format("LL")}</li>}
                                             {<li>{item.event_category}</li>}
                                             {<li>{item.city}, {item.state}</li>}
                                             {<li><Link to={{
