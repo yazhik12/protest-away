@@ -149,27 +149,10 @@ class Home extends Component {
                   return (
                     <div key={i} className={styles.Data}>
                       <ul>
-                        {
-                          <li>
-                            <b>Hashtag:</b> {item["hashtag"]}
-                          </li>
-                        }
-                        {
-                          <li>
-                            <b>Post:</b> {item2["text"]}
-                          </li>
-                        }
-                        {
-                          <li>
-                            <b>Location:</b> {item2["user"]["location"]}
-                          </li>
-                        }
-                        {
-                          <li>
-                            <b>Date:</b>{" "}
-                            {moment(item2["created_at"]).format("LL")}
-                          </li>
-                        }
+                        {<li>{item["hashtag"]}</li>}
+                        {<li>{item2["text"]}</li>}
+                        {<li>{item2["user"]["location"]}</li>}
+                        {<li>{moment(item2["created_at"]).format("LL")}</li>}
                         {
                           <li>
                             <Link
@@ -179,7 +162,7 @@ class Home extends Component {
                               }}
                             >
                               <button className={styles.TakeActionButton}>
-                                Take Action
+                                <strong>Take Action</strong>
                               </button>
                             </Link>
                           </li>
@@ -196,39 +179,12 @@ class Home extends Component {
                 return (
                   <div key={i} className={styles.Data}>
                     <ul>
+                      {<li>{item.event_title}</li>}
+                      {<li>{moment(item.event_date).format("LL")}</li>}
+                      {<li>{item.event_category}</li>}
                       {
                         <li>
-                          <b>Name:</b> {item.name}
-                        </li>
-                      }
-                      {
-                        <li>
-                          <b>Category:</b> {item.event_category}
-                        </li>
-                      }
-                      {
-                        <li>
-                          <b>Date:</b> {moment(item.event_date).format("LL")}
-                        </li>
-                      }
-                      {
-                        <li>
-                          <b>State:</b> {item.state}
-                        </li>
-                      }
-                      {
-                        <li>
-                          <b>City:</b> {item.city}
-                        </li>
-                      }
-                      {
-                        <li>
-                          <b>Title:</b> {item.event_title}
-                        </li>
-                      }
-                      {
-                        <li>
-                          <b>Description:</b> {item.event_description}
+                          {item.city}, {item.state}
                         </li>
                       }
                       {
@@ -240,7 +196,7 @@ class Home extends Component {
                             }}
                           >
                             <button className={styles.TakeActionButton}>
-                              Take Action
+                              <strong>Take Action</strong>
                             </button>
                           </Link>
                         </li>
