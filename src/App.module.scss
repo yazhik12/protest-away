@@ -57,10 +57,11 @@ body {
           justify-content: space-between;
         }
 
-        li{
+        li {
           display: flex;
           align-items: center;
           width: 20%;
+          justify-content: space-evenly;
         }
       }
       h2 {
@@ -128,33 +129,16 @@ body {
     }
     .BannerContainer::before {
       content: "";
-      height: 0;
-      width: 0;
-      border-left: 175px solid black;
-      border-right: 175px solid transparent;
-      border-bottom: 175px solid transparent;
-      border-top: 175px solid transparent;
-      z-index: 1;
-      // content: "";
       position: absolute;
-      // width: 55%;
-      // height: 200%;
-      top: -1px;
-      left: 857px;
-      // z-index: -1;
-      // // background: url("https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=611&q=80");
-      // // background-repeat: no-repeat;
-      // background-color: black;
-      // transform: skew(-30deg);
-    }
-    .BannerContainer::after {
-      content: "";
-      background-color: black;
-      left: -10px;
-      height: 100%;
-      width: 45.25%;
-      position: absolute;
+      width: 55%;
+      height: 200%;
+      top: -50%;
+      left: -100px;
       z-index: -1;
+      // background: url("https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=611&q=80");
+      // background-repeat: no-repeat;
+      background-color: black;
+      transform: skew(-30deg);
     }
 
     .BannerHeaderContainer {
@@ -384,7 +368,7 @@ body {
       background-color: black;
       border: solid;
       border-radius: 7px;
-      width: 170px;
+      width: 230px;
       cursor: pointer;
       h5 {
         color: white;
