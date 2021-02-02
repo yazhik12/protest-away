@@ -21,7 +21,7 @@ body {
       margin-left: 2rem;
       margin-right: 2rem;
       width: 1300px;
-      margin-top: 1rem;
+      margin-top: 5rem;
       // table {
       //   border-collapse: collapse;
       //   width: 100%;
@@ -68,7 +68,7 @@ body {
         text-align: center;
       }
 
-      border-top: 4px solid #1565c0;
+      border-top: 4px solid black;
       background: white;
       .Data {
         margin-left: 15px;
@@ -130,7 +130,7 @@ body {
     .BannerContainer::before {
       content: "";
       position: absolute;
-      width: 55%;
+      width: 50%;
       height: 200%;
       top: -50%;
       left: -100px;
@@ -138,7 +138,25 @@ body {
       // background: url("https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=611&q=80");
       // background-repeat: no-repeat;
       background-color: black;
-      transform: skew(-30deg);
+      transform: skew(-0deg);
+    }
+
+    .BannerContainer::after {
+      content: "";
+      // background-color: red;
+      // left: -10px;
+      // height: 100%;
+      // width: 45.25%;
+      // position: absolute;
+      // z-index: -1;
+      // transform: skew(-60deg);
+      width: 0;
+      height: 0;
+      border-top: 175px solid transparent;
+      border-left: 175px solid black;
+      border-bottom: 175px solid transparent;
+      position: absolute;
+      right: 46.1%;
     }
 
     .BannerHeaderContainer {
@@ -275,6 +293,35 @@ body {
         //background: orange;
         width: 100%;
         height: 3rem;
+
+        .filters {
+          display: flex;
+          justify-content: space-evenly;
+          width: 1000px;
+          margin-top: 5rem;
+          position: relative;
+          right: 21.625rem;
+
+          div:nth-child(2) {
+            margin-right: 20px;
+          }
+          div:nth-child(3) {
+            margin-right: 50px;
+          }
+
+          div:nth-child(1) {
+            margin-right: 35px;
+          }
+
+          .singleFilter {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            // margin-right: 20%;
+            font-weight: bolder;
+          }
+        }
         .TweetsAndIncidentsButtonsContainer {
           display: flex;
           flex-direction: row;

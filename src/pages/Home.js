@@ -127,6 +127,12 @@ class Home extends Component {
                 >
                   TWITTER POSTS
                 </div>
+                <div className={styles.filters}>
+                  <div className={styles.singleFilter}>Post</div>
+                  <div className={styles.singleFilter}>Date</div>
+                  <div className={styles.singleFilter}>Incident Type</div>
+                  <div className={styles.singleFilter}>Location</div>
+                </div>
               </div>
             )}
           </div>
