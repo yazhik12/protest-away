@@ -8,10 +8,15 @@ class Home extends Component {
     super(props);
     this.state = {
       data: [],
+      filteredData: [],
+      categoryFilter: 'None',
+      stateFilter: 'None',
+      cityFilter: '',
       tweets: this.getTweets(),
       selected: "incidents" | "tweets",
     };
     this.getTweets = this.getTweets.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +36,81 @@ class Home extends Component {
     this.setState({ selected: "tweets" });
   }
 
+  handleFilter = (event) => {
+    let name = event.target.name
+    let value = event.target.value;
+    this.setState({ [name]: value });
+
+    var categoryFilter = this.state.categoryFilter;
+    var stateFilter = this.state.stateFilter;
+    var cityFilter = this.state.cityFilter;
+
+    if (name == "categoryFilter") {
+      categoryFilter = value;
+    } else if (name == "stateFilter") {
+      stateFilter = value;
+    } else if (name == "cityFilter") {
+      cityFilter = value;
+    }
+
+
+    // Category
+    var categoryFilteredData = [];
+    if (categoryFilter != 'None') {
+      for (var i = 0; i < this.state.data.length; i++) { 
+        if (this.state.data[i].event_category == categoryFilter) {
+          categoryFilteredData.push(this.state.data[i]);
+        }
+      } 
+    } else {
+      categoryFilteredData = this.state.data;
+    }
+
+    // State
+    var categoryAndStateFilteredData = [];
+    if (stateFilter != 'None') {
+      for (var i = 0; i < categoryFilteredData.length; i++) { 
+        if (categoryFilteredData[i].state == stateFilter) {
+          categoryAndStateFilteredData.push(categoryFilteredData[i]);
+        }
+      } 
+    } else {
+      categoryAndStateFilteredData = categoryFilteredData;
+    }
+
+    // City
+    var allFilteredData = [];
+    if (cityFilter != '') {
+      for (var i = 0; i < categoryAndStateFilteredData.length; i++) { 
+        if (categoryAndStateFilteredData[i].city.toLowerCase().includes(cityFilter.toLowerCase())) {
+          allFilteredData.push(categoryAndStateFilteredData[i]);
+        }
+      } 
+    } else {
+      allFilteredData = categoryAndStateFilteredData;
+    }
+
+    this.setState({ filteredData: allFilteredData }); 
+    
+  }
+
+
+  getIncidentTypes() {
+        return ['None','Police Accountability',
+            'Corporate Accountability',
+            'Criminal Justice Policy',
+            'Education',
+            'Employment Discrimination',
+            'Wrongful Imprisonment',
+            'Racist Advertisement',
+            'Media Coverage',
+            'Immigration',
+            'Economic Justice',
+            'Other'
+        ];
+    }
+
+
   render() {
     console.log(this.state.tweets);
     let dummyHashtagData = [
@@ -39,6 +119,10 @@ class Home extends Component {
       { name: "#racism", val: 57263 },
       { name: "#protest", val: 33495 },
     ];
+    var types = this.getIncidentTypes();
+    var states = this.getStates();
+    var formData = (this.state.categoryFilter != 'None' || this.state.stateFilter != 'None' ||
+                    this.state.cityFilter != '') ? this.state.filteredData : this.state.data;
     return (
       <div className={styles.Main}>
         <div className={styles.BannerContainer}>
@@ -136,6 +220,22 @@ class Home extends Component {
               </div>
             )}
           </div>
+           <label>
+              Filter by Incident: 
+              <select name="categoryFilter" onChange={this.handleFilter} >
+                {types.map((type) => <option key={type} value={type}>{type}</option>)}
+              </select>
+            </label>
+            <label>
+              Filter by State:
+              <select name="stateFilter" onChange={this.handleFilter} >
+                {states.map((state) => <option key={state} value={state}>{state}</option>)}
+              </select>
+            </label>
+            <label>
+              Filter by City: 
+              <input type="text" placeholder="city" name="cityFilter" onChange={this.handleFilter}/>
+            </label>
           {this.state.selected === "tweets" ? (
             <div className={styles.Container}>
               {this.state.tweets.map((item, i) => {
@@ -181,7 +281,7 @@ class Home extends Component {
             </div>
           ) : (
             <div className={styles.Container}>
-              {this.state.data.map((item, i) => {
+              {formData.map((item, i) => {
                 return (
                   <div key={i} className={styles.Data}>
                     <ul>
@@ -280,6 +380,10 @@ class Home extends Component {
 
     return tweetsMap;
   }
+
+  getStates() {
+        return ['None', 'Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+    }
 }
 
 export default Home;

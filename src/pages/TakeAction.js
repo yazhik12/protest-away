@@ -6,6 +6,7 @@ import donate from "./donate.png";
 import petition from "./petition.png";
 import desc from "./desc.png";
 import action from "./actions.png";
+import moment from "moment";
 
 
 class Action extends Component {
@@ -113,7 +114,7 @@ class Action extends Component {
                 <h3><b>{data.event_title}</b></h3>
                 <p><b>{data.event_category}</b></p>
                 <p>Location: {data.city}, {data.state}</p>
-                <p>Date: {data.event_date}</p><br />
+                <p>Date: {moment(data.event_date).format("LL")}</p><br />
                 <div className={actionstyles.descAndAction}>
                 <div className={actionstyles.desc}>
                 <img
