@@ -2,6 +2,8 @@ import styles from "../../src/App.module.scss";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 class Home extends Component {
   constructor(props) {
@@ -9,9 +11,9 @@ class Home extends Component {
     this.state = {
       data: [],
       filteredData: [],
-      categoryFilter: 'None',
-      stateFilter: 'None',
-      cityFilter: '',
+      categoryFilter: "None",
+      stateFilter: "None",
+      cityFilter: "",
       tweets: this.getTweets(),
       selected: "incidents" | "tweets",
     };
@@ -37,7 +39,7 @@ class Home extends Component {
   }
 
   handleFilter = (event) => {
-    let name = event.target.name
+    let name = event.target.name;
     let value = event.target.value;
     this.setState({ [name]: value });
 
@@ -53,63 +55,65 @@ class Home extends Component {
       cityFilter = value;
     }
 
-
     // Category
     var categoryFilteredData = [];
-    if (categoryFilter != 'None') {
-      for (var i = 0; i < this.state.data.length; i++) { 
+    if (categoryFilter != "None") {
+      for (var i = 0; i < this.state.data.length; i++) {
         if (this.state.data[i].event_category == categoryFilter) {
           categoryFilteredData.push(this.state.data[i]);
         }
-      } 
+      }
     } else {
       categoryFilteredData = this.state.data;
     }
 
     // State
     var categoryAndStateFilteredData = [];
-    if (stateFilter != 'None') {
-      for (var i = 0; i < categoryFilteredData.length; i++) { 
+    if (stateFilter != "None") {
+      for (var i = 0; i < categoryFilteredData.length; i++) {
         if (categoryFilteredData[i].state == stateFilter) {
           categoryAndStateFilteredData.push(categoryFilteredData[i]);
         }
-      } 
+      }
     } else {
       categoryAndStateFilteredData = categoryFilteredData;
     }
 
     // City
     var allFilteredData = [];
-    if (cityFilter != '') {
-      for (var i = 0; i < categoryAndStateFilteredData.length; i++) { 
-        if (categoryAndStateFilteredData[i].city.toLowerCase().includes(cityFilter.toLowerCase())) {
+    if (cityFilter != "") {
+      for (var i = 0; i < categoryAndStateFilteredData.length; i++) {
+        if (
+          categoryAndStateFilteredData[i].city
+            .toLowerCase()
+            .includes(cityFilter.toLowerCase())
+        ) {
           allFilteredData.push(categoryAndStateFilteredData[i]);
         }
-      } 
+      }
     } else {
       allFilteredData = categoryAndStateFilteredData;
     }
 
-    this.setState({ filteredData: allFilteredData }); 
-    
-  }
-
+    this.setState({ filteredData: allFilteredData });
+  };
 
   getIncidentTypes() {
-        return ['None','Police Accountability',
-            'Corporate Accountability',
-            'Criminal Justice Policy',
-            'Education',
-            'Employment Discrimination',
-            'Wrongful Imprisonment',
-            'Racist Advertisement',
-            'Media Coverage',
-            'Immigration',
-            'Economic Justice',
-            'Other'
-        ];
-    }
-
+    return [
+      "None",
+      "Police Accountability",
+      "Corporate Accountability",
+      "Criminal Justice Policy",
+      "Education",
+      "Employment Discrimination",
+      "Wrongful Imprisonment",
+      "Racist Advertisement",
+      "Media Coverage",
+      "Immigration",
+      "Economic Justice",
+      "Other",
+    ];
+  }
 
   render() {
     console.log(this.state.tweets);
@@ -121,8 +125,12 @@ class Home extends Component {
     ];
     var types = this.getIncidentTypes();
     var states = this.getStates();
-    var formData = (this.state.categoryFilter != 'None' || this.state.stateFilter != 'None' ||
-                    this.state.cityFilter != '') ? this.state.filteredData : this.state.data;
+    var formData =
+      this.state.categoryFilter != "None" ||
+      this.state.stateFilter != "None" ||
+      this.state.cityFilter != ""
+        ? this.state.filteredData
+        : this.state.data;
     return (
       <div className={styles.Main}>
         <div className={styles.BannerContainer}>
@@ -137,21 +145,15 @@ class Home extends Component {
                 </div>
               </div>
             </div>
-            <div className={styles.BannerHeaderSubtextContainer}>
-              <p className={styles.BannerHeaderSubtext}>
-                <strong>
-                  Tweet about incidents in your community using our hashtag.
-                </strong>
-                <br />
-                (i.e #protestaway-policebrutality,
-                #protestaway-workplacediscrimination)
-              </p>
-            </div>
           </div>
           <div className={styles.TrendingHashtagsContainer}>
-            <div className={styles.TrendingHashtagsHeader}>
-              Trending Hashtags on Twitter
+            <div className={styles.HashtagContainer}>
+              <div className={styles.TrendingHashtagsHeader}>
+                Trending Hashtags on Twitter{" "}
+              </div>
+              <TwitterIcon className={styles.twitterButton} />
             </div>
+
             <hr className={styles.TrendingHashtagsDivider} />
             <div className={styles.TrendingHashtagsList}>
               <ul className={styles.HashtagData}>
@@ -170,13 +172,16 @@ class Home extends Component {
           </div>
         </div>
         <div className={styles.graybar}>
-          <p>
-            <strong>
-              Tweet about incidents in your community using our hashtag.
-            </strong>{" "}
-            (i.e. #protestaway-policebrutality,
-            #protestaway-workplacediscrimination)
-          </p>
+          <div className={styles.messageContainer}>
+            <TwitterIcon className={styles.twitterButton} />
+            <p>
+              <strong>
+                Tweet about incidents in your community using our hashtag.
+              </strong>{" "}
+              (i.e. #protestaway-policebrutality,
+              #protestaway-workplacediscrimination)
+            </p>
+          </div>
         </div>
         <div className={styles.TweetsAndIncidentsContainer}>
           <div className={styles.TweetsAndIncidentsNavbar}>
@@ -211,31 +216,52 @@ class Home extends Component {
                 >
                   TWITTER POSTS
                 </div>
-                <div className={styles.filters}>
-                  <div className={styles.singleFilter}>Post</div>
-                  <div className={styles.singleFilter}>Date</div>
-                  <div className={styles.singleFilter}>Incident Type</div>
-                  <div className={styles.singleFilter}>Location</div>
-                </div>
               </div>
             )}
           </div>
-           <label>
-              Filter by Incident: 
-              <select name="categoryFilter" onChange={this.handleFilter} >
-                {types.map((type) => <option key={type} value={type}>{type}</option>)}
+          <div className={styles.Dropdown}>
+            <label>
+              Filter by Incident:
+              <select name="categoryFilter" onChange={this.handleFilter}>
+                {types.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
               </select>
             </label>
             <label>
               Filter by State:
-              <select name="stateFilter" onChange={this.handleFilter} >
-                {states.map((state) => <option key={state} value={state}>{state}</option>)}
+              <select name="stateFilter" onChange={this.handleFilter}>
+                {states.map((state) => (
+                  <option key={state} value={state}>
+                    {state}
+                  </option>
+                ))}
               </select>
             </label>
             <label>
-              Filter by City: 
-              <input type="text" placeholder="city" name="cityFilter" onChange={this.handleFilter}/>
+              Filter by City:
+              <input
+                type="text"
+                placeholder="city"
+                name="cityFilter"
+                onChange={this.handleFilter}
+              />
             </label>
+          </div>
+          <div className={styles.filters}>
+            <div className={styles.singleFilter}>Post</div>
+            <ArrowDropDownIcon className={styles.Arrow} />
+
+            <div className={styles.singleFilter}>Date</div>
+            <ArrowDropDownIcon className={styles.Arrow} />
+            <div className={styles.singleFilter}>Incident Type</div>
+            <ArrowDropDownIcon className={styles.Arrow} />
+            <div className={styles.singleFilter}>Location</div>
+            <ArrowDropDownIcon className={styles.Arrow} />
+          </div>
+
           {this.state.selected === "tweets" ? (
             <div className={styles.Container}>
               {this.state.tweets.map((item, i) => {
@@ -382,8 +408,69 @@ class Home extends Component {
   }
 
   getStates() {
-        return ['None', 'Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
-    }
+    return [
+      "None",
+      "Alabama",
+      "Alaska",
+      "American Samoa",
+      "Arizona",
+      "Arkansas",
+      "California",
+      "Colorado",
+      "Connecticut",
+      "Delaware",
+      "District of Columbia",
+      "Federated States of Micronesia",
+      "Florida",
+      "Georgia",
+      "Guam",
+      "Hawaii",
+      "Idaho",
+      "Illinois",
+      "Indiana",
+      "Iowa",
+      "Kansas",
+      "Kentucky",
+      "Louisiana",
+      "Maine",
+      "Marshall Islands",
+      "Maryland",
+      "Massachusetts",
+      "Michigan",
+      "Minnesota",
+      "Mississippi",
+      "Missouri",
+      "Montana",
+      "Nebraska",
+      "Nevada",
+      "New Hampshire",
+      "New Jersey",
+      "New Mexico",
+      "New York",
+      "North Carolina",
+      "North Dakota",
+      "Northern Mariana Islands",
+      "Ohio",
+      "Oklahoma",
+      "Oregon",
+      "Palau",
+      "Pennsylvania",
+      "Puerto Rico",
+      "Rhode Island",
+      "South Carolina",
+      "South Dakota",
+      "Tennessee",
+      "Texas",
+      "Utah",
+      "Vermont",
+      "Virgin Island",
+      "Virginia",
+      "Washington",
+      "West Virginia",
+      "Wisconsin",
+      "Wyoming",
+    ];
+  }
 }
 
 export default Home;
