@@ -251,15 +251,23 @@ class Home extends Component {
             </label>
           </div>
           <div className={styles.filters}>
-            <div className={styles.singleFilter}>Post</div>
-            <ArrowDropDownIcon className={styles.Arrow} />
+            <div className={styles.singleFilter}>
+              Post
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
 
-            <div className={styles.singleFilter}>Date</div>
-            <ArrowDropDownIcon className={styles.Arrow} />
-            <div className={styles.singleFilter}>Incident Type</div>
-            <ArrowDropDownIcon className={styles.Arrow} />
-            <div className={styles.singleFilter}>Location</div>
-            <ArrowDropDownIcon className={styles.Arrow} />
+            <div className={styles.singleFilter}>
+              Date
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
+            <div className={styles.singleFilter}>
+              Incident Type
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
+            <div className={styles.singleFilter}>
+              Location
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
           </div>
 
           {this.state.selected === "tweets" ? (

@@ -20,7 +20,7 @@ body {
     .Container {
       margin-left: 2rem;
       margin-right: 2rem;
-      width: 1300px;
+      width: 80%;
       // margin-top: 2rem;
       // table {
       //   border-collapse: collapse;
@@ -60,7 +60,7 @@ body {
         li {
           display: flex;
           align-items: center;
-          width: 30%;
+          width: 15%;
           justify-content: center;
         }
       }
@@ -165,7 +165,7 @@ body {
       height: 15rem;
       position: relative;
       top: 5rem;
-      left: 2rem;
+      left: 6rem;
     }
     .BannerHeader {
       // background-color: #fbee1f;
@@ -321,7 +321,7 @@ body {
         flex-direction: row;
         font-family: arial;
         font-weight: bold;
-        padding-left: 2rem;
+        padding-left: 5.5rem;
         .TweetsButton {
           padding-left: 1rem;
         }
@@ -331,6 +331,7 @@ body {
         }
         .TweetsButton {
           border-bottom: 15px solid #fbee1f;
+          width: 179.58px;
         }
         .TweetsButton,
         .IncidentsButton {
@@ -354,8 +355,22 @@ body {
         display: flex;
         justify-content: flex-start;
 
+        label:nth-child(1) {
+          position: relative;
+          left: -25px;
+        }
+
+        label:nth-child(2) {
+          position: relative;
+          left: -10px;
+        }
         label:nth-child(3) {
-          margin-left: 480px;
+          position: relative;
+          left: 550px;
+
+          input {
+            margin-left: 10px;
+          }
         }
 
         label {
@@ -369,7 +384,7 @@ body {
         input {
           border: 1px solid #707070;
           border-radius: 10px;
-          width: 100px;
+          width: 150px;
           height: 50px;
           padding-left: 15px;
           padding-right: 5px;
@@ -383,13 +398,12 @@ body {
       align-items: center;
       width: 1000px;
       position: relative;
-      left: 60px;
+      left: 45px;
       bottom: 20px;
 
       .singleFilter {
         display: flex;
         align-items: center;
-
         justify-content: center;
         // margin-right: 20%;
         font-weight: bolder;
@@ -397,22 +411,56 @@ body {
       .Arrow {
         color: #707070;
       }
-      .Arrow:nth-child(1n -2) {
-        // margin-right: 100px;
-        position: relative;
-        right: 80px;
-      }
+
+      // .Arrow:nth-child(1n -2) {
+      //   // margin-right: 100px;
+      //   position: relative;
+      //   right: 80px;
+      // }
 
       // div:nth-child(2) {
-      //   margin-right: 20px;
-      // }
-      // div:nth-child(3) {
-      //   margin-right: 50px;
+      //   position: relative;
+      //   right: 100px;
       // }
 
-      // div:nth-child(1) {
-      //   margin-right: 35px;
-      // }
+      .singleFilter:nth-child(1) {
+        position: relative;
+        right: 40px;
+
+        .Arrow {
+          position: relative;
+          left: 3px;
+        }
+      }
+
+      .singleFilter:nth-child(2) {
+        position: relative;
+        left: 53px;
+
+        .Arrow {
+          position: relative;
+          left: 3px;
+        }
+      }
+      .singleFilter:nth-child(3) {
+        position: relative;
+        left: 110px;
+
+        .Arrow {
+          position: relative;
+          left: 3px;
+        }
+      }
+
+      .singleFilter:nth-child(4) {
+        position: relative;
+        left: 133px;
+
+        .Arrow {
+          position: relative;
+          left: 3px;
+        }
+      }
     }
   }
   .link {
