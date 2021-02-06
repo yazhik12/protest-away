@@ -56,13 +56,38 @@ body {
         flex-direction: row;
         justify-content: space-between;
 
+        li:nth-child(1) {
+          position: relative;
+          left: 30px;
+        }
+
+        li:nth-child(2) {
+          position: relative;
+          left: 40px;
+        }
+
+        li:nth-child(3) {
+          position: relative;
+          left: 10px;
+        }
+
+        li:nth-child(4) {
+          position: relative;
+          left: 15px;
+        }
+
         @media only screen and (max-width: $medium) {
           flex-direction: row;
           justify-content: space-between;
 
+          li:nth-child(1) {
+            position: relative;
+            left: 1px;
+          }
+
           li:nth-child(2) {
             position: relative;
-            left: 100px;
+            left: 115px;
           }
 
           li:nth-child(3) {
