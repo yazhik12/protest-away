@@ -14,6 +14,8 @@ class Home extends Component {
       categoryFilter: "None",
       stateFilter: "None",
       cityFilter: "",
+      afterDateFilter: "",
+      beforeDateFilter: "",
       tweets: this.getTweets(),
       selected: "incidents" | "tweets",
     };
@@ -46,6 +48,8 @@ class Home extends Component {
     var categoryFilter = this.state.categoryFilter;
     var stateFilter = this.state.stateFilter;
     var cityFilter = this.state.cityFilter;
+    var afterDateFilter = this.state.afterDateFilter;
+    var beforeDateFilter = this.state.beforeDateFilter;
 
     if (name == "categoryFilter") {
       categoryFilter = value;
@@ -53,6 +57,20 @@ class Home extends Component {
       stateFilter = value;
     } else if (name == "cityFilter") {
       cityFilter = value;
+    } else if (name == "afterDateFilter") {
+      if (value == "") {
+        afterDateFilter = ""
+      } else {
+        afterDateFilter = new Date(value);
+      }
+      this.setState({ [name]: afterDateFilter });
+    } else if (name == "beforeDateFilter") {
+      if (value == "") {
+        beforeDateFilter = ""
+      } else {
+        beforeDateFilter = new Date(value);
+      }
+      this.setState({ [name]: beforeDateFilter });
     }
 
     // Category
@@ -80,7 +98,7 @@ class Home extends Component {
     }
 
     // City
-    var allFilteredData = [];
+    var categoryStateAndCityFilteredData = [];
     if (cityFilter != "") {
       for (var i = 0; i < categoryAndStateFilteredData.length; i++) {
         if (
@@ -88,14 +106,42 @@ class Home extends Component {
             .toLowerCase()
             .includes(cityFilter.toLowerCase())
         ) {
-          allFilteredData.push(categoryAndStateFilteredData[i]);
+          categoryStateAndCityFilteredData.push(categoryAndStateFilteredData[i]);
         }
       }
     } else {
-      allFilteredData = categoryAndStateFilteredData;
+      categoryStateAndCityFilteredData = categoryAndStateFilteredData;
     }
 
-    this.setState({ filteredData: allFilteredData });
+    // After Date
+    var categoryStateCityAndDate1FilteredData = [];
+    if (afterDateFilter != "") {
+      for (var i = 0; i < categoryStateAndCityFilteredData.length; i++) {
+        if (
+          new Date(categoryStateAndCityFilteredData[i].event_date) >= afterDateFilter
+        ) {
+          categoryStateCityAndDate1FilteredData.push(categoryStateAndCityFilteredData[i]);
+        }
+      }
+    } else {
+      categoryStateCityAndDate1FilteredData = categoryStateAndCityFilteredData;
+    }
+
+    // Before Date
+    var categoryStateCityDate1AndDate2FilteredData = [];
+    if (beforeDateFilter != "") {
+      for (var i = 0; i < categoryStateCityAndDate1FilteredData.length; i++) {
+        if (
+          new Date(categoryStateCityAndDate1FilteredData[i].event_date) <= beforeDateFilter
+        ) {
+          categoryStateCityDate1AndDate2FilteredData.push(categoryStateCityAndDate1FilteredData[i]);
+        }
+      }
+    } else {
+      categoryStateCityDate1AndDate2FilteredData = categoryStateCityAndDate1FilteredData;
+    }
+
+    this.setState({ filteredData: categoryStateCityDate1AndDate2FilteredData });
   };
 
   getIncidentTypes() {
@@ -116,7 +162,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.state.tweets);
     let dummyHashtagData = [
       { name: "#blacklivesmatter", val: 1004957 },
       { name: "#georgefloyd", val: 256529 },
@@ -128,7 +173,9 @@ class Home extends Component {
     var formData =
       this.state.categoryFilter != "None" ||
       this.state.stateFilter != "None" ||
-      this.state.cityFilter != ""
+      this.state.cityFilter != "" ||
+      this.state.afterDateFilter != "" ||
+      this.state.beforeDateFilter != ""
         ? this.state.filteredData
         : this.state.data;
     return (
@@ -220,8 +267,9 @@ class Home extends Component {
             )}
           </div>
           <div className={styles.Dropdown}>
+            <b>Filter by: </b>
             <label>
-              Filter by Incident:
+              Incident&nbsp;
               <select name="categoryFilter" onChange={this.handleFilter}>
                 {types.map((type) => (
                   <option key={type} value={type}>
@@ -231,7 +279,7 @@ class Home extends Component {
               </select>
             </label>
             <label>
-              Filter by State:
+              State&nbsp;
               <select name="stateFilter" onChange={this.handleFilter}>
                 {states.map((state) => (
                   <option key={state} value={state}>
@@ -241,15 +289,28 @@ class Home extends Component {
               </select>
             </label>
             <label>
-              Filter by City:
+              City&nbsp;
               <input
                 type="text"
                 placeholder="city"
                 name="cityFilter"
-                onChange={this.handleFilter}
-              />
+                onChange={this.handleFilter}/>
             </label>
-          </div>
+            <label>
+              Date range&nbsp;&nbsp;
+              <input
+                type="text"
+                placeholder="MM/DD/YYYY"
+                name="afterDateFilter"
+                onChange={this.handleFilter}/>
+              &nbsp;to&nbsp;&nbsp;
+              <input
+                type="text"
+                placeholder="MM/DD/YYYY"
+                name="beforeDateFilter"
+                onChange={this.handleFilter}/>
+            </label>
+            </div>
           <div className={styles.filters}>
             <div className={styles.singleFilter}>
               Post
@@ -269,7 +330,6 @@ class Home extends Component {
               <ArrowDropDownIcon className={styles.Arrow} />
             </div>
           </div>
-
           {this.state.selected === "tweets" ? (
             <div className={styles.Container}>
               {this.state.tweets.map((item, i) => {
