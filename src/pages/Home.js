@@ -266,6 +266,76 @@ class Home extends Component {
               </div>
             )}
           </div>
+          
+         
+          {this.state.selected === "tweets" ? (
+            <div>
+            <br/><br/><br/><br/>
+             <div className={styles.filters}>
+            <div className={styles.singleFilter}>
+              Hashtag
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
+
+            <div className={styles.singleFilter}>
+              Post
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
+            <div className={styles.singleFilter}>
+              Location
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
+            <div className={styles.singleFilter}>
+              Date
+              <ArrowDropDownIcon className={styles.Arrow} />
+            </div>
+          </div>
+
+            <div className={styles.Container}>
+              {this.state.tweets.map((item, i) => {
+                return item["tweets"]["statuses"].map((item2, i2) => {
+                  var tweetObj = {
+                    event_category: item["hashtag"],
+                    city: item2["user"]["location"],
+                    state: "",
+                    event_description: item2["text"],
+                    event_date: item2["created_at"],
+                    link:
+                      "https://twitter.com/" +
+                      item2["user"]["screen_name"] +
+                      "/status/" +
+                      item2["id_str"],
+                  };
+                  return (
+                    <div key={i} className={styles.Data}>
+                      <ul>
+                        {<li>{item["hashtag"]}</li>}
+                        {<li>{item2["text"]}</li>}
+                        {<li>{item2["user"]["location"]}</li>}
+                        {<li>{moment(item2["created_at"]).format("LL")}</li>}
+                        {
+                          <li>
+                            <Link
+                              to={{
+                                pathname: "/action",
+                                data: tweetObj,
+                              }}
+                            >
+                              <button className={styles.TakeActionButton}>
+                                <strong>Take Action</strong>
+                              </button>
+                            </Link>
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  );
+                });
+              })}
+            </div>
+            </div>
+          ) : (
+          <div>
           <div className={styles.Dropdown}>
             <b>Filter by: </b>
             <label>
@@ -311,7 +381,7 @@ class Home extends Component {
                 onChange={this.handleFilter}/>
             </label>
             </div>
-          <div className={styles.filters}>
+           <div className={styles.filters}>
             <div className={styles.singleFilter}>
               Post
               <ArrowDropDownIcon className={styles.Arrow} />
@@ -330,50 +400,6 @@ class Home extends Component {
               <ArrowDropDownIcon className={styles.Arrow} />
             </div>
           </div>
-          {this.state.selected === "tweets" ? (
-            <div className={styles.Container}>
-              {this.state.tweets.map((item, i) => {
-                return item["tweets"]["statuses"].map((item2, i2) => {
-                  var tweetObj = {
-                    event_category: item["hashtag"],
-                    city: item2["user"]["location"],
-                    state: "",
-                    event_description: item2["text"],
-                    event_date: item2["created_at"],
-                    link:
-                      "https://twitter.com/" +
-                      item2["user"]["screen_name"] +
-                      "/status/" +
-                      item2["id_str"],
-                  };
-                  return (
-                    <div key={i} className={styles.Data}>
-                      <ul>
-                        {<li>{item["hashtag"]}</li>}
-                        {<li>{item2["text"]}</li>}
-                        {<li>{item2["user"]["location"]}</li>}
-                        {<li>{moment(item2["created_at"]).format("LL")}</li>}
-                        {
-                          <li>
-                            <Link
-                              to={{
-                                pathname: "/action",
-                                data: tweetObj,
-                              }}
-                            >
-                              <button className={styles.TakeActionButton}>
-                                <strong>Take Action</strong>
-                              </button>
-                            </Link>
-                          </li>
-                        }
-                      </ul>
-                    </div>
-                  );
-                });
-              })}
-            </div>
-          ) : (
             <div className={styles.Container}>
               {formData.map((item, i) => {
                 return (
@@ -406,7 +432,7 @@ class Home extends Component {
                 );
               })}
             </div>
-          )}
+          </div>)}
         </div>
       </div>
     );
