@@ -63,12 +63,13 @@ body {
 
         li:nth-child(2) {
           position: relative;
-          left: 40px;
+          left: 30px;
+          width: 20%;
         }
 
         li:nth-child(3) {
           position: relative;
-          left: 10px;
+          left: 60px;
         }
 
         li:nth-child(4) {
@@ -211,7 +212,7 @@ body {
       border-left: 175px solid black;
       border-bottom: 175px solid transparent;
       position: absolute;
-      right: 46.5%;
+      right: 46%;
 
       @media only screen and (max-width: $medium) {
         width: 0;
@@ -322,7 +323,7 @@ body {
       position: relative;
       top: 7rem;
       bottom: 2rem;
-      left: -10%;
+      left: 10%;
       .HashtagContainer {
         display: flex;
         justify-content: center;
@@ -436,7 +437,7 @@ body {
 
       .Dropdown {
         padding: 2rem;
-        margin-left: 4.5rem;
+        margin-left: 3.3rem;
         display: flex;
         justify-content: flex-start;
 
@@ -552,7 +553,7 @@ body {
 
       .singleFilter:nth-child(1) {
         position: relative;
-        right: 40px;
+        right: 10px;
 
         .Arrow {
           position: relative;
@@ -566,7 +567,7 @@ body {
 
       .singleFilter:nth-child(2) {
         position: relative;
-        left: 53px;
+        left: 40px;
 
         .Arrow {
           position: relative;
@@ -579,7 +580,7 @@ body {
       }
       .singleFilter:nth-child(3) {
         position: relative;
-        left: 110px;
+        left: 40px;
 
         .Arrow {
           position: relative;
@@ -594,7 +595,7 @@ body {
 
       .singleFilter:nth-child(4) {
         position: relative;
-        left: 133px;
+        left: 10px;
 
         .Arrow {
           position: relative;
