@@ -31,7 +31,7 @@ class Home extends Component {
   }
 
   incidentsClickHandler(evt) {
-    console.log("ibtn");
+    // console.log("ibtn");
     this.setState({ selected: "incidents" });
   }
 
@@ -59,14 +59,14 @@ class Home extends Component {
       cityFilter = value;
     } else if (name == "afterDateFilter") {
       if (value == "") {
-        afterDateFilter = ""
+        afterDateFilter = "";
       } else {
         afterDateFilter = new Date(value);
       }
       this.setState({ [name]: afterDateFilter });
     } else if (name == "beforeDateFilter") {
       if (value == "") {
-        beforeDateFilter = ""
+        beforeDateFilter = "";
       } else {
         beforeDateFilter = new Date(value);
       }
@@ -106,7 +106,9 @@ class Home extends Component {
             .toLowerCase()
             .includes(cityFilter.toLowerCase())
         ) {
-          categoryStateAndCityFilteredData.push(categoryAndStateFilteredData[i]);
+          categoryStateAndCityFilteredData.push(
+            categoryAndStateFilteredData[i]
+          );
         }
       }
     } else {
@@ -118,9 +120,12 @@ class Home extends Component {
     if (afterDateFilter != "") {
       for (var i = 0; i < categoryStateAndCityFilteredData.length; i++) {
         if (
-          new Date(categoryStateAndCityFilteredData[i].event_date) >= afterDateFilter
+          new Date(categoryStateAndCityFilteredData[i].event_date) >=
+          afterDateFilter
         ) {
-          categoryStateCityAndDate1FilteredData.push(categoryStateAndCityFilteredData[i]);
+          categoryStateCityAndDate1FilteredData.push(
+            categoryStateAndCityFilteredData[i]
+          );
         }
       }
     } else {
@@ -132,9 +137,12 @@ class Home extends Component {
     if (beforeDateFilter != "") {
       for (var i = 0; i < categoryStateCityAndDate1FilteredData.length; i++) {
         if (
-          new Date(categoryStateCityAndDate1FilteredData[i].event_date) <= beforeDateFilter
+          new Date(categoryStateCityAndDate1FilteredData[i].event_date) <=
+          beforeDateFilter
         ) {
-          categoryStateCityDate1AndDate2FilteredData.push(categoryStateCityAndDate1FilteredData[i]);
+          categoryStateCityDate1AndDate2FilteredData.push(
+            categoryStateCityAndDate1FilteredData[i]
+          );
         }
       }
     } else {
@@ -168,6 +176,7 @@ class Home extends Component {
       { name: "#racism", val: 57263 },
       { name: "#protest", val: 33495 },
     ];
+
     var types = this.getIncidentTypes();
     var states = this.getStates();
     var formData =
@@ -188,12 +197,12 @@ class Home extends Component {
               </div>
               <div className={styles.BannerSloganContainer}>
                 <div class={styles.BannerSloganText}>
-                  <p>Make an impact from anywhere</p>
+                  <p>Make an impact from anywhere.</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className={styles.TrendingHashtagsContainer}>
+          {/* <div className={styles.TrendingHashtagsContainer}>
             <div className={styles.HashtagContainer}>
               <div className={styles.TrendingHashtagsHeader}>
                 Trending Hashtags on Twitter{" "}
@@ -216,7 +225,7 @@ class Home extends Component {
                 })}
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className={styles.graybar}>
           <div className={styles.messageContainer}>
@@ -230,6 +239,7 @@ class Home extends Component {
             </p>
           </div>
         </div>
+
         <div className={styles.TweetsAndIncidentsContainer}>
           <div className={styles.TweetsAndIncidentsNavbar}>
             {this.state.selected === "tweets" ? (
@@ -266,59 +276,164 @@ class Home extends Component {
               </div>
             )}
           </div>
-          
-         
+
           {this.state.selected === "tweets" ? (
             <div>
-            <br/><br/><br/><br/>
-             <div className={styles.filters}>
-            <div className={styles.singleFilter}>
-              Hashtag
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
+              <br />
+              <br />
+              <br />
+              <br />
+              <div className={styles.filters}>
+                <div className={styles.singleFilter}>
+                  Hashtag
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
 
-            <div className={styles.singleFilter}>
-              Post
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
-            <div className={styles.singleFilter}>
-              Location
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
-            <div className={styles.singleFilter}>
-              Date
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
-          </div>
+                <div className={styles.singleFilter}>
+                  Post
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
+                  Location
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
+                  Date
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+              </div>
 
-            <div className={styles.Container}>
-              {this.state.tweets.map((item, i) => {
-                return item["tweets"]["statuses"].map((item2, i2) => {
-                  var tweetObj = {
-                    event_category: item["hashtag"],
-                    city: item2["user"]["location"],
-                    state: "",
-                    event_description: item2["text"],
-                    event_date: item2["created_at"],
-                    link:
-                      "https://twitter.com/" +
-                      item2["user"]["screen_name"] +
-                      "/status/" +
-                      item2["id_str"],
-                  };
+              <div className={styles.Container}>
+                {this.state.tweets.map((item, i) => {
+                  return item["tweets"]["statuses"].map((item2, i2) => {
+                    var tweetObj = {
+                      event_category: item["hashtag"],
+                      city: item2["user"]["location"],
+                      state: "",
+                      event_description: item2["text"],
+                      event_date: item2["created_at"],
+                      link:
+                        "https://twitter.com/" +
+                        item2["user"]["screen_name"] +
+                        "/status/" +
+                        item2["id_str"],
+                    };
+                    return (
+                      <div key={i} className={styles.Data}>
+                        <ul>
+                          {<li>{item["hashtag"]}</li>}
+                          {<li>{item2["text"]}</li>}
+                          {<li>{item2["user"]["location"]}</li>}
+                          {<li>{moment(item2["created_at"]).format("LL")}</li>}
+                          {
+                            <li>
+                              <Link
+                                to={{
+                                  pathname: "/action",
+                                  data: tweetObj,
+                                }}
+                              >
+                                <button className={styles.TakeActionButton}>
+                                  <strong>Take Action</strong>
+                                </button>
+                              </Link>
+                            </li>
+                          }
+                        </ul>
+                      </div>
+                    );
+                  });
+                })}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className={styles.Dropdown}>
+                <b>Filter by: </b>
+                <label>
+                  Incident&nbsp;
+                  <select name="categoryFilter" onChange={this.handleFilter}>
+                    {types.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  State&nbsp;
+                  <select name="stateFilter" onChange={this.handleFilter}>
+                    {states.map((state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  City&nbsp;
+                  <input
+                    type="text"
+                    placeholder="City"
+                    name="cityFilter"
+                    onChange={this.handleFilter}
+                  />
+                </label>
+                <label>
+                  Date range&nbsp;&nbsp;
+                  <input
+                    type="text"
+                    placeholder="MM/DD/YYYY"
+                    name="afterDateFilter"
+                    onChange={this.handleFilter}
+                  />
+                  &nbsp;to&nbsp;&nbsp;
+                  <input
+                    type="text"
+                    placeholder="MM/DD/YYYY"
+                    name="beforeDateFilter"
+                    onChange={this.handleFilter}
+                  />
+                </label>
+              </div>
+              <div className={styles.filters}>
+                <div className={styles.singleFilter}>
+                  Post
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+
+                <div className={styles.singleFilter}>
+                  Date
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
+                  Incident Type
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
+                  Location
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+              </div>
+              <div className={styles.Container}>
+                {formData.map((item, i) => {
                   return (
                     <div key={i} className={styles.Data}>
                       <ul>
-                        {<li>{item["hashtag"]}</li>}
-                        {<li>{item2["text"]}</li>}
-                        {<li>{item2["user"]["location"]}</li>}
-                        {<li>{moment(item2["created_at"]).format("LL")}</li>}
+                        {<li>{item.event_title}</li>}
+                        {<li>{moment(item.event_date).format("LL")}</li>}
+                        {<li>{item.event_category}</li>}
+                        {
+                          <li>
+                            {item.city}, {item.state}
+                          </li>
+                        }
                         {
                           <li>
                             <Link
                               to={{
                                 pathname: "/action",
-                                data: tweetObj,
+                                data: item,
                               }}
                             >
                               <button className={styles.TakeActionButton}>
@@ -330,109 +445,10 @@ class Home extends Component {
                       </ul>
                     </div>
                   );
-                });
-              })}
+                })}
+              </div>
             </div>
-            </div>
-          ) : (
-          <div>
-          <div className={styles.Dropdown}>
-            <b>Filter by: </b>
-            <label>
-              Incident&nbsp;
-              <select name="categoryFilter" onChange={this.handleFilter}>
-                {types.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              State&nbsp;
-              <select name="stateFilter" onChange={this.handleFilter}>
-                {states.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              City&nbsp;
-              <input
-                type="text"
-                placeholder="city"
-                name="cityFilter"
-                onChange={this.handleFilter}/>
-            </label>
-            <label>
-              Date range&nbsp;&nbsp;
-              <input
-                type="text"
-                placeholder="MM/DD/YYYY"
-                name="afterDateFilter"
-                onChange={this.handleFilter}/>
-              &nbsp;to&nbsp;&nbsp;
-              <input
-                type="text"
-                placeholder="MM/DD/YYYY"
-                name="beforeDateFilter"
-                onChange={this.handleFilter}/>
-            </label>
-            </div>
-           <div className={styles.filters}>
-            <div className={styles.singleFilter}>
-              Post
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
-
-            <div className={styles.singleFilter}>
-              Date
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
-            <div className={styles.singleFilter}>
-              Incident Type
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
-            <div className={styles.singleFilter}>
-              Location
-              <ArrowDropDownIcon className={styles.Arrow} />
-            </div>
-          </div>
-            <div className={styles.Container}>
-              {formData.map((item, i) => {
-                return (
-                  <div key={i} className={styles.Data}>
-                    <ul>
-                      {<li>{item.event_title}</li>}
-                      {<li>{moment(item.event_date).format("LL")}</li>}
-                      {<li>{item.event_category}</li>}
-                      {
-                        <li>
-                          {item.city}, {item.state}
-                        </li>
-                      }
-                      {
-                        <li>
-                          <Link
-                            to={{
-                              pathname: "/action",
-                              data: item,
-                            }}
-                          >
-                            <button className={styles.TakeActionButton}>
-                              <strong>Take Action</strong>
-                            </button>
-                          </Link>
-                        </li>
-                      }
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-          </div>)}
+          )}
         </div>
       </div>
     );

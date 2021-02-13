@@ -5,13 +5,14 @@
     background-color: #ebebeb;
   }
   .formstyle {
-    margin-right: 900px;
+    margin-right: 500px;
     margin-top: 10px;
     padding: 60px;
     input[type="text"],
     [type="file"],
     [name="event_description"],
     [type="file"],
+    [type="email"],
     select {
       width: 360px;
       padding: 12px 20px;
@@ -56,19 +57,55 @@
     span {
       margin: 10px;
     }
+    small {
+      margin-left: 10px;
+    }
+    .HeaderContainer {
+      display: flex;
+      width: 150%;
+      // align-items: stretch;
+      // justify-content: flex-end;
+      .Header {
+        margin-top: 6rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .HorizontalLine {
+        border-bottom: 3px solid black;
+        width: 300px;
+        margin: 0 0 28px 15px;
+      }
+    }
 
-    div {
+    .FormIcon {
       border-radius: 5px;
       // background-color: #f2f2f2;
       // padding: 20px;
     }
   }
 }
+.requiredContainer {
+  display: flex;
+  align-items: center;
+  .required {
+    color: red;
+    // float: right;
+    font-size: 10px;
+    margin: 0 0 0 20px;
+  }
+}
+.Location {
+  display: flex;
 
-.required {
-  color: red;
-  float: right;
-  font-size: 10px;
+  width: 60%;
+
+  input:nth-child(1) {
+    flex: 3;
+    // width: 220px;
+  }
+  select:nth-child(2) {
+    width: 120px !important;
+    margin-left: 50px !important  ;
+  }
 }
 
 .aftersubmit {

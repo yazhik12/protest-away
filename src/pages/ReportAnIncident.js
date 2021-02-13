@@ -132,14 +132,19 @@ class Report extends Component {
     var sharedToOrg = this.state.share_to_org;
     return !submitted ? (
       <div className={reportstyles.floatContainer}>
-        <div className={reportstyles.sideBar}>
-          <ProgressBar />
-        </div>
+        <div className={reportstyles.sideBar}>hello</div>
         <div className={reportstyles.formstyle}>
-          <h1 className={styles.Header}>Report an Incident</h1>
+          <div className={reportstyles.HeaderContainer}>
+            <h1 className={reportstyles.Header}>Report an Incident</h1>
+
+            <div className={reportstyles.HorizontalLine}></div>
+          </div>
+
+          <h1 className={styles.Details}>INCIDENT DETAILS</h1>
+
           <form onSubmit={this.handleSubmit}>
             <label>
-              Name
+              <strong>Name</strong>
               <br />
               <input
                 name="name"
@@ -151,7 +156,11 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              City <div className={reportstyles.required}>required</div>
+              <div className={reportstyles.requiredContainer}>
+                <strong> City</strong>
+                <div className={reportstyles.required}>required</div>
+              </div>
+
               <br />
               <input
                 name="city"
@@ -163,7 +172,10 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              State <div className={reportstyles.required}>required</div>
+              <div className={reportstyles.requiredContainer}>
+                <strong>State</strong>
+                <div className={reportstyles.required}>required</div>
+              </div>
               <br />
               <select name="state" onChange={this.handleChange}>
                 {states.map((type) => (
@@ -176,8 +188,10 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              Type of Incident{" "}
-              <div className={reportstyles.required}>required</div>
+              <div className={reportstyles.requiredContainer}>
+                <strong>Type of Incident </strong>
+                <div className={reportstyles.required}>required</div>
+              </div>
               <br />
               <select name="event_category" onChange={this.handleChange}>
                 {types.map((type) => (
@@ -190,8 +204,10 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              Incident Date{" "}
-              <div className={reportstyles.required}>required</div>
+              <div className={reportstyles.requiredContainer}>
+                <strong>Incident Date</strong>{" "}
+                <div className={reportstyles.required}>required</div>
+              </div>
               <br />
               <DatePicker
                 selected={this.state.event_date}
@@ -202,7 +218,7 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              Email
+              <strong>Email</strong>
               <br />
               <input
                 name="email"
@@ -214,7 +230,10 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              Title <div className={reportstyles.required}>required</div>
+              <div className={reportstyles.requiredContainer}>
+                <strong>Title</strong>{" "}
+                <div className={reportstyles.required}>required</div>
+              </div>
               <br />
               <input
                 name="event_title"
@@ -227,7 +246,7 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              Description of Incident <br />
+              <strong>Description of Incident</strong> <br />
               <textarea
                 name="event_description"
                 placeholder="Type something"
@@ -237,9 +256,57 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              Upload Image or Video
+              <strong>Upload Image or Video</strong>
+              <small>(Optional)</small>
               <br />
               <input type="file" onChange={this.handleFileChange} />
+            </label>
+            <br />
+            <br />
+            <h1 className={styles.Details}>YOUR DETAILS</h1>
+            <label>
+              <strong>Your Name</strong>
+              <small>(Optional)</small>
+              <br />
+              <input
+                name="name"
+                type="text"
+                placeholder="John Doe"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Location of Incident</strong>
+              <small>(Optional)</small>
+              <br />
+              <div className={reportstyles.Location}>
+                <input
+                  name="city"
+                  type="text"
+                  placeholder="City"
+                  onChange={this.handleChange}
+                />
+                <select name="state" onChange={this.handleChange}>
+                  {states.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </label>
+            <br />
+            <label>
+              <strong>Your Email</strong>
+              <br />
+              <input
+                email="email"
+                type="email"
+                placeholder="John.doe@gmail.com"
+                onChange={this.handleChange}
+              />
             </label>
             <br />
             <br />
@@ -268,7 +335,7 @@ class Report extends Component {
           The incident has been shared with the civic organizations listed
           below.
         </p>
-        <div>
+        <div className={styles.FormIcons}>
           <img src={coc} height={93} width={93} />
         </div>
         <div>
