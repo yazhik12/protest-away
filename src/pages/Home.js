@@ -120,7 +120,7 @@ class Home extends Component {
     if (afterDateFilter != "") {
       for (var i = 0; i < categoryStateAndCityFilteredData.length; i++) {
         if (
-          new Date(categoryStateAndCityFilteredData[i].event_date) >=
+          (new Date(categoryStateAndCityFilteredData[i].event_date)).setHours(0,0,0,0) >=
           afterDateFilter
         ) {
           categoryStateCityAndDate1FilteredData.push(
@@ -137,7 +137,7 @@ class Home extends Component {
     if (beforeDateFilter != "") {
       for (var i = 0; i < categoryStateCityAndDate1FilteredData.length; i++) {
         if (
-          new Date(categoryStateCityAndDate1FilteredData[i].event_date) <=
+          (new Date(categoryStateCityAndDate1FilteredData[i].event_date)).setHours(0,0,0,0) <=
           beforeDateFilter
         ) {
           categoryStateCityDate1AndDate2FilteredData.push(

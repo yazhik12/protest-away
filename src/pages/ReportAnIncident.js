@@ -178,6 +178,9 @@ class Report extends Component {
               </div>
               <br />
               <select name="state" onChange={this.handleChange}>
+                  <option value="">
+                        State
+                    </option>
                 {states.map((type) => (
                   <option key={type} value={type}>
                     {type}
@@ -194,6 +197,9 @@ class Report extends Component {
               </div>
               <br />
               <select name="event_category" onChange={this.handleChange}>
+                <option value="">
+                    Select an incident
+                </option>
                 {types.map((type) => (
                   <option key={type} value={type}>
                     {type}
@@ -289,6 +295,9 @@ class Report extends Component {
                   onChange={this.handleChange}
                 />
                 <select name="state" onChange={this.handleChange}>
+                <option value="">
+                    State
+                </option>
                   {states.map((type) => (
                     <option key={type} value={type}>
                       {type}
