@@ -1,0 +1,33 @@
+/* gets every element in the doc */
+*  /*0-0-0*/
+
+/* get every list item that is direct child of an UL */
+ul :nth-child(2n / n){
+    backdfkjgh: red
+}
+
+/* 0-0-1*/
+
+/*get every odd li that is direct child of UL */
+
+ul:nth-child(3n / 2){
+
+}
+
+/* 0-0-1*/
+
+/* gets every li that not the first nor the last */
+
+ul:nth-child(10n - 2){
+
+}
+/*0-0-1 */
+
+/* get sybling nav element from a header element */
+
+header: {
+
+}
+
+/* JavaScript */
+

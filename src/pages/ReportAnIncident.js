@@ -253,7 +253,112 @@ class Report extends Component {
                 onChange={this.handleChange}
               />
             </label>
-            <br />
+            <div className={styles.victimOffenderContainer}>
+              <div className={styles.victimGroup}>
+                <h1 className={styles.DetailsVictim}> VICTIM(S) DETAILS</h1>
+                <label>
+                  <strong>Victim Name</strong>
+                  <br />
+                  <input name="name" type="text" onChange={this.handleChange} />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Victim Gender</strong>
+                  <br />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Female, male, non-binary"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Victim Race</strong>
+                  <br />
+                  <input name="name" type="text" onChange={this.handleChange} />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Victim Age Range</strong>
+                  <br />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="What is the victim’s approximate age? Ex. 25-35"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Other Details</strong> <br />
+                  <textarea
+                    name="event_description"
+                    placeholder="What other details can you recall of the victim?"
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              {/* offender details */}
+              <div className={styles.offenderGroup}>
+                <h1 className={styles.OffenderVictim}> OFFENDER(S) DETAILS</h1>
+                <label>
+                  <strong>Offender Name</strong>
+                  <br />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="What was the person(s) or organization’s name?"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Offender Gender</strong>
+                  <br />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Female, male, non-binary"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Offender Race</strong>
+                  <br />
+                  <input name="name" type="text" onChange={this.handleChange} />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Offender Age Range</strong>
+                  <br />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="What is the victim’s approximate age? Ex. 25-35"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Other Details</strong> <br />
+                  <textarea
+                    name="event_description"
+                    placeholder="What other details can you recall of the offender, such as tattoos, clothing, scarring, birthmarks, etc?"
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+            </div>
             <br />
             <label>
               <strong>Upload Image or Video</strong>
@@ -276,6 +381,19 @@ class Report extends Component {
               />
             </label>
             <br />
+            <br />
+
+            <label>
+              <strong>Your Phone</strong>
+              <small>(Optional)</small>
+              <br />
+              <input
+                name="name"
+                type="text"
+                placeholder="John Doe"
+                onChange={this.handleChange}
+              />
+            </label>
             <br />
             <label>
               <strong>Location of Incident</strong>

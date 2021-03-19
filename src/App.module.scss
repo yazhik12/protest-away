@@ -694,6 +694,14 @@ body {
   .NavbarLink:hover {
     font-size: 1.1em;
   }
+  .victimOffenderContainer {
+    display: flex;
+    // justify-content: space-between;
+    // width: 100vw;
+    .offenderGroup {
+      margin-left: 100px;
+    }
+  }
 
   .Details {
     font-size: 20px;
@@ -701,6 +709,20 @@ body {
     border-bottom: solid 15px #fbee1f;
     padding-bottom: 5px;
     width: 184px;
+  }
+  .DetailsVictim {
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: solid 15px #000000;
+    padding-bottom: 5px;
+    width: 184px;
+  }
+  .OffenderVictim {
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: solid 15px #a83333;
+    padding-bottom: 5px;
+    width: 274px;
   }
 }
 // media queries
