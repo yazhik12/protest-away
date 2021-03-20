@@ -52,19 +52,22 @@ app.post("/submitform", (req, res, next) => {
     }
     console.log('we connected to db!')
     const id = req.body.id;
-    const name = req.body.name;
-    const email = req.body.email;
     const event_category = req.body.event_category;
     const event_date = req.body.event_date;
-    const state = req.body.state;
-    const city = req.body.city;
+    const event_state = req.body.event_state;
+    const event_city = req.body.event_city;
     const event_title = req.body.event_title;
     const event_description = req.body.event_description;
+    const your_name = req.body.your_name;
+    const your_email = req.body.your_email;
+    const your_phone = req.body.your_phone;
+    const your_city = req.body.your_city;
+    const your_state = req.body.your_state;
 
   
     const query = {
-      text: 'INSERT INTO form_submissions(id, name, email, event_category, event_date, state, city, event_description, created_on, event_title) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)',
-      values: [id, name, email, event_category, event_date, state, city, event_description, new Date(), event_title],
+      text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)',
+      values: [id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, new Date(), event_title],
     }
     
     client.query(query, function(err, result) {

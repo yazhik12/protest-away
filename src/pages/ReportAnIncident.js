@@ -13,14 +13,17 @@ class Report extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Anonymous",
-      city: "",
-      state: "",
+      event_title: "",
+      event_city: "",
+      event_state: "",
       event_category: "",
       event_date: new Date(),
-      email: "",
-      event_title: "",
       event_description: "",
+      your_name: "Anonymous",
+      your_email: "",
+      your_city: "",
+      your_state: "",
+      your_phone: "",
       files: [],
       submitted: false,
       share_to_org: false,
@@ -54,11 +57,11 @@ class Report extends Component {
     var missingFields = false;
     var errorMessage = "Please fill out the following mandatory field(s): ";
 
-    if (this.state.city == "") {
+    if (this.state.event_city == "") {
       missingFields = true;
       errorMessage += "City, ";
     }
-    if (this.state.state == "") {
+    if (this.state.event_state == "") {
       missingFields = true;
       errorMessage += "State, ";
     }
@@ -84,14 +87,18 @@ class Report extends Component {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: this.state.name,
-          email: this.state.email,
           event_category: this.state.event_category,
           event_date: this.state.event_date,
-          state: this.state.state,
-          city: this.state.city,
+          event_state: this.state.event_state,
+          event_city: this.state.event_city,
           event_description: this.state.event_description,
           event_title: this.state.event_title,
+          your_name: this.state.your_name,
+          your_email: this.state.your_email,
+          your_phone: this.state.your_phone,
+          your_city: this.state.your_city,
+          your_state: this.state.your_state,
+          id: this.state.id,
         }),
       };
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
@@ -143,59 +150,52 @@ class Report extends Component {
           <h1 className={styles.Details}>INCIDENT DETAILS</h1>
 
           <form onSubmit={this.handleSubmit}>
-            <label>
-              <strong>Name</strong>
-              <br />
+          <label>
+              <div className={reportstyles.requiredContainer}>
+                <strong>Incident Name</strong>{" "}
+                <div className={reportstyles.required}>*</div>
+              </div>
               <input
-                name="name"
+                name="event_title"
                 type="text"
-                placeholder="John Doe"
+                maxlength="100"
+                placeholder="Name this incident"
                 onChange={this.handleChange}
               />
             </label>
             <br />
             <br />
-            <label>
-              <div className={reportstyles.requiredContainer}>
-                <strong> City</strong>
-                <div className={reportstyles.required}>required</div>
-              </div>
 
-              <br />
-              <input
-                name="city"
-                type="text"
-                placeholder="City"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
             <label>
-              <div className={reportstyles.requiredContainer}>
-                <strong>State</strong>
-                <div className={reportstyles.required}>required</div>
+             <div className={reportstyles.requiredContainer}>
+                <strong> Location of Incident</strong>
+                <div className={reportstyles.required}>*</div>
               </div>
-              <br />
-              <select name="state" onChange={this.handleChange}>
-                  <option value="">
-                        State
+              <div className={reportstyles.Location}>
+                <input
+                  name="event_city"
+                  type="text"
+                  placeholder="City"
+                  onChange={this.handleChange}
+                />
+                <select name="event_state" onChange={this.handleChange}>
+                <option value="">
+                    State
+                </option>
+                  {states.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
                     </option>
-                {states.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
+                  ))}
+                </select>
+              </div>
             </label>
-            <br />
             <br />
             <label>
               <div className={reportstyles.requiredContainer}>
                 <strong>Type of Incident </strong>
-                <div className={reportstyles.required}>required</div>
+                <div className={reportstyles.required}>*</div>
               </div>
-              <br />
               <select name="event_category" onChange={this.handleChange}>
                 <option value="">
                     Select an incident
@@ -211,10 +211,9 @@ class Report extends Component {
             <br />
             <label>
               <div className={reportstyles.requiredContainer}>
-                <strong>Incident Date</strong>{" "}
-                <div className={reportstyles.required}>required</div>
+                <strong>Date of Incident</strong>{" "}
+                <div className={reportstyles.required}>*</div>
               </div>
-              <br />
               <DatePicker
                 selected={this.state.event_date}
                 onChange={this.handleDateChange}
@@ -224,35 +223,10 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              <strong>Email</strong>
-              <br />
-              <input
-                name="email"
-                type="text"
-                placeholder="johndoe@gmail.com"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <div className={reportstyles.requiredContainer}>
-                <strong>Title</strong>{" "}
-                <div className={reportstyles.required}>required</div>
-              </div>
-              <br />
-              <input
-                name="event_title"
-                type="text"
-                maxlength="100"
-                placeholder="Title"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
+            <div className={reportstyles.requiredContainer}>
               <strong>Description of Incident</strong> <br />
+              <div className={reportstyles.required}>*</div>
+              </div>
               <textarea
                 name="event_description"
                 placeholder="Type something"
@@ -272,10 +246,9 @@ class Report extends Component {
             <h1 className={styles.Details}>YOUR DETAILS</h1>
             <label>
               <strong>Your Name</strong>
-              <small>(Optional)</small>
               <br />
               <input
-                name="name"
+                name="your_name"
                 type="text"
                 placeholder="John Doe"
                 onChange={this.handleChange}
@@ -284,17 +257,28 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              <strong>Location of Incident</strong>
-              <small>(Optional)</small>
+              <strong>Your Phone</strong>
+              <br />
+              <input
+                name="your_phone"
+                type="text"
+                placeholder="123 456 7890"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Your Location</strong>
               <br />
               <div className={reportstyles.Location}>
                 <input
-                  name="city"
+                  name="your_city"
                   type="text"
                   placeholder="City"
                   onChange={this.handleChange}
                 />
-                <select name="state" onChange={this.handleChange}>
+                <select name="your_state" onChange={this.handleChange}>
                 <option value="">
                     State
                 </option>
@@ -308,12 +292,14 @@ class Report extends Component {
             </label>
             <br />
             <label>
+            <div className={reportstyles.requiredContainer}>
               <strong>Your Email</strong>
-              <br />
+              <div className={reportstyles.required}>*</div>
+              </div>
               <input
-                email="email"
+                name="your_email"
                 type="email"
-                placeholder="John.doe@gmail.com"
+                placeholder="john.doe@gmail.com"
                 onChange={this.handleChange}
               />
             </label>

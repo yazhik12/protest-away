@@ -290,7 +290,7 @@ class Home extends Component {
                 </div>
 
                 <div className={styles.singleFilter}>
-                  Post
+                  Title
                   <ArrowDropDownIcon className={styles.Arrow} />
                 </div>
                 <div className={styles.singleFilter}>
@@ -425,7 +425,7 @@ class Home extends Component {
                         {<li>{item.event_category}</li>}
                         {
                           <li>
-                            {item.city}, {item.state}
+                            {item.event_city}, {item.event_state}
                           </li>
                         }
                         {
