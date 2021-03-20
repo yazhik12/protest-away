@@ -24,6 +24,21 @@ class Report extends Component {
       your_city: "",
       your_state: "",
       your_phone: "",
+      victim_name: "",
+      victim_gender: "",
+      victim_race: "",
+      victim_age: "",
+      victim_details: "",
+      offender_name: "",
+      offender_gender: "",
+      offender_race: "",
+      offender_age: "",
+      offender_details: "",
+      other_details: "",
+      was_reported: null,
+      reported_to: "",
+      has_news_coverage: null,
+      new_coverage_details: "",
       files: [],
       submitted: false,
       share_to_org: false,
@@ -99,6 +114,21 @@ class Report extends Component {
           your_city: this.state.your_city,
           your_state: this.state.your_state,
           id: this.state.id,
+          victim_name: this.state.victim_name,
+          victim_gender: this.state.victim_gender,
+          victim_race: this.state.victim_race,
+          victim_age: this.state.victim_age,
+          victim_details: this.state.victim_details,
+          offender_name: this.state.offender_name,
+          offender_gender: this.state.offender_gender,
+          offender_race: this.state.offender_race,
+          offender_age: this.state.offender_age,
+          offender_details: this.state.offender_details,
+          other_details: this.state.other_details,
+          was_reported: this.state.was_reported,
+          reported_to: this.state.reported_to,
+          has_news_coverage: this.state.has_news_coverage,
+          new_coverage_details: this.state.new_coverage_details,
         }),
       };
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
@@ -229,7 +259,6 @@ class Report extends Component {
               </div>
               <textarea
                 name="event_description"
-                placeholder="Type something"
                 onChange={this.handleChange}
               />
             </label>
@@ -243,6 +272,157 @@ class Report extends Component {
             </label>
             <br />
             <br />
+
+            <h1 className={styles.Details}>VICTIM(S) DETAILS</h1>
+            <label>
+              <strong>Victim Name</strong>
+              <br />
+              <input
+                name="victim_name"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Victim Gender</strong>
+              <br />
+              <input
+                name="victim_gender"
+                type="text"
+                placeholder="female, male, non-binary"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Victim Race</strong>
+              <br />
+              <input
+                name="victim_race"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Victim Age Range</strong>
+              <br />
+              <input
+                name="victim_age"
+                type="text"
+                placeholder="25-30"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Other Details</strong> <br />
+              <textarea
+                name="victim_details"
+                onChange={this.handleChange}
+              />
+            </label>
+
+             <h1 className={styles.Details}>OFFENDER(S) DETAILS</h1>
+            <label>
+              <strong>Offender Name</strong>
+              <br />
+              <input
+                name="offender_name"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Offender Gender</strong>
+              <br />
+              <input
+                name="offender_gender"
+                type="text"
+                placeholder="female, male, non-binary"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Offender Race</strong>
+              <br />
+              <input
+                name="offender_race"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Offender Age Range</strong>
+              <br />
+              <input
+                name="offender_age"
+                type="text"
+                placeholder="25-30"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Other Details</strong> <br />
+              <textarea
+                name="offender_details"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+            <label>
+              <strong>Have you reported this to law enforcement?</strong>
+              <br />
+               <input type="radio" id="yes" name="was_reported" value={true} onChange={this.handleChange}></input>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="was_reported" value={false} onChange={this.handleChange}></input>
+                <label for="no">No</label><br/>
+            </label>
+            <br/>
+            <label>
+              <strong>If so, what department?</strong>
+              <br />
+              <input
+                name="reported_to"
+                type="text"
+                placeholder="LAPD"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+             <label>
+              <strong>Have you seen any news coverage of this incident?</strong>
+              <br />
+               <input type="radio" id="yes" name="has_news_coverage" value={true} onChange={this.handleChange}></input>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="has_news_coverage" value={false} onChange={this.handleChange}></input>
+                <label for="no">No</label><br/>
+            </label>
+            <br />
+            <label>
+              <strong>If so, where? Please add a link if possible.</strong> <br />
+              <textarea
+                name="new_coverage_details"
+                onChange={this.handleChange}
+              />
+            </label>
+
+
+
             <h1 className={styles.Details}>YOUR DETAILS</h1>
             <label>
               <strong>Your Name</strong>
@@ -300,6 +480,17 @@ class Report extends Component {
                 name="your_email"
                 type="email"
                 placeholder="john.doe@gmail.com"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <br />
+            <br />
+            <label>
+              <strong>What else do you want us to know about this incident?</strong> <br />
+              <textarea
+                name="other_details"
                 onChange={this.handleChange}
               />
             </label>

@@ -63,11 +63,25 @@ app.post("/submitform", (req, res, next) => {
     const your_phone = req.body.your_phone;
     const your_city = req.body.your_city;
     const your_state = req.body.your_state;
-
+    const victim_name = req.body.victim_name;
+    const victim_gender = req.body.victim_gender;
+    const victim_race = req.body.victim_race;
+    const victim_age = req.body.victim_age;
+    const victim_details  = req.body.victim_details;
+    const offender_name = req.body.offender_name;
+    const offender_gender = req.body.offender_gender;
+    const offender_race = req.body.offender_race;
+    const offender_age = req.body.offender_age;
+    const offender_details = req.body.offender_details;
+    const other_details = req.body.other_details;
+    const was_reported = req.body.was_reported;
+    const reported_to = req.body.reported_to;
+    const has_news_coverage = req.body.has_news_coverage;
+    const new_coverage_details = req.body.new_coverage_details;
   
     const query = {
-      text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)',
-      values: [id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, new Date(), event_title],
+      text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title, victim_name, victim_gender, victim_race, victim_age, victim_details, offender_name, offender_gender, offender_race, offender_age, offender_details, other_details, was_reported, reported_to, has_news_coverage, new_coverage_details) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28)',
+      values: [id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, new Date(), event_title, victim_name, victim_gender, victim_race, victim_age, victim_details, offender_name, offender_gender, offender_race, offender_age, offender_details, other_details, was_reported, reported_to, has_news_coverage, new_coverage_details],
     }
     
     client.query(query, function(err, result) {
