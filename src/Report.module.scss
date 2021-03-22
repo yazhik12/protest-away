@@ -36,11 +36,12 @@
     }
 
     input[type="file"] {
-      width: 220px;
-      background-color: #707070;
-      color: white;
+      width: 222px;
+      height: 48.95px;
+      background-color: #FBEE1F;
+      color: black;
       padding: 14px 20px;
-      margin: 8px 0;
+      margin: 30px 0;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -99,7 +100,7 @@
 .Location {
   display: flex;
 
-  width: 60%;
+  width: 40%;
 
   input:nth-child(1) {
     flex: 3;
@@ -119,4 +120,22 @@
   border: 1px solid black;
   border-radius: 10%;
   background-color: #fbee1f;
+}
+
+.videoUploadContainer{
+  width: 421px;
+  height: 143px;
+   background-color: #707070;
+   text-align:center;
+   border: none;
+      border-radius: 4px;
+
+   label{
+     color: white;
+     margin-top: 25px;
+    
+   }
+   input{
+     background-color:yellow;
+   }
 }

@@ -694,13 +694,26 @@ body {
   .NavbarLink:hover {
     font-size: 1.1em;
   }
+
+  .incidentContainer{
+    display:flex;
+
+      .incidentGroupTwo {
+      margin-left: 170px;
+    }
+  }
   .victimOffenderContainer {
     display: flex;
     // justify-content: space-between;
     // width: 100vw;
     .offenderGroup {
-      margin-left: 100px;
+      margin-left: 170px;
     }
+  }
+  .detailsContainer{
+    display: flex
+
+
   }
 
   .Details {
@@ -723,6 +736,14 @@ body {
     border-bottom: solid 15px #a83333;
     padding-bottom: 5px;
     width: 274px;
+  }
+
+  .submitContainer{
+  display:column;
+  align-items:center;
+  justify-content:center;
+  // // margin:0 auto;
+
   }
 }
 // media queries

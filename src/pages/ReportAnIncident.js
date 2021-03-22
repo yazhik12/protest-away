@@ -143,6 +143,8 @@ class Report extends Component {
           <h1 className={styles.Details}>INCIDENT DETAILS</h1>
 
           <form onSubmit={this.handleSubmit}>
+          <div className={styles.incidentContainer}>
+          <div className={styles.incidentGroup}>
             <label>
               <strong>Name</strong>
               <br />
@@ -253,6 +255,84 @@ class Report extends Component {
                 onChange={this.handleChange}
               />
             </label>
+            </div>
+            <div className={styles.incidentGroupTwo}>
+            {/* new group here */}
+            
+            <label>
+            <strong>Have you seen any news coverage of this incident?</strong>
+            <br />
+            <br />
+            <input
+              name="yes_reported"
+              type="checkbox"
+              onChange={this.handleChange}
+            /><span> Yes</span>
+            <input
+              name="no_reported"
+              type="checkbox"
+              onChange={this.handleChange}
+            /><span> No</span>
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>If so, what department</strong>
+              <br />
+              <br />
+              <input
+                department="department"
+                type="text"
+                placeholder="Ex: LAPD"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+            <strong>Have you reported this to law enforcement?</strong>
+            <br />
+            <br />
+            <input
+              name="yes_reported"
+              type="checkbox"
+              onChange={this.handleChange}
+            /><span> Yes</span>
+            <input
+              name="no_reported"
+              type="checkbox"
+              onChange={this.handleChange}
+            /><span> No</span>
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>If so, where? Please add a link if possible.</strong> 
+              <br />
+              <br />
+              <textarea
+                name="event_description"
+                placeholder="Ex: I’ve only seen this incident covered in the local news in my small town and would like to see it broadcasted elsewhere."
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <div className={reportstyles.videoUploadContainer}>
+            <div>
+            <label>
+              <strong>Upload Image or Video</strong>
+              <small>(Optional)</small>
+              <br />
+              <input type="file" onChange={this.handleFileChange} />
+            </label>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+           
+            
             <div className={styles.victimOffenderContainer}>
               <div className={styles.victimGroup}>
                 <h1 className={styles.DetailsVictim}> VICTIM(S) DETAILS</h1>
@@ -360,15 +440,13 @@ class Report extends Component {
               </div>
             </div>
             <br />
-            <label>
-              <strong>Upload Image or Video</strong>
-              <small>(Optional)</small>
-              <br />
-              <input type="file" onChange={this.handleFileChange} />
-            </label>
+            
             <br />
             <br />
             <h1 className={styles.Details}>YOUR DETAILS</h1>
+            {/* details container */}
+      <div className={styles.detailsContainer}>
+          <div className={styles.detailGroupMain}>
             <label>
               <strong>Your Name</strong>
               <small>(Optional)</small>
@@ -426,8 +504,24 @@ class Report extends Component {
                 onChange={this.handleChange}
               />
             </label>
+          </div>
             <br />
             <br />
+          
+          <div className={styles.detailGroup}>
+            <label>
+                  <strong>What else do you want to know about this incident?</strong> <br />
+                  <textarea
+                    name="event_description"
+                    placeholder="What other details do-- you want to include that we haven’t asked for?"
+                    onChange={this.handleChange}
+                  />
+            </label>
+          </div>
+          </div>
+                <br />
+        <div className={styles.submitContainer}>
+        <div className={styles.submitChild}>
             <input
               name="share_to_org"
               type="checkbox"
@@ -436,9 +530,12 @@ class Report extends Component {
             <span>
               Send my incident and contact information to a local organization
             </span>
+          
             <br />
             <br />
             <input type="submit" value="Submit" />
+              </div>
+            </div>
           </form>
         </div>
       </div>
