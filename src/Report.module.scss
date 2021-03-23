@@ -11,6 +11,10 @@
     input[type="text"],
     [type="file"],
     [name="event_description"],
+    [name="victim_details"],
+    [name="offender_details"],
+    [name="other_details"],
+    [name="new_coverage_details"],
     [type="file"],
     [type="email"],
     select {
@@ -93,8 +97,8 @@
   .required {
     color: red;
     // float: right;
-    font-size: 10px;
-    margin: 0 0 0 20px;
+    font-size: 14px;
+    margin: 0 0 0 2px;
   }
 }
 .Location {

@@ -13,14 +13,32 @@ class Report extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Anonymous",
-      city: "",
-      state: "",
+      event_title: "",
+      event_city: "",
+      event_state: "",
       event_category: "",
       event_date: new Date(),
-      email: "",
-      event_title: "",
       event_description: "",
+      your_name: "Anonymous",
+      your_email: "",
+      your_city: "",
+      your_state: "",
+      your_phone: "",
+      victim_name: "",
+      victim_gender: "",
+      victim_race: "",
+      victim_age: "",
+      victim_details: "",
+      offender_name: "",
+      offender_gender: "",
+      offender_race: "",
+      offender_age: "",
+      offender_details: "",
+      other_details: "",
+      was_reported: null,
+      reported_to: "",
+      has_news_coverage: null,
+      new_coverage_details: "",
       files: [],
       submitted: false,
       share_to_org: false,
@@ -54,11 +72,11 @@ class Report extends Component {
     var missingFields = false;
     var errorMessage = "Please fill out the following mandatory field(s): ";
 
-    if (this.state.city == "") {
+    if (this.state.event_city == "") {
       missingFields = true;
       errorMessage += "City, ";
     }
-    if (this.state.state == "") {
+    if (this.state.event_state == "") {
       missingFields = true;
       errorMessage += "State, ";
     }
@@ -84,14 +102,33 @@ class Report extends Component {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: this.state.name,
-          email: this.state.email,
           event_category: this.state.event_category,
           event_date: this.state.event_date,
-          state: this.state.state,
-          city: this.state.city,
+          event_state: this.state.event_state,
+          event_city: this.state.event_city,
           event_description: this.state.event_description,
           event_title: this.state.event_title,
+          your_name: this.state.your_name,
+          your_email: this.state.your_email,
+          your_phone: this.state.your_phone,
+          your_city: this.state.your_city,
+          your_state: this.state.your_state,
+          id: this.state.id,
+          victim_name: this.state.victim_name,
+          victim_gender: this.state.victim_gender,
+          victim_race: this.state.victim_race,
+          victim_age: this.state.victim_age,
+          victim_details: this.state.victim_details,
+          offender_name: this.state.offender_name,
+          offender_gender: this.state.offender_gender,
+          offender_race: this.state.offender_race,
+          offender_age: this.state.offender_age,
+          offender_details: this.state.offender_details,
+          other_details: this.state.other_details,
+          was_reported: this.state.was_reported,
+          reported_to: this.state.reported_to,
+          has_news_coverage: this.state.has_news_coverage,
+          new_coverage_details: this.state.new_coverage_details,
         }),
       };
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
@@ -143,6 +180,7 @@ class Report extends Component {
           <h1 className={styles.Details}>INCIDENT DETAILS</h1>
 
           <form onSubmit={this.handleSubmit}>
+<<<<<<< HEAD
           <div className={styles.incidentContainer}>
           <div className={styles.incidentGroup}>
             <label>
@@ -158,44 +196,58 @@ class Report extends Component {
             <br />
             <br />
             <label>
+=======
+          <label>
+>>>>>>> 430bd1fdee46df5ea7be28e333fd6052baaf0e5d
               <div className={reportstyles.requiredContainer}>
-                <strong> City</strong>
-                <div className={reportstyles.required}>required</div>
+                <strong>Incident Name</strong>{" "}
+                <div className={reportstyles.required}>*</div>
               </div>
-
-              <br />
               <input
-                name="city"
+                name="event_title"
                 type="text"
-                placeholder="City"
+                maxlength="100"
+                placeholder="Name this incident"
                 onChange={this.handleChange}
               />
             </label>
             <br />
             <br />
+
             <label>
-              <div className={reportstyles.requiredContainer}>
-                <strong>State</strong>
-                <div className={reportstyles.required}>required</div>
+             <div className={reportstyles.requiredContainer}>
+                <strong> Location of Incident</strong>
+                <div className={reportstyles.required}>*</div>
               </div>
-              <br />
-              <select name="state" onChange={this.handleChange}>
-                {states.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
+              <div className={reportstyles.Location}>
+                <input
+                  name="event_city"
+                  type="text"
+                  placeholder="City"
+                  onChange={this.handleChange}
+                />
+                <select name="event_state" onChange={this.handleChange}>
+                <option value="">
+                    State
+                </option>
+                  {states.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </label>
-            <br />
             <br />
             <label>
               <div className={reportstyles.requiredContainer}>
                 <strong>Type of Incident </strong>
-                <div className={reportstyles.required}>required</div>
+                <div className={reportstyles.required}>*</div>
               </div>
-              <br />
               <select name="event_category" onChange={this.handleChange}>
+                <option value="">
+                    Select an incident
+                </option>
                 {types.map((type) => (
                   <option key={type} value={type}>
                     {type}
@@ -207,10 +259,9 @@ class Report extends Component {
             <br />
             <label>
               <div className={reportstyles.requiredContainer}>
-                <strong>Incident Date</strong>{" "}
-                <div className={reportstyles.required}>required</div>
+                <strong>Date of Incident</strong>{" "}
+                <div className={reportstyles.required}>*</div>
               </div>
-              <br />
               <DatePicker
                 selected={this.state.event_date}
                 onChange={this.handleDateChange}
@@ -220,38 +271,86 @@ class Report extends Component {
             <br />
             <br />
             <label>
-              <strong>Email</strong>
-              <br />
-              <input
-                name="email"
-                type="text"
-                placeholder="johndoe@gmail.com"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <div className={reportstyles.requiredContainer}>
-                <strong>Title</strong>{" "}
-                <div className={reportstyles.required}>required</div>
-              </div>
-              <br />
-              <input
-                name="event_title"
-                type="text"
-                maxlength="100"
-                placeholder="Title"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
+            <div className={reportstyles.requiredContainer}>
               <strong>Description of Incident</strong> <br />
+              <div className={reportstyles.required}>*</div>
+              </div>
               <textarea
                 name="event_description"
-                placeholder="Type something"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Upload Image or Video</strong>
+              <small>(Optional)</small>
+              <br />
+              <input type="file" onChange={this.handleFileChange} />
+            </label>
+            <br />
+            <br />
+
+            <h1 className={styles.Details}>VICTIM(S) DETAILS</h1>
+            <label>
+              <strong>Victim Name</strong>
+              <br />
+              <input
+                name="victim_name"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Victim Gender</strong>
+              <br />
+              <input
+                name="victim_gender"
+                type="text"
+                placeholder="female, male, non-binary"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Victim Race</strong>
+              <br />
+              <input
+                name="victim_race"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Victim Age Range</strong>
+              <br />
+              <input
+                name="victim_age"
+                type="text"
+                placeholder="25-30"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Other Details</strong> <br />
+              <textarea
+                name="victim_details"
+                onChange={this.handleChange}
+              />
+            </label>
+
+             <h1 className={styles.Details}>OFFENDER(S) DETAILS</h1>
+            <label>
+              <strong>Offender Name</strong>
+              <br />
+              <input
+                name="offender_name"
+                type="text"
                 onChange={this.handleChange}
               />
             </label>
@@ -307,6 +406,7 @@ class Report extends Component {
             <br />
             <br />
             <label>
+<<<<<<< HEAD
               <strong>If so, where? Please add a link if possible.</strong> 
               <br />
               <br />
@@ -323,8 +423,71 @@ class Report extends Component {
             <label>
               <strong>Upload Image or Video</strong>
               <small>(Optional)</small>
+=======
+              <strong>Offender Gender</strong>
+>>>>>>> 430bd1fdee46df5ea7be28e333fd6052baaf0e5d
               <br />
-              <input type="file" onChange={this.handleFileChange} />
+              <input
+                name="offender_gender"
+                type="text"
+                placeholder="female, male, non-binary"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Offender Race</strong>
+              <br />
+              <input
+                name="offender_race"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Offender Age Range</strong>
+              <br />
+              <input
+                name="offender_age"
+                type="text"
+                placeholder="25-30"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              <strong>Other Details</strong> <br />
+              <textarea
+                name="offender_details"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+            <label>
+              <strong>Have you reported this to law enforcement?</strong>
+              <br />
+               <input type="radio" id="yes" name="was_reported" value={true} onChange={this.handleChange}></input>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="was_reported" value={false} onChange={this.handleChange}></input>
+                <label for="no">No</label><br/>
+            </label>
+            <br/>
+            <label>
+              <strong>If so, what department?</strong>
+              <br />
+              <input
+                name="reported_to"
+                type="text"
+                placeholder="LAPD"
+                onChange={this.handleChange}
+              />
             </label>
             </div>
             </div>
@@ -442,17 +605,34 @@ class Report extends Component {
             <br />
             
             <br />
+             <label>
+              <strong>Have you seen any news coverage of this incident?</strong>
+              <br />
+               <input type="radio" id="yes" name="has_news_coverage" value={true} onChange={this.handleChange}></input>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="has_news_coverage" value={false} onChange={this.handleChange}></input>
+                <label for="no">No</label><br/>
+            </label>
             <br />
+            <label>
+              <strong>If so, where? Please add a link if possible.</strong> <br />
+              <textarea
+                name="new_coverage_details"
+                onChange={this.handleChange}
+              />
+            </label>
+
+
+
             <h1 className={styles.Details}>YOUR DETAILS</h1>
             {/* details container */}
       <div className={styles.detailsContainer}>
           <div className={styles.detailGroupMain}>
             <label>
               <strong>Your Name</strong>
-              <small>(Optional)</small>
               <br />
               <input
-                name="name"
+                name="your_name"
                 type="text"
                 placeholder="John Doe"
                 onChange={this.handleChange}
@@ -474,17 +654,31 @@ class Report extends Component {
             </label>
             <br />
             <label>
-              <strong>Location of Incident</strong>
-              <small>(Optional)</small>
+              <strong>Your Phone</strong>
+              <br />
+              <input
+                name="your_phone"
+                type="text"
+                placeholder="123 456 7890"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              <strong>Your Location</strong>
               <br />
               <div className={reportstyles.Location}>
                 <input
-                  name="city"
+                  name="your_city"
                   type="text"
                   placeholder="City"
                   onChange={this.handleChange}
                 />
-                <select name="state" onChange={this.handleChange}>
+                <select name="your_state" onChange={this.handleChange}>
+                <option value="">
+                    State
+                </option>
                   {states.map((type) => (
                     <option key={type} value={type}>
                       {type}
@@ -495,12 +689,25 @@ class Report extends Component {
             </label>
             <br />
             <label>
+            <div className={reportstyles.requiredContainer}>
               <strong>Your Email</strong>
-              <br />
+              <div className={reportstyles.required}>*</div>
+              </div>
               <input
-                email="email"
+                name="your_email"
                 type="email"
-                placeholder="John.doe@gmail.com"
+                placeholder="john.doe@gmail.com"
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <br />
+            <br />
+            <br />
+            <label>
+              <strong>What else do you want us to know about this incident?</strong> <br />
+              <textarea
+                name="other_details"
                 onChange={this.handleChange}
               />
             </label>
