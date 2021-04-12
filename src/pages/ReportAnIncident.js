@@ -13,6 +13,7 @@ class Report extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      communities: [],
       event_title: "",
       event_city: "",
       event_state: "",
@@ -102,6 +103,7 @@ class Report extends Component {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          communities: this.state.communities,
           event_category: this.state.event_category,
           event_date: this.state.event_date,
           event_state: this.state.event_state,
