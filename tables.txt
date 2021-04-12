@@ -7,6 +7,7 @@ event_state varchar(500)
 event_city varchar(500)
 event_description varchar(1000)
 event_title varchar(500)
+communities varchar(500)[]
 your_name varchar(500)
 your_email varchar(500)
 your_phone varchar(500)
