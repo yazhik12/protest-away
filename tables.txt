@@ -1,4 +1,4 @@
-Incidents table
+Incidents table (form_submissions)
 id uuid
 created_on timestamp
 event_category varchar(500)
@@ -20,7 +20,7 @@ news_coverage_details varchar(1000)
 victim_ids uuid[]
 offender_ids uuid[]
 
-Victims table
+Victims table (victims)
 id uuid
 victim_name varchar(500)
 victim_gender varchar(500)
@@ -29,7 +29,7 @@ victim_age varchar(500)
 victim_details varchar(1000)
 incident_id uuid
 
-Offenders table
+Offenders table (offenders)
 id uuid
 offender_name varchar(500)
 offender_gender varchar(500)
