@@ -2,7 +2,7 @@ Incidents table
 id uuid
 created_on timestamp
 event_category varchar(500)
-event_date
+event_date timestamp
 event_state varchar(500)
 event_city varchar(500)
 event_description varchar(1000)
