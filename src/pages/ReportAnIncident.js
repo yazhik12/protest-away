@@ -38,7 +38,7 @@ class Report extends Component {
       was_reported: null,
       reported_to: "",
       has_news_coverage: null,
-      new_coverage_details: "",
+      news_coverage_details: "",
       files: [],
       submitted: false,
       share_to_org: false,
@@ -128,7 +128,7 @@ class Report extends Component {
           was_reported: this.state.was_reported,
           reported_to: this.state.reported_to,
           has_news_coverage: this.state.has_news_coverage,
-          new_coverage_details: this.state.new_coverage_details,
+          news_coverage_details: this.state.news_coverage_details,
         }),
       };
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
@@ -617,7 +617,7 @@ class Report extends Component {
             <label>
               <strong>If so, where? Please add a link if possible.</strong> <br />
               <textarea
-                name="new_coverage_details"
+                name="news_coverage_details"
                 onChange={this.handleChange}
               />
             </label>
