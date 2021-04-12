@@ -1,0 +1,39 @@
+Incidents table
+id
+created_on
+event_category
+event_date
+event_state
+event_city
+event_description
+event_title
+your_name
+your_email
+your_phone
+your_city
+your_state
+other_details
+was_reported
+reported_to
+has_news_coverage
+news_coverage_details
+victim_ids
+offender_ids
+
+Victims table
+id
+victim_name
+victim_gender
+victim_race
+victim_age
+victim_details
+incident_id
+
+Offenders table
+id
+offender_name
+offender_gender
+offender_race
+offender_age
+offender_details
+incident_id
