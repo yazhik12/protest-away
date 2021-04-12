@@ -1,39 +1,39 @@
 Incidents table
-id
-created_on
-event_category
+id uuid
+created_on timestamp
+event_category varchar(500)
 event_date
-event_state
-event_city
-event_description
-event_title
-your_name
-your_email
-your_phone
-your_city
-your_state
-other_details
-was_reported
-reported_to
-has_news_coverage
-news_coverage_details
-victim_ids
-offender_ids
+event_state varchar(500)
+event_city varchar(500)
+event_description varchar(1000)
+event_title varchar(500)
+your_name varchar(500)
+your_email varchar(500)
+your_phone varchar(500)
+your_city varchar(500)
+your_state varchar(500)
+other_details varchar(1000)
+was_reported boolean
+reported_to varchar(500)
+has_news_coverage boolean
+news_coverage_details varchar(1000)
+victim_ids uuid[]
+offender_ids uuid[]
 
 Victims table
-id
-victim_name
-victim_gender
-victim_race
-victim_age
-victim_details
-incident_id
+id uuid
+victim_name varchar(500)
+victim_gender varchar(500)
+victim_race varchar(500)
+victim_age varchar(500)
+victim_details varchar(1000)
+incident_id uuid
 
 Offenders table
-id
-offender_name
-offender_gender
-offender_race
-offender_age
-offender_details
-incident_id
+id uuid
+offender_name varchar(500)
+offender_gender varchar(500)
+offender_race varchar(500)
+offender_age varchar(500)
+offender_details varchar(1000)
+incident_id uuid
