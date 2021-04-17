@@ -180,322 +180,328 @@ class Report extends Component {
           <h1 className={styles.Details}>INCIDENT DETAILS</h1>
 
           <form onSubmit={this.handleSubmit}>
-<<<<<<< HEAD
-          <div className={styles.incidentContainer}>
-          <div className={styles.incidentGroup}>
-            <label>
-              <strong>Name</strong>
-              <br />
-              <input
-                name="name"
-                type="text"
-                placeholder="John Doe"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-=======
-          <label>
->>>>>>> 430bd1fdee46df5ea7be28e333fd6052baaf0e5d
-              <div className={reportstyles.requiredContainer}>
-                <strong>Incident Name</strong>{" "}
-                <div className={reportstyles.required}>*</div>
-              </div>
-              <input
-                name="event_title"
-                type="text"
-                maxlength="100"
-                placeholder="Name this incident"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
+            <div className={styles.incidentContainer}>
+              <div className={styles.incidentGroup}>
+                <label>
+                  <strong>Name</strong>
+                  <br />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="John Doe"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong>Incident Name</strong>{" "}
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <input
+                    name="event_title"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Name this incident"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
 
-            <label>
-             <div className={reportstyles.requiredContainer}>
-                <strong> Location of Incident</strong>
-                <div className={reportstyles.required}>*</div>
-              </div>
-              <div className={reportstyles.Location}>
-                <input
-                  name="event_city"
-                  type="text"
-                  placeholder="City"
-                  onChange={this.handleChange}
-                />
-                <select name="event_state" onChange={this.handleChange}>
-                <option value="">
-                    State
-                </option>
-                  {states.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </label>
-            <br />
-            <label>
-              <div className={reportstyles.requiredContainer}>
-                <strong>Type of Incident </strong>
-                <div className={reportstyles.required}>*</div>
-              </div>
-              <select name="event_category" onChange={this.handleChange}>
-                <option value="">
-                    Select an incident
-                </option>
-                {types.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <br />
-            <br />
-            <label>
-              <div className={reportstyles.requiredContainer}>
-                <strong>Date of Incident</strong>{" "}
-                <div className={reportstyles.required}>*</div>
-              </div>
-              <DatePicker
-                selected={this.state.event_date}
-                onChange={this.handleDateChange}
-                maxDate={new Date()}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-            <div className={reportstyles.requiredContainer}>
-              <strong>Description of Incident</strong> <br />
-              <div className={reportstyles.required}>*</div>
-              </div>
-              <textarea
-                name="event_description"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <strong>Upload Image or Video</strong>
-              <small>(Optional)</small>
-              <br />
-              <input type="file" onChange={this.handleFileChange} />
-            </label>
-            <br />
-            <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong> Location of Incident</strong>
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <div className={reportstyles.Location}>
+                    <input
+                      name="event_city"
+                      type="text"
+                      placeholder="City"
+                      onChange={this.handleChange}
+                    />
+                    <select name="event_state" onChange={this.handleChange}>
+                      <option value="">State</option>
+                      {states.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </label>
+                <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong>Type of Incident </strong>
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <select name="event_category" onChange={this.handleChange}>
+                    <option value="">Select an incident</option>
+                    {types.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <br />
+                <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong>Date of Incident</strong>{" "}
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <DatePicker
+                    selected={this.state.event_date}
+                    onChange={this.handleDateChange}
+                    maxDate={new Date()}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong>Description of Incident</strong> <br />
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <textarea
+                    name="event_description"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Upload Image or Video</strong>
+                  <small>(Optional)</small>
+                  <br />
+                  <input type="file" onChange={this.handleFileChange} />
+                </label>
+                <br />
+                <br />
 
-            <h1 className={styles.Details}>VICTIM(S) DETAILS</h1>
-            <label>
-              <strong>Victim Name</strong>
-              <br />
-              <input
-                name="victim_name"
-                type="text"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <strong>Victim Gender</strong>
-              <br />
-              <input
-                name="victim_gender"
-                type="text"
-                placeholder="female, male, non-binary"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <strong>Victim Race</strong>
-              <br />
-              <input
-                name="victim_race"
-                type="text"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <label>
-              <strong>Victim Age Range</strong>
-              <br />
-              <input
-                name="victim_age"
-                type="text"
-                placeholder="25-30"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <label>
-              <strong>Other Details</strong> <br />
-              <textarea
-                name="victim_details"
-                onChange={this.handleChange}
-              />
-            </label>
+                <h1 className={styles.Details}>VICTIM(S) DETAILS</h1>
+                <label>
+                  <strong>Victim Name</strong>
+                  <br />
+                  <input
+                    name="victim_name"
+                    type="text"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Victim Gender</strong>
+                  <br />
+                  <input
+                    name="victim_gender"
+                    type="text"
+                    placeholder="female, male, non-binary"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Victim Race</strong>
+                  <br />
+                  <input
+                    name="victim_race"
+                    type="text"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  <strong>Victim Age Range</strong>
+                  <br />
+                  <input
+                    name="victim_age"
+                    type="text"
+                    placeholder="25-30"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  <strong>Other Details</strong> <br />
+                  <textarea
+                    name="victim_details"
+                    onChange={this.handleChange}
+                  />
+                </label>
 
-             <h1 className={styles.Details}>OFFENDER(S) DETAILS</h1>
-            <label>
-              <strong>Offender Name</strong>
-              <br />
-              <input
-                name="offender_name"
-                type="text"
-                onChange={this.handleChange}
-              />
-            </label>
-            </div>
-            <div className={styles.incidentGroupTwo}>
-            {/* new group here */}
-            
-            <label>
-            <strong>Have you seen any news coverage of this incident?</strong>
-            <br />
-            <br />
-            <input
-              name="yes_reported"
-              type="checkbox"
-              onChange={this.handleChange}
-            /><span> Yes</span>
-            <input
-              name="no_reported"
-              type="checkbox"
-              onChange={this.handleChange}
-            /><span> No</span>
-            </label>
-            <br />
-            <br />
-            <label>
-              <strong>If so, what department</strong>
-              <br />
-              <br />
-              <input
-                department="department"
-                type="text"
-                placeholder="Ex: LAPD"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-            <strong>Have you reported this to law enforcement?</strong>
-            <br />
-            <br />
-            <input
-              name="yes_reported"
-              type="checkbox"
-              onChange={this.handleChange}
-            /><span> Yes</span>
-            <input
-              name="no_reported"
-              type="checkbox"
-              onChange={this.handleChange}
-            /><span> No</span>
-            </label>
-            <br />
-            <br />
-            <label>
-<<<<<<< HEAD
-              <strong>If so, where? Please add a link if possible.</strong> 
-              <br />
-              <br />
-              <textarea
-                name="event_description"
-                placeholder="Ex: I’ve only seen this incident covered in the local news in my small town and would like to see it broadcasted elsewhere."
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <div className={reportstyles.videoUploadContainer}>
-            <div>
-            <label>
-              <strong>Upload Image or Video</strong>
-              <small>(Optional)</small>
-=======
-              <strong>Offender Gender</strong>
->>>>>>> 430bd1fdee46df5ea7be28e333fd6052baaf0e5d
-              <br />
-              <input
-                name="offender_gender"
-                type="text"
-                placeholder="female, male, non-binary"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <strong>Offender Race</strong>
-              <br />
-              <input
-                name="offender_race"
-                type="text"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <label>
-              <strong>Offender Age Range</strong>
-              <br />
-              <input
-                name="offender_age"
-                type="text"
-                placeholder="25-30"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <label>
-              <strong>Other Details</strong> <br />
-              <textarea
-                name="offender_details"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <br />
-            <br />
+                <h1 className={styles.Details}>OFFENDER(S) DETAILS</h1>
+                <label>
+                  <strong>Offender Name</strong>
+                  <br />
+                  <input
+                    name="offender_name"
+                    type="text"
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.incidentGroupTwo}>
+                {/* new group here */}
 
+                <label>
+                  <strong>
+                    Have you seen any news coverage of this incident?
+                  </strong>
+                  <br />
+                  <br />
+                  <input
+                    name="yes_reported"
+                    type="checkbox"
+                    onChange={this.handleChange}
+                  />
+                  <span> Yes</span>
+                  <input
+                    name="no_reported"
+                    type="checkbox"
+                    onChange={this.handleChange}
+                  />
+                  <span> No</span>
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>If so, what department</strong>
+                  <br />
+                  <br />
+                  <input
+                    department="department"
+                    type="text"
+                    placeholder="Ex: LAPD"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Have you reported this to law enforcement?</strong>
+                  <br />
+                  <br />
+                  <input
+                    name="yes_reported"
+                    type="checkbox"
+                    onChange={this.handleChange}
+                  />
+                  <span> Yes</span>
+                  <input
+                    name="no_reported"
+                    type="checkbox"
+                    onChange={this.handleChange}
+                  />
+                  <span> No</span>
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>If so, where? Please add a link if possible.</strong>
+                  <br />
+                  <br />
+                  <textarea
+                    name="event_description"
+                    placeholder="Ex: I’ve only seen this incident covered in the local news in my small town and would like to see it broadcasted elsewhere."
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <div className={reportstyles.videoUploadContainer}>
+                  <div>
+                    <label>
+                      <strong>Upload Image or Video</strong>
+                      <small>(Optional)</small>
+                      <br />
+                      <input
+                        name="offender_gender"
+                        type="text"
+                        placeholder="female, male, non-binary"
+                        onChange={this.handleChange}
+                      />
+                    </label>
+                    <br />
+                    <br />
+                    <label>
+                      <strong>Offender Race</strong>
+                      <br />
+                      <input
+                        name="offender_race"
+                        type="text"
+                        onChange={this.handleChange}
+                      />
+                    </label>
+                    <br />
+                    <label>
+                      <strong>Offender Age Range</strong>
+                      <br />
+                      <input
+                        name="offender_age"
+                        type="text"
+                        placeholder="25-30"
+                        onChange={this.handleChange}
+                      />
+                    </label>
+                    <br />
+                    <label>
+                      <strong>Other Details</strong> <br />
+                      <textarea
+                        name="offender_details"
+                        onChange={this.handleChange}
+                      />
+                    </label>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
-            <label>
-              <strong>Have you reported this to law enforcement?</strong>
-              <br />
-               <input type="radio" id="yes" name="was_reported" value={true} onChange={this.handleChange}></input>
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="was_reported" value={false} onChange={this.handleChange}></input>
-                <label for="no">No</label><br/>
-            </label>
-            <br/>
-            <label>
-              <strong>If so, what department?</strong>
-              <br />
-              <input
-                name="reported_to"
-                type="text"
-                placeholder="LAPD"
-                onChange={this.handleChange}
-              />
-            </label>
+                    <label>
+                      <strong>
+                        Have you reported this to law enforcement?
+                      </strong>
+                      <br />
+                      <input
+                        type="radio"
+                        id="yes"
+                        name="was_reported"
+                        value={true}
+                        onChange={this.handleChange}
+                      ></input>
+                      <label for="yes">Yes</label>
+                      <input
+                        type="radio"
+                        id="no"
+                        name="was_reported"
+                        value={false}
+                        onChange={this.handleChange}
+                      ></input>
+                      <label for="no">No</label>
+                      <br />
+                    </label>
+                    <br />
+                    <label>
+                      <strong>If so, what department?</strong>
+                      <br />
+                      <input
+                        name="reported_to"
+                        type="text"
+                        placeholder="LAPD"
+                        onChange={this.handleChange}
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
-            </div>
-            </div>
-            </div>
-            
-           
-            
+
             <div className={styles.victimOffenderContainer}>
               <div className={styles.victimGroup}>
                 <h1 className={styles.DetailsVictim}> VICTIM(S) DETAILS</h1>
@@ -603,144 +609,158 @@ class Report extends Component {
               </div>
             </div>
             <br />
-            
+
             <br />
-             <label>
+            <label>
               <strong>Have you seen any news coverage of this incident?</strong>
               <br />
-               <input type="radio" id="yes" name="has_news_coverage" value={true} onChange={this.handleChange}></input>
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="has_news_coverage" value={false} onChange={this.handleChange}></input>
-                <label for="no">No</label><br/>
+              <input
+                type="radio"
+                id="yes"
+                name="has_news_coverage"
+                value={true}
+                onChange={this.handleChange}
+              ></input>
+              <label for="yes">Yes</label>
+              <input
+                type="radio"
+                id="no"
+                name="has_news_coverage"
+                value={false}
+                onChange={this.handleChange}
+              ></input>
+              <label for="no">No</label>
+              <br />
             </label>
             <br />
             <label>
-              <strong>If so, where? Please add a link if possible.</strong> <br />
+              <strong>If so, where? Please add a link if possible.</strong>{" "}
+              <br />
               <textarea
                 name="new_coverage_details"
                 onChange={this.handleChange}
               />
             </label>
 
-
-
             <h1 className={styles.Details}>YOUR DETAILS</h1>
             {/* details container */}
-      <div className={styles.detailsContainer}>
-          <div className={styles.detailGroupMain}>
-            <label>
-              <strong>Your Name</strong>
-              <br />
-              <input
-                name="your_name"
-                type="text"
-                placeholder="John Doe"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
+            <div className={styles.detailsContainer}>
+              <div className={styles.detailGroupMain}>
+                <label>
+                  <strong>Your Name</strong>
+                  <br />
+                  <input
+                    name="your_name"
+                    type="text"
+                    placeholder="John Doe"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
 
-            <label>
-              <strong>Your Phone</strong>
-              <small>(Optional)</small>
-              <br />
-              <input
-                name="name"
-                type="text"
-                placeholder="John Doe"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <label>
-              <strong>Your Phone</strong>
-              <br />
-              <input
-                name="your_phone"
-                type="text"
-                placeholder="123 456 7890"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <strong>Your Location</strong>
-              <br />
-              <div className={reportstyles.Location}>
-                <input
-                  name="your_city"
-                  type="text"
-                  placeholder="City"
-                  onChange={this.handleChange}
-                />
-                <select name="your_state" onChange={this.handleChange}>
-                <option value="">
-                    State
-                </option>
-                  {states.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
+                <label>
+                  <strong>Your Phone</strong>
+                  <small>(Optional)</small>
+                  <br />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="John Doe"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  <strong>Your Phone</strong>
+                  <br />
+                  <input
+                    name="your_phone"
+                    type="text"
+                    placeholder="123 456 7890"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <strong>Your Location</strong>
+                  <br />
+                  <div className={reportstyles.Location}>
+                    <input
+                      name="your_city"
+                      type="text"
+                      placeholder="City"
+                      onChange={this.handleChange}
+                    />
+                    <select name="your_state" onChange={this.handleChange}>
+                      <option value="">State</option>
+                      {states.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </label>
+                <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong>Your Email</strong>
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <input
+                    name="your_email"
+                    type="email"
+                    placeholder="john.doe@gmail.com"
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br />
+                <br />
+                <br />
+                <br />
+                <label>
+                  <strong>
+                    What else do you want us to know about this incident?
+                  </strong>{" "}
+                  <br />
+                  <textarea name="other_details" onChange={this.handleChange} />
+                </label>
               </div>
-            </label>
-            <br />
-            <label>
-            <div className={reportstyles.requiredContainer}>
-              <strong>Your Email</strong>
-              <div className={reportstyles.required}>*</div>
-              </div>
-              <input
-                name="your_email"
-                type="email"
-                placeholder="john.doe@gmail.com"
-                onChange={this.handleChange}
-              />
-            </label>
-            <br />
-            <br />
-            <br />
-            <br />
-            <label>
-              <strong>What else do you want us to know about this incident?</strong> <br />
-              <textarea
-                name="other_details"
-                onChange={this.handleChange}
-              />
-            </label>
-          </div>
-            <br />
-            <br />
-          
-          <div className={styles.detailGroup}>
-            <label>
-                  <strong>What else do you want to know about this incident?</strong> <br />
+              <br />
+              <br />
+
+              <div className={styles.detailGroup}>
+                <label>
+                  <strong>
+                    What else do you want to know about this incident?
+                  </strong>{" "}
+                  <br />
                   <textarea
                     name="event_description"
                     placeholder="What other details do-- you want to include that we haven’t asked for?"
                     onChange={this.handleChange}
                   />
-            </label>
-          </div>
-          </div>
+                </label>
+              </div>
+            </div>
+            <br />
+            <div className={styles.submitContainer}>
+              <div className={styles.submitChild}>
+                <input
+                  name="share_to_org"
+                  type="checkbox"
+                  onChange={this.handleChange}
+                />
+                <span>
+                  Send my incident and contact information to a local
+                  organization
+                </span>
+
                 <br />
-        <div className={styles.submitContainer}>
-        <div className={styles.submitChild}>
-            <input
-              name="share_to_org"
-              type="checkbox"
-              onChange={this.handleChange}
-            />
-            <span>
-              Send my incident and contact information to a local organization
-            </span>
-          
-            <br />
-            <br />
-            <input type="submit" value="Submit" />
+                <br />
+                <input type="submit" value="Submit" />
               </div>
             </div>
           </form>
