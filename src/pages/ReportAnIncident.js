@@ -274,78 +274,6 @@ class Report extends Component {
                 </label>
                 <br />
                 <br />
-                <label>
-                  <strong>Upload Image or Video</strong>
-                  <small>(Optional)</small>
-                  <br />
-                  <input type="file" onChange={this.handleFileChange} />
-                </label>
-                <br />
-                <br />
-
-                <h1 className={styles.Details}>VICTIM(S) DETAILS</h1>
-                <label>
-                  <strong>Victim Name</strong>
-                  <br />
-                  <input
-                    name="victim_name"
-                    type="text"
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <br />
-                <br />
-                <label>
-                  <strong>Victim Gender</strong>
-                  <br />
-                  <input
-                    name="victim_gender"
-                    type="text"
-                    placeholder="female, male, non-binary"
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <br />
-                <br />
-                <label>
-                  <strong>Victim Race</strong>
-                  <br />
-                  <input
-                    name="victim_race"
-                    type="text"
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <br />
-                <label>
-                  <strong>Victim Age Range</strong>
-                  <br />
-                  <input
-                    name="victim_age"
-                    type="text"
-                    placeholder="25-30"
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <br />
-                <label>
-                  <strong>Other Details</strong> <br />
-                  <textarea
-                    name="victim_details"
-                    onChange={this.handleChange}
-                  />
-                </label>
-
-                <h1 className={styles.Details}>OFFENDER(S) DETAILS</h1>
-                <label>
-                  <strong>Offender Name</strong>
-                  <br />
-                  <input
-                    name="offender_name"
-                    type="text"
-                    onChange={this.handleChange}
-                  />
-                </label>
               </div>
               <div className={styles.incidentGroupTwo}>
                 {/* new group here */}
@@ -421,82 +349,17 @@ class Report extends Component {
                       <strong>Upload Image or Video</strong>
                       <small>(Optional)</small>
                       <br />
-                      <input
-                        name="offender_gender"
-                        type="text"
-                        placeholder="female, male, non-binary"
-                        onChange={this.handleChange}
-                      />
+                      <input type="file" onChange={this.handleFileChange} />
                     </label>
-                    <br />
-                    <br />
-                    <label>
-                      <strong>Offender Race</strong>
-                      <br />
-                      <input
-                        name="offender_race"
-                        type="text"
-                        onChange={this.handleChange}
-                      />
-                    </label>
-                    <br />
-                    <label>
-                      <strong>Offender Age Range</strong>
-                      <br />
-                      <input
-                        name="offender_age"
-                        type="text"
-                        placeholder="25-30"
-                        onChange={this.handleChange}
-                      />
-                    </label>
-                    <br />
-                    <label>
-                      <strong>Other Details</strong> <br />
-                      <textarea
-                        name="offender_details"
-                        onChange={this.handleChange}
-                      />
-                    </label>
-                    <br />
-                    <br />
                     <br />
                     <br />
 
-                    <label>
-                      <strong>
-                        Have you reported this to law enforcement?
-                      </strong>
-                      <br />
-                      <input
-                        type="radio"
-                        id="yes"
-                        name="was_reported"
-                        value={true}
-                        onChange={this.handleChange}
-                      ></input>
-                      <label for="yes">Yes</label>
-                      <input
-                        type="radio"
-                        id="no"
-                        name="was_reported"
-                        value={false}
-                        onChange={this.handleChange}
-                      ></input>
-                      <label for="no">No</label>
-                      <br />
-                    </label>
                     <br />
-                    <label>
-                      <strong>If so, what department?</strong>
-                      <br />
-                      <input
-                        name="reported_to"
-                        type="text"
-                        placeholder="LAPD"
-                        onChange={this.handleChange}
-                      />
-                    </label>
+                    <br />
+
+                    <br />
+
+                    <br />
                   </div>
                 </div>
               </div>
@@ -720,13 +583,6 @@ class Report extends Component {
                 <br />
                 <br />
                 <br />
-                <label>
-                  <strong>
-                    What else do you want us to know about this incident?
-                  </strong>{" "}
-                  <br />
-                  <textarea name="other_details" onChange={this.handleChange} />
-                </label>
               </div>
               <br />
               <br />
