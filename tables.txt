@@ -1,0 +1,40 @@
+Incidents table (form_submissions)
+id uuid
+created_on timestamp
+event_category varchar(500)
+event_date timestamp
+event_state varchar(500)
+event_city varchar(500)
+event_description varchar(1000)
+event_title varchar(500)
+communities varchar(500)[]
+your_name varchar(500)
+your_email varchar(500)
+your_phone varchar(500)
+your_city varchar(500)
+your_state varchar(500)
+other_details varchar(1000)
+was_reported boolean
+reported_to varchar(500)
+has_news_coverage boolean
+news_coverage_details varchar(1000)
+victim_ids uuid[]
+offender_ids uuid[]
+
+Victims table (victims)
+id uuid
+victim_name varchar(500)
+victim_gender varchar(500)
+victim_race varchar(500)
+victim_age varchar(500)
+victim_details varchar(1000)
+incident_id uuid
+
+Offenders table (offenders)
+id uuid
+offender_name varchar(500)
+offender_gender varchar(500)
+offender_race varchar(500)
+offender_age varchar(500)
+offender_details varchar(1000)
+incident_id uuid
