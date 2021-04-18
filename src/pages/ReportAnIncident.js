@@ -185,18 +185,6 @@ class Report extends Component {
             <div className={styles.incidentContainer}>
               <div className={styles.incidentGroup}>
                 <label>
-                  <strong>Name</strong>
-                  <br />
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="John Doe"
-                    onChange={this.handleChange}
-                  />
-                </label>
-                <br />
-                <br />
-                <label>
                   <div className={reportstyles.requiredContainer}>
                     <strong>Incident Name</strong>{" "}
                     <div className={reportstyles.required}>*</div>
@@ -286,18 +274,10 @@ class Report extends Component {
                   </strong>
                   <br />
                   <br />
-                  <input
-                    name="yes_reported"
-                    type="checkbox"
-                    onChange={this.handleChange}
-                  />
-                  <span> Yes</span>
-                  <input
-                    name="no_reported"
-                    type="checkbox"
-                    onChange={this.handleChange}
-                  />
-                  <span> No</span>
+                  <input type="radio" id="yes" name="has_news_coverage" value={true} onChange={this.handleChange}></input>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="has_news_coverage" value={false} onChange={this.handleChange}></input>
+                <label for="no">No</label><br/>
                 </label>
                 <br />
                 <br />
@@ -306,7 +286,7 @@ class Report extends Component {
                   <br />
                   <br />
                   <input
-                    department="department"
+                    name="reported_to"
                     type="text"
                     placeholder="Ex: LAPD"
                     onChange={this.handleChange}
@@ -318,18 +298,10 @@ class Report extends Component {
                   <strong>Have you reported this to law enforcement?</strong>
                   <br />
                   <br />
-                  <input
-                    name="yes_reported"
-                    type="checkbox"
-                    onChange={this.handleChange}
-                  />
-                  <span> Yes</span>
-                  <input
-                    name="no_reported"
-                    type="checkbox"
-                    onChange={this.handleChange}
-                  />
-                  <span> No</span>
+                  <input type="radio" id="yes" name="was_reported" value={true} onChange={this.handleChange}></input>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="was_reported" value={false} onChange={this.handleChange}></input>
+                <label for="no">No</label><br/>
                 </label>
                 <br />
                 <br />
@@ -338,7 +310,7 @@ class Report extends Component {
                   <br />
                   <br />
                   <textarea
-                    name="event_description"
+                    name="new_coverage_details"
                     placeholder="Ex: I’ve only seen this incident covered in the local news in my small town and would like to see it broadcasted elsewhere."
                     onChange={this.handleChange}
                   />
@@ -373,7 +345,7 @@ class Report extends Component {
                 <label>
                   <strong>Victim Name</strong>
                   <br />
-                  <input name="name" type="text" onChange={this.handleChange} />
+                  <input name="victim_name" type="text" onChange={this.handleChange} />
                 </label>
                 <br />
                 <br />
@@ -381,7 +353,7 @@ class Report extends Component {
                   <strong>Victim Gender</strong>
                   <br />
                   <input
-                    name="name"
+                    name="victim_gender"
                     type="text"
                     placeholder="Female, male, non-binary"
                     onChange={this.handleChange}
@@ -392,7 +364,7 @@ class Report extends Component {
                 <label>
                   <strong>Victim Race</strong>
                   <br />
-                  <input name="name" type="text" onChange={this.handleChange} />
+                  <input name="victim_race" type="text" onChange={this.handleChange} />
                 </label>
                 <br />
                 <br />
@@ -400,7 +372,7 @@ class Report extends Component {
                   <strong>Victim Age Range</strong>
                   <br />
                   <input
-                    name="name"
+                    name="victim_age"
                     type="text"
                     placeholder="What is the victim’s approximate age? Ex. 25-35"
                     onChange={this.handleChange}
@@ -411,7 +383,7 @@ class Report extends Component {
                 <label>
                   <strong>Other Details</strong> <br />
                   <textarea
-                    name="event_description"
+                    name="victim_details"
                     placeholder="What other details can you recall of the victim?"
                     onChange={this.handleChange}
                   />
@@ -424,7 +396,7 @@ class Report extends Component {
                   <strong>Offender Name</strong>
                   <br />
                   <input
-                    name="name"
+                    name="offender_name"
                     type="text"
                     placeholder="What was the person(s) or organization’s name?"
                     onChange={this.handleChange}
@@ -436,7 +408,7 @@ class Report extends Component {
                   <strong>Offender Gender</strong>
                   <br />
                   <input
-                    name="name"
+                    name="offender_gender"
                     type="text"
                     placeholder="Female, male, non-binary"
                     onChange={this.handleChange}
@@ -447,7 +419,7 @@ class Report extends Component {
                 <label>
                   <strong>Offender Race</strong>
                   <br />
-                  <input name="name" type="text" onChange={this.handleChange} />
+                  <input name="offender_race" type="text" onChange={this.handleChange} />
                 </label>
                 <br />
                 <br />
@@ -455,7 +427,7 @@ class Report extends Component {
                   <strong>Offender Age Range</strong>
                   <br />
                   <input
-                    name="name"
+                    name="offender_age"
                     type="text"
                     placeholder="What is the victim’s approximate age? Ex. 25-35"
                     onChange={this.handleChange}
@@ -466,7 +438,7 @@ class Report extends Component {
                 <label>
                   <strong>Other Details</strong> <br />
                   <textarea
-                    name="event_description"
+                    name="offender_details"
                     placeholder="What other details can you recall of the offender, such as tattoos, clothing, scarring, birthmarks, etc?"
                     onChange={this.handleChange}
                   />
@@ -476,36 +448,7 @@ class Report extends Component {
             <br />
 
             <br />
-            <label>
-              <strong>Have you seen any news coverage of this incident?</strong>
-              <br />
-              <input
-                type="radio"
-                id="yes"
-                name="has_news_coverage"
-                value={true}
-                onChange={this.handleChange}
-              ></input>
-              <label for="yes">Yes</label>
-              <input
-                type="radio"
-                id="no"
-                name="has_news_coverage"
-                value={false}
-                onChange={this.handleChange}
-              ></input>
-              <label for="no">No</label>
-              <br />
-            </label>
-            <br />
-            <label>
-              <strong>If so, where? Please add a link if possible.</strong>{" "}
-              <br />
-              <textarea
-                name="news_coverage_details"
-                onChange={this.handleChange}
-              />
-            </label>
+            
 
             <h1 className={styles.Details}>YOUR DETAILS</h1>
             {/* details container */}
@@ -522,19 +465,7 @@ class Report extends Component {
                   />
                 </label>
                 <br />
-                <br />
-
-                <label>
-                  <strong>Your Phone</strong>
-                  <small>(Optional)</small>
-                  <br />
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="John Doe"
-                    onChange={this.handleChange}
-                  />
-                </label>
+    
                 <br />
                 <label>
                   <strong>Your Phone</strong>
@@ -596,7 +527,7 @@ class Report extends Component {
                   </strong>{" "}
                   <br />
                   <textarea
-                    name="event_description"
+                    name="other_details"
                     placeholder="What other details do-- you want to include that we haven’t asked for?"
                     onChange={this.handleChange}
                   />
