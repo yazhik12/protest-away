@@ -52,6 +52,7 @@ class Report extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getIncidentTypes = this.getIncidentTypes.bind(this);
     this.getStates = this.getStates.bind(this);
+    this.getCommunities = this.getCommunities.bind(this);
   }
 
   handleChange = (event) => {
@@ -164,6 +165,7 @@ class Report extends Component {
   render() {
     var types = this.getIncidentTypes();
     var states = this.getStates();
+    var communities = this.getCommunities();
     var submitted = this.state.submitted;
     var formData = {
       event_category: this.state.event_category,
@@ -235,6 +237,22 @@ class Report extends Component {
                   <select name="event_category" onChange={this.handleChange}>
                     <option value="">Select an incident</option>
                     {types.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <br />
+                <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong>Community of Incident </strong>
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <select name="event_community" onChange={this.handleChange}>
+                    <option value="">Select an community</option>
+                    {communities.map((type) => (
                       <option key={type} value={type}>
                         {type}
                       </option>
@@ -694,6 +712,33 @@ class Report extends Component {
       "West Virginia",
       "Wisconsin",
       "Wyoming",
+    ];
+  }
+
+  getCommunities() {
+    return [
+      "Asian Americans/Pacific Islanders",
+      "Black Americans",
+      "Police reform",
+      "Mental health",
+      "LGBTQIA+",
+      "Sexual assault",
+      "Domestic violence",
+      "Immigration",
+      "Disabilities",
+      "Islam",
+      "Judaism",
+      "Hispanic",
+      "Environmentalism",
+      "Civic engagement",
+      "Voting",
+      "Native Americans",
+      "Women",
+      "Social class",
+      "Intersectionality",
+      "Criminal justice",
+      "Children's rights",
+      "Education",
     ];
   }
 }
