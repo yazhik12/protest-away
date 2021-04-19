@@ -98,6 +98,34 @@ app.post("/submitform", (req, res, next) => {
       res.status(200).send(result);
     });
 
+    const victim_query = {
+      text: 'INSERT INTO victims(id, victim_name, victim_gender, victim_race, victim_age, victim_details, incident_id) VALUES($1, $2, $3, $4, $5, $6, $7)',
+      values: [victim_id, victim_name, victim_gender, victim_race, victim_age, victim_details, id],
+    }
+
+    client.query(victim_query, function(err, result) {
+      done();
+      if (err) {
+        console.log(err);
+        res.status(400).send(err);
+      }
+      res.status(200).send(result);
+    });
+
+    const offender_query = {
+      text: 'INSERT INTO offenders(offender_name, offender_gender, offender_race, offender_age, offender_details, incident_id) VALUES($1, $2, $3, $4, $5, $6, $7)',
+      values: [offender_id, offender_name, offender_gender, offender_race, offender_age, offender_details, id],
+    }
+
+    client.query(offender_query, function(err, result) {
+      done();
+      if (err) {
+        console.log(err);
+        res.status(400).send(err);
+      }
+      res.status(200).send(result);
+    });
+
 
   });
 });
