@@ -85,8 +85,8 @@ app.post("/submitform", (req, res, next) => {
     const communities = req.body.communities;
   
     const query = {
-      text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)',
-      values: [id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, new Date(), event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities],
+      text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21); INSERT INTO offenders(offender_name, offender_gender, offender_race, offender_age, offender_details, incident_id) VALUES($22, $23, $24, $25, $26, $27, $28); INSERT INTO victims(id, victim_name, victim_gender, victim_race, victim_age, victim_details, incident_id) VALUES($29, $30, $31, $32, $33, $34, $35)',
+      values: [id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, new Date(), event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities, offender_id, offender_name, offender_gender, offender_race, offender_age, offender_details, id, victim_id, victim_name, victim_gender, victim_race, victim_age, victim_details, id],
     }
     
     client.query(query, function(err, result) {

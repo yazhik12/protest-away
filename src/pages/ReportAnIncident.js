@@ -140,12 +140,6 @@ class Report extends Component {
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
         .then((res) => console.log(requestOptions))
         .then((data) => this.setState({ submitted: true }));
-      fetch("http://virtual-protest.org:8000/submitformvictims", requestOptions)
-        .then((res) => console.log(requestOptions))
-        .then((data) => this.setState({ submitted: true }));
-      fetch("http://virtual-protest.org:8000/submitformoffenders", requestOptions)
-        .then((res) => console.log(requestOptions))
-        .then((data) => this.setState({ submitted: true }));
     } else {
       alert(errorMessage);
     }
