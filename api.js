@@ -97,6 +97,48 @@ app.post("/submitform", (req, res, next) => {
       }
       res.status(200).send(result);
     });
+  });
+});
+
+app.post("/submitformvictims", (req, res, next) => {
+  pool.connect(function(err, client, done) {
+    if (err) {
+      console.log("Can not connect to the DB because of " + err);
+    }
+    console.log('we connected to db!')
+    const id = req.body.id;
+    const event_category = req.body.event_category;
+    const event_date = req.body.event_date;
+    const event_state = req.body.event_state;
+    const event_city = req.body.event_city;
+    const event_title = req.body.event_title;
+    const event_description = req.body.event_description;
+    const your_name = req.body.your_name;
+    const your_email = req.body.your_email;
+    const your_phone = req.body.your_phone;
+    const your_city = req.body.your_city;
+    const your_state = req.body.your_state;
+    const victim_name = req.body.victim_name;
+    const victim_gender = req.body.victim_gender;
+    const victim_race = req.body.victim_race;
+    const victim_age = req.body.victim_age;
+    const victim_details  = req.body.victim_details;
+    const offender_name = req.body.offender_name;
+    const offender_gender = req.body.offender_gender;
+    const offender_race = req.body.offender_race;
+    const offender_age = req.body.offender_age;
+    const offender_details = req.body.offender_details;
+    const other_details = req.body.other_details;
+    const was_reported = req.body.was_reported;
+    const reported_to = req.body.reported_to;
+    const has_news_coverage = req.body.has_news_coverage;
+    const news_coverage_details = req.body.news_coverage_details;
+    const victim_id =  req.body.victim_id;
+    const offender_id = req.body.offender_id;
+    const victim_ids = [victim_id];
+    const offender_ids = [offender_id];
+    const communities = req.body.communities;
+  
 
     const victim_query = {
       text: 'INSERT INTO victims(id, victim_name, victim_gender, victim_race, victim_age, victim_details, incident_id) VALUES($1, $2, $3, $4, $5, $6, $7)',
@@ -111,6 +153,49 @@ app.post("/submitform", (req, res, next) => {
       }
       res.status(200).send(result);
     });
+
+  });
+});
+
+app.post("/submitformoffenders", (req, res, next) => {
+  pool.connect(function(err, client, done) {
+    if (err) {
+      console.log("Can not connect to the DB because of " + err);
+    }
+    console.log('we connected to db!')
+    const id = req.body.id;
+    const event_category = req.body.event_category;
+    const event_date = req.body.event_date;
+    const event_state = req.body.event_state;
+    const event_city = req.body.event_city;
+    const event_title = req.body.event_title;
+    const event_description = req.body.event_description;
+    const your_name = req.body.your_name;
+    const your_email = req.body.your_email;
+    const your_phone = req.body.your_phone;
+    const your_city = req.body.your_city;
+    const your_state = req.body.your_state;
+    const victim_name = req.body.victim_name;
+    const victim_gender = req.body.victim_gender;
+    const victim_race = req.body.victim_race;
+    const victim_age = req.body.victim_age;
+    const victim_details  = req.body.victim_details;
+    const offender_name = req.body.offender_name;
+    const offender_gender = req.body.offender_gender;
+    const offender_race = req.body.offender_race;
+    const offender_age = req.body.offender_age;
+    const offender_details = req.body.offender_details;
+    const other_details = req.body.other_details;
+    const was_reported = req.body.was_reported;
+    const reported_to = req.body.reported_to;
+    const has_news_coverage = req.body.has_news_coverage;
+    const news_coverage_details = req.body.news_coverage_details;
+    const victim_id =  req.body.victim_id;
+    const offender_id = req.body.offender_id;
+    const victim_ids = [victim_id];
+    const offender_ids = [offender_id];
+    const communities = req.body.communities;
+  
 
     const offender_query = {
       text: 'INSERT INTO offenders(offender_name, offender_gender, offender_race, offender_age, offender_details, incident_id) VALUES($1, $2, $3, $4, $5, $6, $7)',
