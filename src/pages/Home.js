@@ -196,13 +196,19 @@ class Home extends Component {
                 Protest Away<span>.</span>
               </div>
               <div className={styles.BannerSloganContainer}>
-                <div class={styles.BannerSloganText}>
+                <div className={styles.BannerSloganText}>
                   <p>Make an impact from anywhere.</p>
+                  <div className={styles.BannerSloganSmallTextContainer}>
+              <div className={styles.BannerSloganSmallText}>
+                  <p>Let's unite and fight against all forms of injustice against all communities, even from home.</p>
+                  <p>On Protest Away, you can browse incidences and easily access resources to take a stand online. You can also submit incidences of your own to spread awareness so other people can help advocate for the targeted community.</p>
                 </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
-          {/* <div className={styles.TrendingHashtagsContainer}>
+          <div className={styles.TrendingHashtagsContainer}>
             <div className={styles.HashtagContainer}>
               <div className={styles.TrendingHashtagsHeader}>
                 Trending Hashtags on Twitter{" "}
@@ -225,7 +231,7 @@ class Home extends Component {
                 })}
               </ul>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className={styles.graybar}>
           <div className={styles.messageContainer}>
@@ -408,6 +414,10 @@ class Home extends Component {
                 </div>
                 <div className={styles.singleFilter}>
                   Incident Type
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
+                  Communities
                   <ArrowDropDownIcon className={styles.Arrow} />
                 </div>
                 <div className={styles.singleFilter}>
