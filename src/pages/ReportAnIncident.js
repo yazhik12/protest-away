@@ -13,7 +13,7 @@ class Report extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      communities: [],
+      communities: [], // Q:array or string? Multiple or one community?
       event_title: "",
       event_city: "",
       event_state: "",
@@ -138,7 +138,8 @@ class Report extends Component {
           news_coverage_details: this.state.news_coverage_details,
         }),
       };
-      fetch("http://virtual-protest.org:8000/submitform", requestOptions)
+      // fetch("http://virtual-protest.org:8000/submitform", requestOptions)
+      fetch("http://localhost:8000/submitform", requestOptions)
         .then((res) => console.log(requestOptions))
         .then((data) => this.setState({ submitted: true }));
     } else {
@@ -158,6 +159,8 @@ class Report extends Component {
       "Media Coverage",
       "Immigration",
       "Economic Justice",
+      "Sexual Assault",
+      "Domestic Violence",
       "Other",
     ];
   }
@@ -247,14 +250,14 @@ class Report extends Component {
                 <br />
                 <label>
                   <div className={reportstyles.requiredContainer}>
-                    <strong>Community of Incident </strong>
+                    <strong>Community/Issues of Incident </strong>
                     <div className={reportstyles.required}>*</div>
                   </div>
                   <select name="event_community" onChange={this.handleChange}>
                     <option value="">Select an community</option>
-                    {communities.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
+                    {communities.map((community) => (
+                      <option key={community} value={community}>
+                        {community}
                       </option>
                     ))}
                   </select>
@@ -719,25 +722,25 @@ class Report extends Component {
     return [
       "Asian Americans/Pacific Islanders",
       "Black Americans",
-      "Police reform",
-      "Mental health",
+      "Whites",
+      "Police Reform",
+      "Mental Health",
       "LGBTQIA+",
-      "Sexual assault",
-      "Domestic violence",
       "Immigration",
       "Disabilities",
       "Islam",
       "Judaism",
       "Hispanic",
       "Environmentalism",
-      "Civic engagement",
+      "Civic Engagement",
       "Voting",
       "Native Americans",
       "Women",
-      "Social class",
-      "Intersectionality",
-      "Criminal justice",
-      "Children's rights",
+      "Men",
+      "Social Class",
+      "Intersectional",
+      "Criminal Justice",
+      "Children's Rights",
       "Education",
     ];
   }
