@@ -358,9 +358,10 @@ body {
       max-width: 30rem;
       height: 10rem;
       position: relative;
+      flex-direction: column;
       top: 7rem;
       bottom: 2rem;
-      left: 10%;
+
       .HashtagContainer {
         display: flex;
         justify-content: center;
