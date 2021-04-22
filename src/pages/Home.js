@@ -233,6 +233,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
+
         <div className={styles.graybar}>
           <div className={styles.messageContainer}>
             <TwitterIcon className={styles.twitterButton} />
@@ -243,6 +244,14 @@ class Home extends Component {
               (i.e. #protestaway-policebrutality,
               #protestaway-workplacediscrimination)
             </p>
+          </div>
+        </div>
+
+        <div className={styles.bluebar}>
+          <div className={styles.messageContainer}>
+            <span>
+                The AAPI community urgently needs your help. <a href='/connect'>View organizations and resources</a> to digitally support the AAPI community today!
+            </span>
           </div>
         </div>
 
