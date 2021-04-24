@@ -44,6 +44,8 @@ class Report extends Component {
       submitted: false,
       share_to_org: false,
       id: uuidv4(),
+      victim_id: uuidv4(),
+      offender_id: uuidv4()
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
@@ -121,11 +123,13 @@ class Report extends Component {
           victim_race: this.state.victim_race,
           victim_age: this.state.victim_age,
           victim_details: this.state.victim_details,
+          victim_id: this.state.victim_id,
           offender_name: this.state.offender_name,
           offender_gender: this.state.offender_gender,
           offender_race: this.state.offender_race,
           offender_age: this.state.offender_age,
           offender_details: this.state.offender_details,
+          offender_id: this.state.offender_id,
           other_details: this.state.other_details,
           was_reported: this.state.was_reported,
           reported_to: this.state.reported_to,
