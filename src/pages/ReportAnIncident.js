@@ -448,7 +448,7 @@ class Report extends Component {
             <br />
 
             <br />
-            
+
 
             <h1 className={styles.Details}>YOUR DETAILS</h1>
             {/* details container */}
@@ -465,7 +465,7 @@ class Report extends Component {
                   />
                 </label>
                 <br />
-    
+
                 <br />
                 <label>
                   <strong>Your Phone</strong>
