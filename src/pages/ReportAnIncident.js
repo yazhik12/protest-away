@@ -13,7 +13,7 @@ class Report extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      communities: [], // Q:array or string? Multiple or one community?
+      communities: [],
       event_title: "",
       event_city: "",
       event_state: "",
@@ -67,6 +67,11 @@ class Report extends Component {
 
   handleFileChange = (event) => {
     this.setState({ files: event.target.files });
+  };
+
+  handleCommunitiesChange = (e) => {
+    var values = Array.from(e.target.options).filter(o => o.selected).map(o => o.value)
+    this.setState({communities: values});
   };
 
   handleSubmit(event) {
@@ -166,6 +171,7 @@ class Report extends Component {
   }
 
   render() {
+    console.log("communities", this.state.communities)
     var types = this.getIncidentTypes();
     var states = this.getStates();
     var communities = this.getCommunities();
@@ -250,14 +256,15 @@ class Report extends Component {
                 <br />
                 <label>
                   <div className={reportstyles.requiredContainer}>
-                    <strong>Community/Issues of Incident </strong>
+                    <strong>Communities/Issues of Incident </strong>
                     <div className={reportstyles.required}>*</div>
                   </div>
-                  <select name="event_community" onChange={this.handleChange}>
+                  <select name="event_community" multiple onChange={this.handleCommunitiesChange}>
                     <option value="">Select an community</option>
                     {communities.map((community) => (
                       <option key={community} value={community}>
                         {community}
+                        {/* {this.state.communities.includes(community) && <b>&#10003;</b>} */}
                       </option>
                     ))}
                   </select>
