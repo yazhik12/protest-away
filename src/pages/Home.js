@@ -174,7 +174,7 @@ class Home extends Component {
       { name: "#blacklivesmatter", val: 1004957 },
       { name: "#georgefloyd", val: 256529 },
       { name: "#racism", val: 57263 },
-      { name: "#protest", val: 33495 },
+      { name: "#stopAAPIhate", val: 33495 },
     ];
 
     var types = this.getIncidentTypes();
@@ -201,7 +201,7 @@ class Home extends Component {
                   <div className={styles.BannerSloganSmallTextContainer}>
               <div className={styles.BannerSloganSmallText}>
                   <p>Let's unite and fight against all forms of injustice against all communities, even from home.</p>
-                  <p>On Protest Away, you can browse incidences and easily access resources to take a stand online. You can also submit incidences of your own to spread awareness so other people can help advocate for the targeted community.</p>
+                  <p>On Protest Away, you can browse incidents and easily access resources to take a stand online. You can also submit incidents of your own to spread awareness so other people can help advocate for the targeted community.</p>
                 </div>
                 </div>
               </div>
@@ -413,7 +413,7 @@ class Home extends Component {
               </div>
               <div className={styles.filters}>
                 <div className={styles.singleFilter}>
-                  Post
+                  Events
                   <ArrowDropDownIcon className={styles.Arrow} />
                 </div>
 

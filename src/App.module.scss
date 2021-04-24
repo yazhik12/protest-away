@@ -270,7 +270,7 @@ body {
     .BannerText {
       font-family: georgia;
       font-weight: bold;
-      font-size: 34px;
+      font-size: 44px;
       position: relative;
       top: 2rem;
       left: 4rem;
@@ -292,7 +292,7 @@ body {
     }
     .BannerSloganText {
       font-family: georgia;
-      font-weight: bold;
+      //font-weight: bold;
       vertical-align: middle;
       margin-left: -1.5rem;
       margin-top: 2.5rem;
@@ -365,6 +365,7 @@ body {
         animation-name: run;
         animation-duration: 15s;
         color: white;
+        font-size: 15pt;
         a {
           color: yellow;
           font-weight: bold;
