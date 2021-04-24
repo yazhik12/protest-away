@@ -133,7 +133,7 @@ class Report extends Component {
           news_coverage_details: this.state.news_coverage_details,
         }),
       };
-      fetch("http://virtual-protest.org:8000/submitform", requestOptions)
+      fetch("http://localhost:8000/submitform", requestOptions)
         .then((res) => console.log(requestOptions))
         .then((data) => this.setState({ submitted: true }));
     } else {

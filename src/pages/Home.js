@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch("http://virtual-protest.org:8000/getreports")
+    fetch("http://localhost:8000/getreports")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }))
       .catch((err) => console.log(err));
