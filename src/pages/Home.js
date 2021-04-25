@@ -24,7 +24,8 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch("http://virtual-protest.org:8000/getreports")
+    // fetch("http://virtual-protest.org:8000/getreports")
+    fetch("http://localhost:8000/getreports")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }))
       .catch((err) => console.log(err));
@@ -196,7 +197,7 @@ class Home extends Component {
                 Protest Away<span>.</span>
               </div>
               <div className={styles.BannerSloganContainer}>
-                <div class={styles.BannerSloganText}>
+                <div className={styles.BannerSloganText}>
                   <p>Make an impact from anywhere.</p>
                 </div>
               </div>
@@ -421,7 +422,7 @@ class Home extends Component {
                     <div key={i} className={styles.Data}>
                       <ul>
                         {<li>{item.event_title}</li>}
-                        {<li>{moment(item.event_date).format("LL")}</li>}
+                        {<li>{moment(item.event_date).format("ll")}</li>}
                         {<li>{item.event_category}</li>}
                         {
                           <li>
