@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8000/getreports")
+    fetch("http://virtual-protest.org:8000/getreports")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }))
       .catch((err) => console.log(err));
@@ -36,7 +36,7 @@ class Home extends Component {
   }
 
   tweetsClickHandler(evt) {
-    console.log("tbtn");
+    //console.log("tbtn");
     this.setState({ selected: "tweets" });
   }
 
@@ -102,7 +102,7 @@ class Home extends Component {
     if (cityFilter != "") {
       for (var i = 0; i < categoryAndStateFilteredData.length; i++) {
         if (
-          categoryAndStateFilteredData[i].city
+          categoryAndStateFilteredData[i].event_city
             .toLowerCase()
             .includes(cityFilter.toLowerCase())
         ) {
@@ -172,7 +172,7 @@ class Home extends Component {
   render() {
     let dummyHashtagData = [
       { name: "#blacklivesmatter", val: 1004957 },
-      { name: "#georgefloyd", val: 256529 },
+      { name: "#transphobia", val: 256529 },
       { name: "#racism", val: 57263 },
       { name: "#stopAAPIhate", val: 33495 },
     ];
@@ -187,6 +187,10 @@ class Home extends Component {
       this.state.beforeDateFilter != ""
         ? this.state.filteredData
         : this.state.data;
+
+        console.log('FROMDATA', formData)
+        console.log('this.state.data', this.state.data)
+        console.log('this.state.data', this.state.data)
     return (
       <div className={styles.Main}>
         <div className={styles.BannerContainer}>
@@ -442,6 +446,7 @@ class Home extends Component {
                         {<li>{item.event_title}</li>}
                         {<li>{moment(item.event_date).format("LL")}</li>}
                         {<li>{item.event_category}</li>}
+                        {<li>{item.communities}</li>}
                         {
                           <li>
                             {item.event_city}, {item.event_state}

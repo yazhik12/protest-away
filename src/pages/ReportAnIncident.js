@@ -112,6 +112,7 @@ class Report extends Component {
           event_city: this.state.event_city,
           event_description: this.state.event_description,
           event_title: this.state.event_title,
+          communities: this.state.communities,
           your_name: this.state.your_name,
           your_email: this.state.your_email,
           your_phone: this.state.your_phone,
@@ -135,9 +136,10 @@ class Report extends Component {
           reported_to: this.state.reported_to,
           has_news_coverage: this.state.has_news_coverage,
           news_coverage_details: this.state.news_coverage_details,
+          upload: this.state.upload,
         }),
       };
-      fetch("http://localhost:8000/submitform", requestOptions)
+      fetch("http://virtual-protest.org:8000/submitform", requestOptions)
         .then((res) => console.log(requestOptions))
         .then((data) => this.setState({ submitted: true }));
     } else {

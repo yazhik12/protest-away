@@ -83,10 +83,10 @@ app.post("/submitform", (req, res, next) => {
     const victim_ids = [victim_id];
     const offender_ids = [offender_id];
     const communities = req.body.communities;
-    const upload = req.body.upload.files[0]
+    const upload = req.body.files[0]
 
     const incident_query = {
-      text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18. $19, $20, $21)',
+      text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities, upload) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18. $19, $20, $21, $22)',
       values: [id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, new Date(), event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities, upload],
     }
 
