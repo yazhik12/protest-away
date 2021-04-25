@@ -67,23 +67,28 @@ body {
 
         li:nth-child(1) {
           position: relative;
-          left: 30px;
+          //left: 30px;
         }
 
         li:nth-child(2) {
           position: relative;
-          left: 10px;
-          width: 20%;
+          //left: 10px;
+          //width: 20%;
         }
 
         li:nth-child(3) {
           position: relative;
-          left: 40px;
+          //left: 40px;
         }
 
         li:nth-child(4) {
           position: relative;
-          left: 15px;
+          //left: 15px;
+        }
+
+        li:nth-child(5) {
+          position: relative;
+          //left: 15px;
         }
 
         @media only screen and (max-width: $medium) {
@@ -92,29 +97,29 @@ body {
 
           li:nth-child(1) {
             position: relative;
-            left: 1px;
+            // left: 1px;
           }
 
           li:nth-child(2) {
             position: relative;
-            left: 115px;
+            // left: 115px;
           }
 
           li:nth-child(3) {
             position: relative;
-            left: 105px;
+            // left: 105px;
           }
 
           li:nth-child(4) {
             position: relative;
-            left: 60px;
+            // left: 60px;
           }
         }
 
         li {
           display: flex;
-          align-items: center;
-          width: 15%;
+          // align-items: center;
+          // width: 15%;
           // justify-content: center;
         }
       }
@@ -249,7 +254,6 @@ body {
       max-width: 50rem;
       height: 15rem;
       position: relative;
-      top: 5rem;
       left: 6rem;
 
       @media only screen and (max-width: $medium) {
@@ -292,7 +296,6 @@ body {
     }
     .BannerSloganText {
       font-family: georgia;
-      //font-weight: bold;
       vertical-align: middle;
       margin-left: -1.5rem;
       margin-top: 2.5rem;
@@ -304,6 +307,7 @@ body {
         width: 60%;
         height: 1.5rem;
         display: flex;
+        top: 3rem;
         flex-direction: column;
         justify-content: center;
         align-content: center;
@@ -312,10 +316,8 @@ body {
     .BannerSloganSmallText {
       font-family: 'Times New Roman';
       vertical-align: middle;
-      margin-top: 3.5rem;
-      margin-bottom: 1.5rem;
       color: white;
-      font-size: 14px;
+      font-size: 16px;
     }
       @media only screen and (max-width: $medium) {
       }
@@ -502,8 +504,8 @@ body {
       }
 
       .Dropdown {
-        padding: 2rem;
-        margin-left: 3.3rem;
+        padding: 1rem;
+        margin-left: 3rem;
         display: flex;
         justify-content: flex-start;
 
@@ -515,58 +517,58 @@ body {
 
         label:nth-child(1) {
           position: relative;
-          left: -25px;
+          // left: -25px;
 
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -65px;
+            // left: -65px;
           }
         }
 
         label:nth-child(2) {
           position: relative;
-          left: -15px;
+          // left: -15px;
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -50px;
+            // left: -50px;
           }
         }
         label:nth-child(3) {
           position: relative;
-          left: -5px;
+          // left: -5px;
 
           input {
             margin-left: 10px;
           }
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -35px;
+            // left: -35px;
           }
         }
 
         label:nth-child(4) {
           position: relative;
-          left: 5px;
+          // left: 5px;
 
           input {
             margin-left: 10px;
           }
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -20px;
+            // left: -20px;
           }
         }
 
         label:nth-child(5) {
           position: relative;
-          left: 15px;
+          // left: 15px;
 
           input {
             margin-left: -5px;
           }
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: 195px;
+            // left: 195px;
           }
         }
 
@@ -633,21 +635,21 @@ body {
 
       .singleFilter:nth-child(1) {
         position: relative;
-        right: 10px;
+        // right: 10px;
 
         .Arrow {
           position: relative;
           left: 3px;
         }
         @media only screen and (max-width: $medium) {
-          position: relative;
-          left: -15px;
+          // position: relative;
+          // left: -15px;
         }
       }
 
       .singleFilter:nth-child(2) {
         position: relative;
-        left: 40px;
+        // left: 40px;
 
         .Arrow {
           position: relative;
@@ -655,12 +657,12 @@ body {
         }
         @media only screen and (max-width: $medium) {
           position: relative;
-          left: 229px;
+          // left: 229px;
         }
       }
       .singleFilter:nth-child(3) {
         position: relative;
-        left: 40px;
+        // left: 40px;
 
         .Arrow {
           position: relative;
@@ -669,13 +671,13 @@ body {
 
         @media only screen and (max-width: $medium) {
           position: relative;
-          left: 350px;
+          // left: 350px;
         }
       }
 
       .singleFilter:nth-child(4) {
         position: relative;
-        left: 10px;
+        // left: 10px;
 
         .Arrow {
           position: relative;
@@ -683,7 +685,21 @@ body {
         }
         @media only screen and (max-width: $medium) {
           position: relative;
-          left: 370px;
+          // left: 370px;
+        }
+      }
+
+      .singleFilter:nth-child(5) {
+        position: relative;
+        // left: 10px;
+
+        .Arrow {
+          position: relative;
+          left: 3px;
+        }
+        @media only screen and (max-width: $medium) {
+          position: relative;
+          // left: 370px;
         }
       }
     }

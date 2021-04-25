@@ -188,9 +188,6 @@ class Home extends Component {
         ? this.state.filteredData
         : this.state.data;
 
-        console.log('FROMDATA', formData)
-        console.log('this.state.data', this.state.data)
-        console.log('this.state.data', this.state.data)
     return (
       <div className={styles.Main}>
         <div className={styles.BannerContainer}>
@@ -446,7 +443,8 @@ class Home extends Component {
                         {<li>{item.event_title}</li>}
                         {<li>{moment(item.event_date).format("LL")}</li>}
                         {<li>{item.event_category}</li>}
-                        {<li>{item.communities}</li>}
+                        {/* {<li>{item.communities}</li>} */}
+                        {<li>Black</li>}
                         {
                           <li>
                             {item.event_city}, {item.event_state}
