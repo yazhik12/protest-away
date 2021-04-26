@@ -5,6 +5,69 @@ import moment from "moment";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
+const stateAbb = {
+  "None": "None",
+  "Alabama": "AL",
+  "Alaska": "AK",
+  "American Samoa": "AS",
+  "Arizona": "AZ",
+  "Arkansas": "AR",
+  "California": "CA",
+  "Colorado": "CO",
+  "Connecticut": "CT",
+  "Delaware": "DE",
+  "District of Columbia": "DC",
+  "Federated States of Micronesia": "FM",
+  "Florida": "FL",
+  "Georgia": "GA",
+  "Guam": "GU",
+  "Hawaii": "HI",
+  "Idaho": "ID",
+  "Illinois": "IL",
+  "Indiana": "IN",
+  "Iowa": "IA",
+  "Kansas": "KS",
+  "Kentucky": "KY",
+  "Louisiana": "LA",
+  "Maine": "ME",
+  "Marshall Islands": "MH",
+  "Maryland": "MD",
+  "Massachusetts": "MA",
+  "Michigan": "MI",
+  "Minnesota": "MN",
+  "Mississippi": "MS",
+  "Missouri": "MO",
+  "Montana": "MT",
+  "Nebraska": "NE",
+  "Nevada": "NV",
+  "New Hampshire": "NH",
+  "New Jersey": "NJ",
+  "New Mexico": "NM",
+  "New York": "NY",
+  "North Carolina": "NC",
+  "North Dakota": "ND",
+  "Northern Mariana Islands": "MP",
+  "Ohio": "OH",
+  "Oklahoma": "OK",
+  "Oregon": "OR",
+  "Palau": "PW",
+  "Pennsylvania": "PA",
+  "Puerto Rico": "PR",
+  "Rhode Island": "RI",
+  "South Carolina": "SC",
+  "South Dakota": "SD",
+  "Tennessee": "TN",
+  "Texas": "TX",
+  "Utah": "UT",
+  "Vermont": "VT",
+  "Virgin Island": "VI",
+  "Virginia": "VA",
+  "Washington": "WA",
+  "West Virginia": "WV",
+  "Wisconsin": "WI",
+  "Wyoming": "WY",
+};
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +87,8 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch("http://virtual-protest.org:8000/getreports")
+    // fetch("http://virtual-protest.org:8000/getreports")
+    fetch("http://localhost:8000/getreports")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }))
       .catch((err) => console.log(err));
@@ -196,7 +260,7 @@ class Home extends Component {
                 Protest Away<span>.</span>
               </div>
               <div className={styles.BannerSloganContainer}>
-                <div class={styles.BannerSloganText}>
+                <div className={styles.BannerSloganText}>
                   <p>Make an impact from anywhere.</p>
                 </div>
               </div>
@@ -421,11 +485,11 @@ class Home extends Component {
                     <div key={i} className={styles.Data}>
                       <ul>
                         {<li>{item.event_title}</li>}
-                        {<li>{moment(item.event_date).format("LL")}</li>}
+                        {<li>{moment(item.event_date).format("ll")}</li>}
                         {<li>{item.event_category}</li>}
                         {
                           <li>
-                            {item.event_city}, {item.event_state}
+                            {item.event_city}, {stateAbb[item.event_state]}
                           </li>
                         }
                         {
