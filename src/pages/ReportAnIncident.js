@@ -6,8 +6,25 @@ import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import coc from "./coc.png";
+import Input from "@material-ui/core/Input";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Select from "@material-ui/core/Select";
+import Checkbox from "@material-ui/core/Checkbox";
 import reportstyles from "../../src/Report.module.scss";
 import ProgressBar from "../pages/ProgressBar";
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250
+    }
+  }
+};
 
 class Report extends Component {
   constructor(props) {
@@ -52,6 +69,7 @@ class Report extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getIncidentTypes = this.getIncidentTypes.bind(this);
     this.getStates = this.getStates.bind(this);
+    this.getCommunities = this.getCommunities.bind(this);
   }
 
   handleChange = (event) => {
@@ -139,11 +157,9 @@ class Report extends Component {
           upload: this.state.upload,
         }),
       };
-
-      //http://virtual-protest.org:8000/submitform
-      //http://localhost:8000/submitform
-      fetch("http://virtual-protest.org:8000/submitform", requestOptions)
-        .then((res) => console.log(requestOptions))
+      // fetch("http://virtual-protest.org:8000/submitform", requestOptions)
+      fetch("http://localhost:8000/submitform", requestOptions)
+        .then((res) => console.log(res))
         .then((data) => this.setState({ submitted: true }));
     } else {
       alert(errorMessage);
@@ -162,13 +178,17 @@ class Report extends Component {
       "Media Coverage",
       "Immigration",
       "Economic Justice",
+      "Sexual Assault",
+      "Domestic Violence",
       "Other",
     ];
   }
 
   render() {
+    console.log("communities", this.state.communities)
     var types = this.getIncidentTypes();
     var states = this.getStates();
+    var communities = this.getCommunities();
     var submitted = this.state.submitted;
     var formData = {
       event_category: this.state.event_category,
@@ -245,6 +265,31 @@ class Report extends Component {
                       </option>
                     ))}
                   </select>
+                </label>
+                <br />
+                <br />
+                <label>
+                  <div className={reportstyles.requiredContainer}>
+                    <strong>Communities/Issues of Incident </strong>
+                    <div className={reportstyles.required}>*</div>
+                  </div>
+                  <Select
+                    name="communities"
+                    className={reportstyles.multiSelect}
+                    multiple
+                    value={this.state.communities}
+                    onChange={this.handleChange}
+                    input={<Input />}
+                    renderValue={(selected) => (selected).join(", ")}
+                    MenuProps={MenuProps}
+                  >
+                    {communities.map((community) => (
+                      <MenuItem key={community} value={community}>
+                        <Checkbox checked={this.state.communities.indexOf(community) > -1} />
+                        <ListItemText primary={community} />
+                      </MenuItem>
+                    ))}
+                  </Select>
                 </label>
                 <br />
                 <br />
@@ -701,6 +746,34 @@ class Report extends Component {
       "Wyoming",
     ];
   }
+
+  getCommunities() {
+    return [
+      "Asian Americans/Pacific Islanders",
+      "Black Americans",
+      "Whites",
+      "Police Reform",
+      "Mental Health",
+      "LGBTQIA+",
+      "Immigration",
+      "Disabilities",
+      "Islam",
+      "Judaism",
+      "Hispanic",
+      "Environmentalism",
+      "Civic Engagement",
+      "Voting",
+      "Native Americans",
+      "Women",
+      "Men",
+      "Social Class",
+      "Intersectional",
+      "Criminal Justice",
+      "Children's Rights",
+      "Education",
+    ];
+  }
 }
 
+// export default Report;
 export default Report;
