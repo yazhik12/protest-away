@@ -6,33 +6,14 @@ import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import coc from "./coc.png";
-import { withStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
 import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import reportstyles from "../../src/Report.module.scss";
 import ProgressBar from "../pages/ProgressBar";
 
-const useStyles = theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-    maxWidth: 300
-  },
-  chips: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  chip: {
-    margin: 2
-  },
-  noLabel: {
-    marginTop: theme.spacing(3)
-  },
-});
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -103,11 +84,6 @@ class Report extends Component {
 
   handleFileChange = (event) => {
     this.setState({ files: event.target.files });
-  };
-
-  handleChangeMultiple = (e) => {
-    var values = Array.from(e.target.options).filter(o => o.selected).map(o => o.value);
-    this.setState({communities: values});
   };
 
   handleSubmit(event) {
@@ -297,8 +273,7 @@ class Report extends Component {
                   </div>
                   <Select
                     name="communities"
-                    labelId="demo-mutiple-checkbox-label"
-                    id="demo-mutiple-checkbox"
+                    className={reportstyles.multiSelect}
                     multiple
                     value={this.state.communities}
                     onChange={this.handleChange}
@@ -799,4 +774,4 @@ class Report extends Component {
 }
 
 // export default Report;
-export default withStyles(useStyles)(Report);
+export default Report;
