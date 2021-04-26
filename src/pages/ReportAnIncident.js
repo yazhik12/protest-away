@@ -183,7 +183,6 @@ class Report extends Component {
   }
 
   render() {
-    console.log("communities", this.state.communities)
     var types = this.getIncidentTypes();
     var states = this.getStates();
     var communities = this.getCommunities();
@@ -275,6 +274,7 @@ class Report extends Component {
                     name="communities"
                     className={reportstyles.multiSelect}
                     multiple
+                    disableUnderline
                     value={this.state.communities}
                     onChange={this.handleChange}
                     input={<Input />}
