@@ -6,8 +6,44 @@ import "../../node_modules/react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import coc from "./coc.png";
+import { withStyles } from "@material-ui/core/styles";
+import Input from "@material-ui/core/Input";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import ListItemText from "@material-ui/core/ListItemText";
+import Select from "@material-ui/core/Select";
+import Checkbox from "@material-ui/core/Checkbox";
 import reportstyles from "../../src/Report.module.scss";
 import ProgressBar from "../pages/ProgressBar";
+
+const useStyles = theme => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+    maxWidth: 300
+  },
+  chips: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  chip: {
+    margin: 2
+  },
+  noLabel: {
+    marginTop: theme.spacing(3)
+  },
+});
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250
+    }
+  }
+};
 
 class Report extends Component {
   constructor(props) {
@@ -69,8 +105,8 @@ class Report extends Component {
     this.setState({ files: event.target.files });
   };
 
-  handleCommunitiesChange = (e) => {
-    var values = Array.from(e.target.options).filter(o => o.selected).map(o => o.value)
+  handleChangeMultiple = (e) => {
+    var values = Array.from(e.target.options).filter(o => o.selected).map(o => o.value);
     this.setState({communities: values});
   };
 
@@ -145,7 +181,7 @@ class Report extends Component {
       };
       // fetch("http://virtual-protest.org:8000/submitform", requestOptions)
       fetch("http://localhost:8000/submitform", requestOptions)
-        .then((res) => console.log(requestOptions))
+        .then((res) => console.log(res))
         .then((data) => this.setState({ submitted: true }));
     } else {
       alert(errorMessage);
@@ -259,15 +295,24 @@ class Report extends Component {
                     <strong>Communities/Issues of Incident </strong>
                     <div className={reportstyles.required}>*</div>
                   </div>
-                  <select name="event_community" multiple onChange={this.handleCommunitiesChange}>
-                    <option value="">Select an community</option>
+                  <Select
+                    name="communities"
+                    labelId="demo-mutiple-checkbox-label"
+                    id="demo-mutiple-checkbox"
+                    multiple
+                    value={this.state.communities}
+                    onChange={this.handleChange}
+                    input={<Input />}
+                    renderValue={(selected) => (selected).join(", ")}
+                    MenuProps={MenuProps}
+                  >
                     {communities.map((community) => (
-                      <option key={community} value={community}>
-                        {community}
-                        {/* {this.state.communities.includes(community) && <b>&#10003;</b>} */}
-                      </option>
+                      <MenuItem key={community} value={community}>
+                        <Checkbox checked={this.state.communities.indexOf(community) > -1} />
+                        <ListItemText primary={community} />
+                      </MenuItem>
                     ))}
-                  </select>
+                  </Select>
                 </label>
                 <br />
                 <br />
@@ -753,4 +798,5 @@ class Report extends Component {
   }
 }
 
-export default Report;
+// export default Report;
+export default withStyles(useStyles)(Report);
