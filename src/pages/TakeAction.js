@@ -35,7 +35,7 @@ class Action extends Component {
         var url = 'https://cors-anywhere.herokuapp.com/https://usgeocoder.com/api/get_info.php?zipcode=' + zipcode + '&authkey=c78292f63121ce1bbd1a464eec8f799b&format=json'
         var representativesInfo;
         request(url, function(err, response, body) {
-            body = JSON.parse(body); 
+            body = JSON.parse(body);
             representativesInfo = body["usgeocoder"]["jurisdictions_info"];
             var national_senator_1 = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_1"];
             var national_senator_1_num = representativesInfo["congressional_legislators"]["national_senator"]["national_senator_1_capitol_phone"];
@@ -78,7 +78,7 @@ class Action extends Component {
 
         })
     }
-        
+
     render() {
         const { data } = this.props.location;
         console.log(this.state.repsData);
@@ -113,6 +113,7 @@ class Action extends Component {
                 <h1 className={styles.Header}>Take Action</h1>
                 <h3><b>{data.event_title}</b></h3>
                 <p><b>{data.event_category}</b></p>
+                <p><b>{data.communities[0]}</b></p>
                 <p>Location: {data.city}, {data.state}</p>
                 <p>Date: {moment(data.event_date).format("LL")}</p><br />
                 <div className={actionstyles.descAndAction}>
@@ -132,8 +133,8 @@ class Action extends Component {
                     height={50}
                     width={170}/><br />
                 <div>
-                <a 
-                className={actionstyles.action} 
+                <a
+                className={actionstyles.action}
                 href={petitionMap[data.event_category] == null ? petitionUrl + hashtags[data.event_category] : petitionMap[data.event_category]} target="_blank">
                 <img
                     src={petition}
@@ -142,7 +143,7 @@ class Action extends Component {
                     <br/><br/>
                     Sign a petition</a>
                 <br/>
-                
+
                 <a className={actionstyles.action} href="https://colorofchange.org/" target="_blank">
                 <img
                     src={donate}
@@ -150,8 +151,8 @@ class Action extends Component {
                     width={93}/><br/><br/>
                     Donate to an affiliated civic organization</a>
                 <br/>
-                <a 
-                className={actionstyles.action} 
+                <a
+                className={actionstyles.action}
                 href="https://www.house.gov/representatives/find-your-representative" target="_blank">
                 <img
                     src={rep}
@@ -161,9 +162,9 @@ class Action extends Component {
                     Contact your local representative</a>
 
 
-                
+
                 </div>
-                
+
                 </div>
                 </div>
             </div>
