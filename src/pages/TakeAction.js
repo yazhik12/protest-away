@@ -111,11 +111,11 @@ class Action extends Component {
         return (
             <div className={actionstyles.floatContainer}>
                 <h1 className={styles.Header}>Take Action</h1>
-                <h3><b>{data.event_title}</b></h3>
-                <p><b>{data.event_category}</b></p>
-                <p><b>{data.communities[0]}</b></p>
-                <p>Location: {data.city}, {data.state}</p>
-                <p>Date: {moment(data.event_date).format("LL")}</p><br />
+                <h3>Event: {data.event_title}</h3>
+                <p><b>Category: </b>{data.event_category}</p>
+                <p><b>Communities: </b>{data.communities.join(', ')}</p>
+                <p><b>Location: </b>{data.event_city}, {data.event_state}</p>
+                <p><b>Date: </b>{moment(data.event_date).format("LL")}</p><br />
                 <div className={actionstyles.descAndAction}>
                 <div className={actionstyles.desc}>
                 <img

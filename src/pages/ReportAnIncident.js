@@ -157,6 +157,8 @@ class Report extends Component {
           upload: this.state.upload,
         }),
       };
+
+      //http://localhost:8000/getreports
       // fetch("http://virtual-protest.org:8000/submitform", requestOptions)
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
         .then((res) => console.log(res))
