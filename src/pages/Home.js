@@ -86,9 +86,10 @@ class Home extends Component {
     this.handleFilter = this.handleFilter.bind(this);
   }
 
+  //http://localhost:8000/getreports
   componentDidMount() {
     // fetch("http://virtual-protest.org:8000/getreports")
-    fetch("http://localhost:8000/getreports")
+    fetch("http://virtual-protest.org:8000/getreports")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }))
       .catch((err) => console.log(err));
@@ -100,7 +101,7 @@ class Home extends Component {
   }
 
   tweetsClickHandler(evt) {
-    console.log("tbtn");
+    //console.log("tbtn");
     this.setState({ selected: "tweets" });
   }
 
@@ -166,7 +167,7 @@ class Home extends Component {
     if (cityFilter != "") {
       for (var i = 0; i < categoryAndStateFilteredData.length; i++) {
         if (
-          categoryAndStateFilteredData[i].city
+          categoryAndStateFilteredData[i].event_city
             .toLowerCase()
             .includes(cityFilter.toLowerCase())
         ) {
@@ -236,9 +237,9 @@ class Home extends Component {
   render() {
     let dummyHashtagData = [
       { name: "#blacklivesmatter", val: 1004957 },
-      { name: "#georgefloyd", val: 256529 },
+      { name: "#transphobia", val: 256529 },
       { name: "#racism", val: 57263 },
-      { name: "#protest", val: 33495 },
+      { name: "#stopAAPIhate", val: 33495 },
     ];
 
     var types = this.getIncidentTypes();
@@ -251,6 +252,7 @@ class Home extends Component {
       this.state.beforeDateFilter != ""
         ? this.state.filteredData
         : this.state.data;
+
     return (
       <div className={styles.Main}>
         <div className={styles.BannerContainer}>
@@ -262,11 +264,17 @@ class Home extends Component {
               <div className={styles.BannerSloganContainer}>
                 <div className={styles.BannerSloganText}>
                   <p>Make an impact from anywhere.</p>
+              </div>
+              <div className={styles.BannerSloganSmallTextContainer}>
+              <div className={styles.BannerSloganSmallText}>
+                  <p>Let's unite and fight against all forms of injustice against all communities, even from home.</p>
+                  <p>On Protest Away, you can browse incidents and easily access resources to take a stand online. You can also submit incidents of your own to spread awareness so other people can help advocate for the targeted community.</p>
+                </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* <div className={styles.TrendingHashtagsContainer}>
+          <div className={styles.TrendingHashtagsContainer}>
             <div className={styles.HashtagContainer}>
               <div className={styles.TrendingHashtagsHeader}>
                 Trending Hashtags on Twitter{" "}
@@ -289,8 +297,9 @@ class Home extends Component {
                 })}
               </ul>
             </div>
-          </div> */}
+          </div>
         </div>
+
         <div className={styles.graybar}>
           <div className={styles.messageContainer}>
             <TwitterIcon className={styles.twitterButton} />
@@ -301,6 +310,14 @@ class Home extends Component {
               (i.e. #protestaway-policebrutality,
               #protestaway-workplacediscrimination)
             </p>
+          </div>
+        </div>
+
+        <div className={styles.bluebar}>
+          <div className={styles.messageContainer}>
+            <span>
+                The AAPI community urgently needs your help. <a href='/connect'>View organizations and resources</a> to digitally support the AAPI community today!
+            </span>
           </div>
         </div>
 
@@ -462,7 +479,7 @@ class Home extends Component {
               </div>
               <div className={styles.filters}>
                 <div className={styles.singleFilter}>
-                  Post
+                  Events
                   <ArrowDropDownIcon className={styles.Arrow} />
                 </div>
 
@@ -475,8 +492,15 @@ class Home extends Component {
                   <ArrowDropDownIcon className={styles.Arrow} />
                 </div>
                 <div className={styles.singleFilter}>
+                  Communities
+                  <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
                   Location
                   <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
+
                 </div>
               </div>
               <div className={styles.Container}>
@@ -487,10 +511,8 @@ class Home extends Component {
                         {<li>{item.event_title}</li>}
                         {<li>{moment(item.event_date).format("ll")}</li>}
                         {<li>{item.event_category}</li>}
-                        {
-                          <li>
-                            {item.event_city}, {stateAbb[item.event_state]}
-                          </li>
+                        {<li>{item.communities.join(', ')}</li>}
+                        {<li>{item.event_city}, {stateAbb[item.event_state]}</li>
                         }
                         {
                           <li>
