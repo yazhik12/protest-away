@@ -8,6 +8,7 @@ import rtb from "./rtb.png";
 import nbf from "./nbf.png";
 import naacp from "./naacp.png";
 import eji from "./eji.png";
+import aaaj from "./AAAJ.png";
 
 
 class Connect extends Component {
@@ -20,7 +21,8 @@ class Connect extends Component {
         {name: "NAACP Legal Defense Fund", location: "New York, NY", website: "https://www.naacpldf.org/", img: naacp},
         {name: "National Bail Fund Network", location: "Multiple", website: "https://www.communityjusticeexchange.org/nbfn-directory", img: nbf},
         {name: "Reclaim the Block", location: "Minneapolis, MN", website: "https://www.aclu.org/affiliate/new-york", img: rtb},
-        {name: "Equal Justice Initiative", location: "Montgomery, AL", website: "https://eji.org/", img: eji}
+        {name: "Equal Justice Initiative", location: "Montgomery, AL", website: "https://eji.org/", img: eji},
+        {name: "Asian Americans Advancing Justice", location: "Multiple", website: "https://www.advancingjustice-aajc.org/", img: aaaj}
       ];
       this.state = {
             allOrgs: orgs,
@@ -38,14 +40,14 @@ class Connect extends Component {
         this.setState({ [name]: value });
         var newOrgs = [];
 
-        for (var i = 0; i < this.state.allOrgs.length; i++) { 
+        for (var i = 0; i < this.state.allOrgs.length; i++) {
             if (this.state.allOrgs[i].location.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
               newOrgs.push(this.state.allOrgs[i]);
             }  else if (this.state.allOrgs[i].location === "Multiple") {
               newOrgs.push(this.state.allOrgs[i]);
             }
-        } 
-        this.setState({ shownOrgs: newOrgs });        
+        }
+        this.setState({ shownOrgs: newOrgs });
     }
     render() {
     return (
@@ -56,7 +58,7 @@ class Connect extends Component {
 
         <div class={connectstyles.gridContainer}>
             <div class={connectstyles.item1}>
-                <h1 className={styles.Header}>Connect for Black Lives</h1>
+                <h1 className={styles.Header}>Connect to a Cause</h1>
                 <p>Find civic organizations in your area that you can support</p>
                 <strong>There are {this.state.shownOrgs.length} local civic organizations in your area</strong>
             </div>

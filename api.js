@@ -83,13 +83,14 @@ app.post("/submitform", (req, res, next) => {
     const victim_ids = [victim_id];
     const offender_ids = [offender_id];
     const communities = req.body.communities;
-  
-    const query = {
+    //const upload = req.body.files[0]
+
+    const incident_query = {
       text: 'INSERT INTO form_submissions(id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, created_on, event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)',
       values: [id, your_name, your_email, your_city, your_state, your_phone, event_category, event_date, event_state, event_city, event_description, new Date(), event_title, other_details, was_reported, reported_to, has_news_coverage, news_coverage_details, victim_ids, offender_ids, communities],
     }
-    
-    client.query(query, function(err, result) {
+
+    client.query(incident_query, function(err, result) {
       done();
       if (err) {
         console.log(err);
@@ -128,7 +129,31 @@ app.post("/submitform", (req, res, next) => {
   });
 });
 
+
+//For photo uploads
+// const multer = require('multer')
+// const storage = multer.diskStorage({
+//   destination: './public/uploads',
+//   filename: (req, file, cb) => {
+//     const extension = file.mimetype.split('/')[1] //we want the jpg or png part
+//     cb(null, `${Date.now()}.${extension}`) //naming the file
+//   }
+// })
+
+// const upload = multer({
+//   storage,
+//   limits: {fileSize: 999999}
+// }).single('upload')
+
+// app.post('/', upload, async (req, res, next) => {
+//   try {
+//     res.send(`/uploads/${req.file.filename}`)
+//   } catch (err) {
+//     next(err)
+//   }
+// })
+
 //Server
 app.listen(8000, function() {
-  console.log("API listening on http://localhost:8000/api.json");
+  console.log("API listening on http://localhost:8000/api.js");
 });

@@ -67,23 +67,28 @@ body {
 
         li:nth-child(1) {
           position: relative;
-          left: 30px;
+          //left: 30px;
         }
 
         li:nth-child(2) {
           position: relative;
-          left: 10px;
-          width: 20%;
+          //left: 10px;
+          //width: 20%;
         }
 
         li:nth-child(3) {
           position: relative;
-          left: 40px;
+          //left: 40px;
         }
 
         li:nth-child(4) {
           position: relative;
-          left: 15px;
+          //left: 15px;
+        }
+
+        li:nth-child(5) {
+          position: relative;
+          //left: 15px;
         }
 
         @media only screen and (max-width: $medium) {
@@ -92,29 +97,29 @@ body {
 
           li:nth-child(1) {
             position: relative;
-            left: 1px;
+            // left: 1px;
           }
 
           li:nth-child(2) {
             position: relative;
-            left: 115px;
+            // left: 115px;
           }
 
           li:nth-child(3) {
             position: relative;
-            left: 105px;
+            // left: 105px;
           }
 
           li:nth-child(4) {
             position: relative;
-            left: 60px;
+            // left: 60px;
           }
         }
 
         li {
           display: flex;
-          align-items: center;
-          width: 15%;
+          // align-items: center;
+          // width: 15%;
           // justify-content: center;
         }
       }
@@ -124,9 +129,19 @@ body {
 
       border-top: 4px solid black;
       background: white;
+
       .Data {
-        margin-right: 15px;
+        //margin: 5px;
+        li {
+          position: relative;
+          width: 10%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+        }
       }
+
       .TakeActionButton {
         padding: 12px;
         min-width: 145px;
@@ -222,6 +237,7 @@ body {
       border-bottom: 175px solid transparent;
       position: absolute;
       right: 46%;
+      z-index:-1;
 
       @media only screen and (max-width: $medium) {
         width: 0;
@@ -249,7 +265,6 @@ body {
       max-width: 50rem;
       height: 15rem;
       position: relative;
-      top: 5rem;
       left: 6rem;
 
       @media only screen and (max-width: $medium) {
@@ -268,9 +283,10 @@ body {
       width: 100%;
     }
     .BannerText {
+      display: flex;
       font-family: georgia;
       font-weight: bold;
-      font-size: 34px;
+      font-size: 44px;
       position: relative;
       top: 2rem;
       left: 4rem;
@@ -282,7 +298,7 @@ body {
     .BannerSloganContainer {
       position: relative;
       width: 100%;
-      height: 2.5rem;
+      height: 4.5rem;
       left: 11%;
       top: 0.75rem;
       display: flex;
@@ -291,23 +307,39 @@ body {
       align-content: center;
     }
     .BannerSloganText {
+      display: flex;
       font-family: georgia;
-      font-weight: bold;
       vertical-align: middle;
       margin-left: -1.5rem;
       margin-top: 2.5rem;
       color: #fbee1f;
       font-size: 33px;
-
-      @media only screen and (max-width: $medium) {
-      }
-      font-family: georgia;
       font-weight: bold;
+    }
+
+    .BannerSloganSmallTextContainer {
+        position: relative;
+        width: 60%;
+        height: 1.5rem;
+        display: flex;
+        top: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+      }
+
+    .BannerSloganSmallText {
+      font-family: 'Times New Roman';
+      vertical-align: middle;
+      color: white;
+      font-size: 16px;
+      margin-left: -1.5rem;
+    }
+      @media only screen and (max-width: $medium) {
+      font-family: georgia;
       vertical-align: middle;
       margin-left: -1.5rem;
       margin-top: 2.5rem;
-      color: #fbee1f;
-      font-size: 28px;
       z-index: 1000;
     }
 
@@ -321,17 +353,51 @@ body {
 
       .messageContainer {
         display: flex;
-        justify-content: space-between;
+        //justify-content: space-between;
         align-items: center;
+        margin: 0 100px 0 100px;
+
+        position: absolute;
+        left: 5vw;
+        right: 5vw;
 
         .twitterButton {
           color: #fbee1f;
-          margin-right: 15px;
+          //margin-right: 15px;
         }
       }
       p {
         color: white;
+        font-size: 1.1vw;
       }
+    }
+
+    .bluebar {
+      height: 50px;
+      width: 100%;
+      background-color: #251b4a;
+      display: flex;
+      align-items: center;
+
+      span {
+        position: relative;
+        animation: linear infinite alternate;
+        animation-name: run;
+        animation-duration: 10s;
+        color: white;
+        font-size: 1.5vw;
+        a {
+          color: yellow;
+          font-weight: bold;
+        }
+      }
+
+      @keyframes run {
+        0% { left: 0;}
+        50%{ left : 10%;}
+        100%{ left: 0;}
+    }
+
     }
 
     .TrendingHashtagsContainer {
@@ -340,9 +406,10 @@ body {
       max-width: 30rem;
       height: 10rem;
       position: relative;
+      flex-direction: column;
       top: 7rem;
       bottom: 2rem;
-      left: 10%;
+
       .HashtagContainer {
         display: flex;
         justify-content: center;
@@ -455,89 +522,68 @@ body {
       }
 
       .Dropdown {
-        padding: 2rem;
-        margin-left: 3.3rem;
+        padding: 1rem;
+        margin: 1rem;
         display: flex;
         justify-content: flex-start;
 
         b {
           position: relative;
+          margin-left: 3rem;
           top: 9px;
           padding: 15px;
         }
 
         label:nth-child(1) {
           position: relative;
-          left: -25px;
+          margin: 5px;
 
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -65px;
           }
         }
 
         label:nth-child(2) {
           position: relative;
-          left: -15px;
+          margin: 5px;
+
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -50px;
           }
         }
         label:nth-child(3) {
           position: relative;
-          left: -5px;
+          margin: 5px;
 
-          input {
-            margin-left: 10px;
-          }
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -35px;
           }
         }
 
         label:nth-child(4) {
           position: relative;
-          left: 5px;
+          margin: 5px;
 
-          input {
-            margin-left: 10px;
-          }
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: -20px;
           }
         }
 
         label:nth-child(5) {
           position: relative;
-          left: 15px;
+          margin: 5px;
 
-          input {
-            margin-left: -5px;
-          }
           @media only screen and (max-width: $medium) {
             position: relative;
-            left: 195px;
           }
         }
 
-        label {
-          padding: 10px;
-
-          select {
-            margin-left: 10px;
-          }
-        }
         select,
         input {
           border: 1px solid #707070;
           border-radius: 10px;
-          width: 150px;
-          height: 50px;
-          padding-left: 15px;
-          padding-right: 5px;
+          width: 10vw;
+          height: 40px;
         }
 
         @media only screen and (min-width: $large) {
@@ -545,7 +591,6 @@ body {
           margin-left: 3.3rem;
           display: flex;
           justify-content: flex-start;
-          background-color: red;
         }
       }
     }
@@ -556,18 +601,18 @@ body {
       align-items: center;
       width: 1000px;
       position: relative;
-      left: 45px;
+      left: 80px;
       bottom: 20px;
-      @media only screen and (max-width: $medium) {
-        width: 500px;
-      }
 
       .singleFilter {
         display: flex;
         align-items: center;
         justify-content: center;
-        // margin-right: 20%;
         font-weight: bolder;
+        position: relative;
+        justify-content: center;
+        align-content: center;
+        margin-right: 50px;
       }
       .Arrow {
         color: #707070;
@@ -585,22 +630,32 @@ body {
       // }
 
       .singleFilter:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        right: 10px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
           left: 3px;
         }
         @media only screen and (max-width: $medium) {
-          position: relative;
-          left: -15px;
+          // position: relative;
+          // left: -15px;
         }
       }
 
       .singleFilter:nth-child(2) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        left: 40px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
@@ -608,35 +663,53 @@ body {
         }
         @media only screen and (max-width: $medium) {
           position: relative;
-          left: 229px;
+          // left: 229px;
         }
       }
       .singleFilter:nth-child(3) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        left: 40px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
           left: 3px;
         }
 
-        @media only screen and (max-width: $medium) {
-          position: relative;
-          left: 350px;
-        }
       }
 
       .singleFilter:nth-child(4) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        left: 10px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
           left: 3px;
         }
-        @media only screen and (max-width: $medium) {
+      }
+
+      .singleFilter:nth-child(5) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
+        position: relative;
+        justify-content: center;
+        align-content: center;
+        font-size: 3vm;
+
+        .Arrow {
           position: relative;
-          left: 370px;
+          left: 3px;
         }
       }
     }

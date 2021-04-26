@@ -10,57 +10,57 @@
 
 ### Go into your local host, and run the following table creation query:
     CREATE TABLE form_submissions (
-        id uuid
-        created_on timestamp
-        event_category varchar(500)
-        event_date timestamp
-        event_state varchar(500)
-        event_city varchar(500)
-        event_description varchar(1000)
-        event_title varchar(500)
-        communities varchar(500)[]
-        your_name varchar(500)
-        your_email varchar(500)
-        your_phone varchar(500)
-        your_city varchar(500)
-        your_state varchar(500)
-        other_details varchar(1000)
-        was_reported boolean
-        reported_to varchar(500)
-        has_news_coverage boolean
-        news_coverage_details varchar(1000)
-        victim_ids uuid[]
+        id uuid,
+        created_on timestamp,
+        event_category varchar(500),
+        event_date timestamp,
+        event_state varchar(500),
+        event_city varchar(500),
+        event_description varchar(1000),
+        event_title varchar(500),
+        communities varchar(500)[],
+        your_name varchar(500),
+        your_email varchar(500),
+        your_phone varchar(500),
+        your_city varchar(500),
+        your_state varchar(500),
+        other_details varchar(1000),
+        was_reported boolean,
+        reported_to varchar(500),
+        has_news_coverage boolean,
+        news_coverage_details varchar(1000),
+        victim_ids uuid[],
         offender_ids uuid[]
     );
 
     CREATE TABLE victims (
-        id uuid
-        victim_name varchar(500)
-        victim_gender varchar(500)
-        victim_race varchar(500)
-        victim_age varchar(500)
-        victim_details varchar(1000)
+        id uuid,
+        victim_name varchar(500),
+        victim_gender varchar(500),
+        victim_race varchar(500),
+        victim_age varchar(500),
+        victim_details varchar(1000),
         incident_id uuid
     );
 
     CREATE TABLE offenders (
-        id uuid
-        offender_name varchar(500)
-        offender_gender varchar(500)
-        offender_race varchar(500)
-        offender_age varchar(500)
-        offender_details varchar(1000)
+        id uuid,
+        offender_name varchar(500),
+        offender_gender varchar(500),
+        offender_race varchar(500),
+        offender_age varchar(500),
+        offender_details varchar(1000),
         incident_id uuid
     );
 
-    To test locally, update the endpoint in the API calls in ReportAnIncident.js and Home.js to 
+    To test locally, update the endpoint in the API calls in ReportAnIncident.js and Home.js to
     http://localhost:8000/submitform instead of http://virtual-protest.org:8000/submitform and
     http://localhost:8000/getreports instead of http://virtual-protest.org:8000/getreports
 
  ### Start your API
-- `node api.js` 
+- `node api.js`
 - API local endpoint: http://localhost:8000/
 
  ### Start your Application
-- `npm start` 
+- `npm start`
 - App starts on: http://localhost:3000/
