@@ -157,7 +157,6 @@ class Report extends Component {
           upload: this.state.upload,
         }),
       };
-      // fetch("http://virtual-protest.org:8000/submitform", requestOptions)
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
         .then((res) => console.log(res))
         .then((data) => this.setState({ submitted: true }));
@@ -185,7 +184,6 @@ class Report extends Component {
   }
 
   render() {
-    console.log("communities", this.state.communities)
     var types = this.getIncidentTypes();
     var states = this.getStates();
     var communities = this.getCommunities();
@@ -277,6 +275,7 @@ class Report extends Component {
                     name="communities"
                     className={reportstyles.multiSelect}
                     multiple
+                    disableUnderline
                     value={this.state.communities}
                     onChange={this.handleChange}
                     input={<Input />}
@@ -775,5 +774,4 @@ class Report extends Component {
   }
 }
 
-// export default Report;
 export default Report;
