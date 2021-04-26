@@ -86,9 +86,7 @@ class Home extends Component {
     this.handleFilter = this.handleFilter.bind(this);
   }
 
-  //http://localhost:8000/getreports
   componentDidMount() {
-    // fetch("http://virtual-protest.org:8000/getreports")
     fetch("http://virtual-protest.org:8000/getreports")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }))
