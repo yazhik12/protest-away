@@ -158,7 +158,7 @@ class Report extends Component {
         }),
       };
       // fetch("http://virtual-protest.org:8000/submitform", requestOptions)
-      fetch("http://localhost:8000/submitform", requestOptions)
+      fetch("http://virtual-protest.org:8000/submitform", requestOptions)
         .then((res) => console.log(res))
         .then((data) => this.setState({ submitted: true }));
     } else {

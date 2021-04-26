@@ -86,11 +86,10 @@ class Home extends Component {
     this.handleFilter = this.handleFilter.bind(this);
   }
 
-  //http://virtual-protest.org:8000/getreports
   //http://localhost:8000/getreports
   componentDidMount() {
     // fetch("http://virtual-protest.org:8000/getreports")
-    fetch("http://localhost:8000/getreports")
+    fetch("http://virtual-protest.org:8000/getreports")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }))
       .catch((err) => console.log(err));
@@ -512,12 +511,8 @@ class Home extends Component {
                         {<li>{item.event_title}</li>}
                         {<li>{moment(item.event_date).format("ll")}</li>}
                         {<li>{item.event_category}</li>}
-                        {/* {<li>{item.communities}</li>} */}
-                        {<li>Black</li>}
-                        {
-                          <li>
-                            {item.event_city}, {stateAbb[item.event_state]}
-                          </li>
+                        {<li>{item.communities.join(', ')}</li>}
+                        {<li>{item.event_city}, {stateAbb[item.event_state]}</li>
                         }
                         {
                           <li>
