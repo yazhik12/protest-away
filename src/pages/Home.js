@@ -479,7 +479,7 @@ class Home extends Component {
               </div>
               <div className={styles.filters}>
                 <div className={styles.singleFilter}>
-                  Events
+                  Event
                   <ArrowDropDownIcon className={styles.Arrow} />
                 </div>
 
