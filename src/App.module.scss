@@ -129,9 +129,19 @@ body {
 
       border-top: 4px solid black;
       background: white;
+
       .Data {
-        margin-right: 15px;
+        //margin: 5px;
+        li {
+          position: relative;
+          width: 10%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+        }
       }
+
       .TakeActionButton {
         padding: 12px;
         min-width: 145px;
@@ -227,6 +237,7 @@ body {
       border-bottom: 175px solid transparent;
       position: absolute;
       right: 46%;
+      z-index:-1;
 
       @media only screen and (max-width: $medium) {
         width: 0;
@@ -272,6 +283,7 @@ body {
       width: 100%;
     }
     .BannerText {
+      display: flex;
       font-family: georgia;
       font-weight: bold;
       font-size: 44px;
@@ -295,12 +307,15 @@ body {
       align-content: center;
     }
     .BannerSloganText {
+      display: flex;
       font-family: georgia;
       vertical-align: middle;
       margin-left: -1.5rem;
       margin-top: 2.5rem;
       color: #fbee1f;
       font-size: 33px;
+      font-weight: bold;
+    }
 
     .BannerSloganSmallTextContainer {
         position: relative;
@@ -318,16 +333,13 @@ body {
       vertical-align: middle;
       color: white;
       font-size: 16px;
+      margin-left: -1.5rem;
     }
       @media only screen and (max-width: $medium) {
-      }
       font-family: georgia;
-      font-weight: bold;
       vertical-align: middle;
       margin-left: -1.5rem;
       margin-top: 2.5rem;
-      color: #fbee1f;
-      font-size: 28px;
       z-index: 1000;
     }
 
@@ -341,16 +353,22 @@ body {
 
       .messageContainer {
         display: flex;
-        justify-content: space-between;
+        //justify-content: space-between;
         align-items: center;
+        margin: 0 100px 0 100px;
+
+        position: absolute;
+        left: 5vw;
+        right: 5vw;
 
         .twitterButton {
           color: #fbee1f;
-          margin-right: 15px;
+          //margin-right: 15px;
         }
       }
       p {
         color: white;
+        font-size: 1.1vw;
       }
     }
 
@@ -365,9 +383,9 @@ body {
         position: relative;
         animation: linear infinite alternate;
         animation-name: run;
-        animation-duration: 15s;
+        animation-duration: 10s;
         color: white;
-        font-size: 15pt;
+        font-size: 1.5vw;
         a {
           color: yellow;
           font-weight: bold;
@@ -376,7 +394,7 @@ body {
 
       @keyframes run {
         0% { left: 0;}
-        50%{ left : 30%;}
+        50%{ left : 10%;}
         100%{ left: 0;}
     }
 
@@ -505,88 +523,67 @@ body {
 
       .Dropdown {
         padding: 1rem;
-        margin-left: 3rem;
+        margin: 1rem;
         display: flex;
         justify-content: flex-start;
 
         b {
           position: relative;
+          margin-left: 3rem;
           top: 9px;
           padding: 15px;
         }
 
         label:nth-child(1) {
           position: relative;
-          // left: -25px;
+          margin: 5px;
 
           @media only screen and (max-width: $medium) {
             position: relative;
-            // left: -65px;
           }
         }
 
         label:nth-child(2) {
           position: relative;
-          // left: -15px;
+          margin: 5px;
+
           @media only screen and (max-width: $medium) {
             position: relative;
-            // left: -50px;
           }
         }
         label:nth-child(3) {
           position: relative;
-          // left: -5px;
+          margin: 5px;
 
-          input {
-            margin-left: 10px;
-          }
           @media only screen and (max-width: $medium) {
             position: relative;
-            // left: -35px;
           }
         }
 
         label:nth-child(4) {
           position: relative;
-          // left: 5px;
+          margin: 5px;
 
-          input {
-            margin-left: 10px;
-          }
           @media only screen and (max-width: $medium) {
             position: relative;
-            // left: -20px;
           }
         }
 
         label:nth-child(5) {
           position: relative;
-          // left: 15px;
+          margin: 5px;
 
-          input {
-            margin-left: -5px;
-          }
           @media only screen and (max-width: $medium) {
             position: relative;
-            // left: 195px;
           }
         }
 
-        label {
-          padding: 10px;
-
-          select {
-            margin-left: 10px;
-          }
-        }
         select,
         input {
           border: 1px solid #707070;
           border-radius: 10px;
-          width: 150px;
-          height: 50px;
-          padding-left: 15px;
-          padding-right: 5px;
+          width: 10vw;
+          height: 40px;
         }
 
         @media only screen and (min-width: $large) {
@@ -594,7 +591,6 @@ body {
           margin-left: 3.3rem;
           display: flex;
           justify-content: flex-start;
-          background-color: red;
         }
       }
     }
@@ -605,18 +601,18 @@ body {
       align-items: center;
       width: 1000px;
       position: relative;
-      left: 45px;
+      left: 80px;
       bottom: 20px;
-      @media only screen and (max-width: $medium) {
-        width: 500px;
-      }
 
       .singleFilter {
         display: flex;
         align-items: center;
         justify-content: center;
-        // margin-right: 20%;
         font-weight: bolder;
+        position: relative;
+        justify-content: center;
+        align-content: center;
+        margin-right: 50px;
       }
       .Arrow {
         color: #707070;
@@ -634,8 +630,13 @@ body {
       // }
 
       .singleFilter:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        // right: 10px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
@@ -648,8 +649,13 @@ body {
       }
 
       .singleFilter:nth-child(2) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        // left: 40px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
@@ -661,45 +667,49 @@ body {
         }
       }
       .singleFilter:nth-child(3) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        // left: 40px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
           left: 3px;
         }
 
-        @media only screen and (max-width: $medium) {
-          position: relative;
-          // left: 350px;
-        }
       }
 
       .singleFilter:nth-child(4) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        // left: 10px;
+        justify-content: center;
+        align-content: center;
 
         .Arrow {
           position: relative;
           left: 3px;
-        }
-        @media only screen and (max-width: $medium) {
-          position: relative;
-          // left: 370px;
         }
       }
 
       .singleFilter:nth-child(5) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
         position: relative;
-        // left: 10px;
+        justify-content: center;
+        align-content: center;
+        font-size: 3vm;
 
         .Arrow {
           position: relative;
           left: 3px;
-        }
-        @media only screen and (max-width: $medium) {
-          position: relative;
-          // left: 370px;
         }
       }
     }

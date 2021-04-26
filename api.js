@@ -155,5 +155,5 @@ app.post('/', upload, async (req, res, next) => {
 
 //Server
 app.listen(8000, function() {
-  console.log("API listening on http://localhost:8000/api.json");
+  console.log("API listening on http://localhost:8000/api.js");
 });

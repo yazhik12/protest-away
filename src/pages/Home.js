@@ -23,6 +23,8 @@ class Home extends Component {
     this.handleFilter = this.handleFilter.bind(this);
   }
 
+  //http://virtual-protest.org:8000/getreports
+  //http://localhost:8000/getreports
   componentDidMount() {
     fetch("http://virtual-protest.org:8000/getreports")
       .then((res) => res.json())
@@ -199,13 +201,13 @@ class Home extends Component {
               <div className={styles.BannerSloganContainer}>
                 <div className={styles.BannerSloganText}>
                   <p>Make an impact from anywhere.</p>
-                  <div className={styles.BannerSloganSmallTextContainer}>
+              </div>
+              <div className={styles.BannerSloganSmallTextContainer}>
               <div className={styles.BannerSloganSmallText}>
                   <p>Let's unite and fight against all forms of injustice against all communities, even from home.</p>
                   <p>On Protest Away, you can browse incidents and easily access resources to take a stand online. You can also submit incidents of your own to spread awareness so other people can help advocate for the targeted community.</p>
                 </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
@@ -433,6 +435,9 @@ class Home extends Component {
                 <div className={styles.singleFilter}>
                   Location
                   <ArrowDropDownIcon className={styles.Arrow} />
+                </div>
+                <div className={styles.singleFilter}>
+
                 </div>
               </div>
               <div className={styles.Container}>

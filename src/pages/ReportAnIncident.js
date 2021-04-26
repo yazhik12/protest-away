@@ -139,6 +139,9 @@ class Report extends Component {
           upload: this.state.upload,
         }),
       };
+
+      //http://virtual-protest.org:8000/submitform
+      //http://localhost:8000/submitform
       fetch("http://virtual-protest.org:8000/submitform", requestOptions)
         .then((res) => console.log(requestOptions))
         .then((data) => this.setState({ submitted: true }));
